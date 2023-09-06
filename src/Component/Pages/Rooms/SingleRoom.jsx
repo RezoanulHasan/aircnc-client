@@ -1,17 +1,19 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Header from './Header';
+import Reservation from './Reservation';
+import useTitle from '../../../Hooks/useTitle';
 
 
 const SingleRoom = () => {
 
 const {id,image,bed,bedroom,bathroom,dateRange} =useLoaderData() ;
-
+useTitle('Room Details');
 
     return (
         <>
 
-        <div className=' m-10  col-span-4 flex flex-col gap-8'>
+        <div className='  m-10  col-span-4 flex flex-col gap-8'>
 
         <Header></Header>
         <div className='flex flex-col gap-2'>
@@ -64,6 +66,16 @@ const {id,image,bed,bedroom,bathroom,dateRange} =useLoaderData() ;
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, eaque tempore alias autem beatae magni modi accusantium quod id distinctio cumque nostrum ut nisi earum eum pariatur blanditiis iusto tempora?
         </div>
         <hr />
+
+        <Reservation></Reservation>
+
+<div className='card-actions justify-center'>
+ <button className="btn mt-36   w-52  btn-warning">
+  <Link to='/'>
+    Back to homepage
+  </Link>
+</button>
+</div>  
       </div>
      </>
     )

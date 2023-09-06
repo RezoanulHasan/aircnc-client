@@ -7,6 +7,8 @@ import Heading from '../../Heading/Heading';
 import HeartButton from '../../Button/HeartButton';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import GetRandomColor from '../../../Hooks/GetRandomColor';
+
 const Rooms = () => {
   const [params, setParams] = useSearchParams();
   const category = params.get('category');
@@ -35,6 +37,7 @@ const Rooms = () => {
   }, [category]);
 
   return (
+    <>
 
     <Container>
       {loading ? (
@@ -55,10 +58,14 @@ const Rooms = () => {
         </div>
       )}
     </Container>
+
+    </>
   );
 };
 
 const ShowRoomData = ({ room }) => {
+  const textColor = GetRandomColor(); 
+
   return (
     <Link to={`/room/${room.id}`} className='col-span-1 cursor-pointer group'>
  <div className='flex flex-col gap-2 w-full'>
@@ -87,16 +94,17 @@ const ShowRoomData = ({ room }) => {
             <ToastContainer />
           </div>
         </div>
-        <div className='font-semibold text-lg'>{room.location}</div>
+        <div  className='font-semibold text-lg'>{room.location}</div>
         <div className='font-light text-neutral-500'>
           5 nights . {room.dateRange}
         </div>
         <div className='flex flex-row items-center gap-1'>
-          <div className='font-semibold'>$ {room.price}</div>
-          <div className='font-light'>{room.id}</div>
+          <div style={{ color: textColor }}  className='font-semibold'>$ {room.price}</div>
+          <div className='font-light'>night</div>
         </div>
       </div>
     </Link>
+    
   );
 };
 

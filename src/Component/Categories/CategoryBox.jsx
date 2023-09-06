@@ -1,6 +1,9 @@
 import React from 'react'
 import qs from 'query-string'
 import { useNavigate, useSearchParams } from 'react-router-dom'
+import GetRandomColor from '../../Hooks/GetRandomColor'
+import { Fade } from "react-awesome-reveal";
+
 const CategoryBox = ({ label, icon: Icon, selected }) => {
   const [params, setParams] = useSearchParams()
 
@@ -25,8 +28,11 @@ const CategoryBox = ({ label, icon: Icon, selected }) => {
 
     navigate(url)
   }
+  const textColor = GetRandomColor(); 
 
   return (
+    <>
+    <Fade direction="down">
     <div
       onClick={handleClick}
       className={`flex flex-col items-center justify-center  gap-2p-3border-b-2 hover:text-neutral-800transitioncursor-pointer
@@ -39,10 +45,12 @@ const CategoryBox = ({ label, icon: Icon, selected }) => {
       `}
     >
       <Icon size={26} />
-      <div className='text-sm font-medium'>{label}</div>
+      <div  style={{ color: textColor }}  className='text-sm font-medium'>{label}</div>
       
     </div>
-  
+ 
+</Fade> 
+</>
   )
 }
 

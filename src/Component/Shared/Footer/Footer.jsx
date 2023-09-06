@@ -1,7 +1,12 @@
+import React from 'react';
+import GetRandomColor from './../../../Hooks/GetRandomColor';
+  
+
 const Footer = () => {
+  const textColor = GetRandomColor(); 
     return (
-      <footer className='px-4 divide-y  text-gray-800 relative bottom-0 left-0'>
-        <div className='py-6  text-center text-gray-400 text-2xl'>
+      <footer className='mt-32 px-4 divide-y  text-gray-800 relative bottom-0 left-0'>
+        <div style={{ color: textColor }}  className='py-6  text-center text-xl'>
           © 2023 AirCNC Inc. All rights reserved.
         </div>
       </footer>
@@ -9,3 +14,5 @@ const Footer = () => {
   }
   
   export default Footer;
+ 
+ 

@@ -6,19 +6,21 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Header = () => {
 
-  const {id,image,bed,bedroom,bathroom,location,property,region} =useLoaderData() ;
+  const {id,image,location,region} =useLoaderData() ;
 
   return (
     <>
       <Heading title={region} subtitle={location}  />
-      <div className=' w-full  overflow-hidden rounded-xl'>
+      <div className=' w-full  relative  overflow-hidden rounded-xl'>
         <img
           className='object-cover h-full w-full'
           src={image}
           alt='header image'
         />
-<div className='absolute top-20 right-3'>
-            <HeartButton />
+<div className='absolute top-10 right-5'>
+<div className=' bg-black'>
+            < HeartButton />
+            </div>
             <ToastContainer />
           </div>
 
