@@ -8,6 +8,7 @@ import {
 import "./index.css";
 import Error from './Component/Shared/Error/Error.jsx';
 import Home from './Component/Pages/Home/Home.jsx';
+import SingleRoom from './Component/Pages/Rooms/SingleRoom.jsx';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,11 @@ const router = createBrowserRouter([
       {
         path: "/",
         element:<Home></Home>,
+      },
+        {
+        path: "/room/:id",
+        element:<SingleRoom></SingleRoom>,
+        loader: ({params}) =>fetch(`http://localhost:5000/rooms/${params.id}`),
       },
     ],
   },

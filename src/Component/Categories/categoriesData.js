@@ -66,10 +66,17 @@ export const categories = [
     description: 'This property is in a spooky cave!',
   },
   {
+    label: 'Barns',
+    icon: GiBarn,
+    description: 'This property is in a barn!',
+  },
+
+  {
     label: 'Camping',
     icon: GiForestCamp,
     description: 'This property offers camping activities!',
   },
+
   {
     label: 'Arctic',
     icon: BsSnow,
@@ -80,14 +87,12 @@ export const categories = [
     icon: GiCactus,
     description: 'This property is in the desert!',
   },
-  {
-    label: 'Barns',
-    icon: GiBarn,
-    description: 'This property is in a barn!',
-  },
+ 
   {
     label: 'Lux',
     icon: IoDiamond,
     description: 'This property is brand new and luxurious!',
   },
+
+  
 ]

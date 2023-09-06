@@ -1,6 +1,5 @@
 import React from 'react'
 import qs from 'query-string'
-
 import { useNavigate, useSearchParams } from 'react-router-dom'
 const CategoryBox = ({ label, icon: Icon, selected }) => {
   const [params, setParams] = useSearchParams()
@@ -30,17 +29,7 @@ const CategoryBox = ({ label, icon: Icon, selected }) => {
   return (
     <div
       onClick={handleClick}
-      className={`
-        flex 
-        flex-col 
-        items-center 
-        justify-center 
-        gap-2
-        p-3
-        border-b-2
-        hover:text-neutral-800
-        transition
-        cursor-pointer
+      className={`flex flex-col items-center justify-center  gap-2p-3border-b-2 hover:text-neutral-800transitioncursor-pointer
         ${
           selected
             ? 'border-b-neutral-800 text-neutral-800'
@@ -51,8 +40,10 @@ const CategoryBox = ({ label, icon: Icon, selected }) => {
     >
       <Icon size={26} />
       <div className='text-sm font-medium'>{label}</div>
+      
     </div>
+  
   )
 }
 
-export default CategoryBox
+export default CategoryBox;

@@ -1,9 +1,14 @@
 import React from 'react';
+import Categories from '../../Categories/Categories';
+
+import Rooms from '../Rooms/Rooms';
 
 const Home = () => {
     return (
         <div>
-            <h1 className='text-5xl'>home</h1>
+        
+ <Categories/>
+<Rooms></Rooms>
         </div>
     );
 };
