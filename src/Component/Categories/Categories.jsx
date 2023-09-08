@@ -43,6 +43,7 @@ const Categories = () => {
 
       {/* Modal */}
       <Modal
+  
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         contentLabel='Filter Modal'

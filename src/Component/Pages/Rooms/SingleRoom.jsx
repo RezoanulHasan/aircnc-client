@@ -70,11 +70,11 @@ useTitle('Room Details');
         <Reservation></Reservation>
 
 <div className='card-actions justify-center'>
- <button className="btn mt-36   w-52  btn-warning">
-  <Link to='/'>
+<Link to='/'><button className="btn mt-36   w-52  btn-warning">
+
     Back to homepage
-  </Link>
-</button>
+
+</button>  </Link>
 </div>  
       </div>
      </>

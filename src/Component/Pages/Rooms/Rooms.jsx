@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 import Container from '../../Shared/Container';
 import Spinner from '../../Shared/Spinner/Spinner';
 import { useSearchParams } from 'react-router-dom';
@@ -12,10 +12,15 @@ import GetRandomColor from '../../../Hooks/GetRandomColor';
 const Rooms = () => {
   const [params, setParams] = useSearchParams();
   const category = params.get('category');
-
   const [rooms, setRooms] = useState([]);
-  const [loading, setLoading] = useState(true); // Start with loading as true
-
+  const [loading, setLoading] = useState(true);
+  const [region, setRegion] = useState('');
+  const [priceRange, setPriceRange] = useState('');
+  const [propertyType, setPropertyType] = useState('');
+  const [bedroom, setBedroom] = useState('');
+  const [bed, setBed ]= useState('');
+  const [bathroom, setBathroom ]= useState('');
+  const [regions, setRegions] = useState('');
   useEffect(() => {
     fetch('http://localhost:5000/rooms')
       .then((res) => res.json())
@@ -24,28 +29,164 @@ const Rooms = () => {
           const filtered = data.filter((room) => room.category === category);
           setRooms(filtered);
         } else {
-          console.log(data);
-          setRooms(data); // Set rooms to all data if no category is specified
+          setRooms(data);
         }
 
-        setLoading(false); // Set loading to false when data is fetched
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
-        setLoading(false); // Set loading to false in case of an error
+        setLoading(false);
       });
   }, [category]);
 
-  return (
-    <>
+  const filteredRooms = rooms
+    .filter((room) =>
+      room.location.toLowerCase().includes(region.toLowerCase())
+    )
+    .filter((room) => {
+      if (!priceRange) return true;
+      const [minPrice, maxPrice] = priceRange.split('-').map(Number);
+      return room.price >= minPrice && room.price <= maxPrice;
+    })
+    .filter((room) => {
+      if (!propertyType) return true;
+      return room.property.toLowerCase() === propertyType.toLowerCase();
+    })
 
+   .filter((room) => {
+    if (!regions) return true;
+    return room.region.toLowerCase() === regions.toLowerCase();
+  })
+    .filter((room) => {
+      if (!bedroom) return true;
+      return room.bedroom === parseInt(bedroom, 10);
+    }) // Apply the bedroom filter
+    .filter((room) => {
+      if (!bed) return true;
+      return room.bed === parseInt(bed, 10);
+    }) // Apply the bed filter
+
+    .filter((room) => {
+      if (!bathroom) return true;
+      return room.bathroom === parseInt(bathroom, 10);
+    }); // Apply the    bathroom filter
+  
+    
+
+
+  return (
     <Container>
+      <div className=' lg:mx-20 mx-0 overflow-x-auto mt-10 border-[1px] w-full md:w-auto py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer  bg-white'>
+        <div className='flex flex-row items-center gap-3'>
+          <input
+            id='region'
+            type='text'
+            placeholder='Search by region and location'
+            className='p-2 w-auto border border-gray-300 rounded-full'
+            value={region}
+            onChange={(e) => setRegion(e.target.value)}
+          />
+          <select
+            id='price'
+            className='p-2 border border-gray-300 rounded-full'
+            value={priceRange}
+            onChange={(e) => setPriceRange(e.target.value)}
+          >
+            <option value=''>Filter by price</option>
+            <option value='1-400'>Up to $400</option>
+            <option value='401-600'>$401 - $600</option>
+            <option value='601-1000'>Over $601</option>
+          </select>
+
+          <select
+            id='type'
+            className='p-2 border border-gray-300 rounded-full'
+            value={propertyType}
+            onChange={(e) => setPropertyType(e.target.value)}
+          >
+            <option value=''>Filter property</option>
+            <option value='Apartment'>Apartment</option>
+            <option value='House'>House</option>
+            <option value='Hotel'>Hotel</option>
+          </select>
+
+
+<select
+            id='regions'
+            className='p-2 border border-gray-300 rounded-full'
+            value={regions}
+            onChange={(e) => setRegions(e.target.value)}
+          >
+            <option value=''>Region</option>
+            <option value='Asia'>Asia</option>
+            <option value='Europe'>Europe</option>
+           <option value='Australia'>Australia</option>
+            <option value='Middle East'>Middle East</option>
+        
+          </select>
+
+      
+
+          <select
+            id='bedroom'
+            className='p-2 border text-center border-gray-300 rounded-full'
+            value={bedroom}
+            onChange={(e) => setBedroom(e.target.value)}
+          >
+            <option value=''>Bed-Room</option>
+            <option value='1'>1</option>
+            <option  value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
+            <option value='6'>6</option>
+            <option value='7'>7+</option>
+          </select>
+
+
+          <select
+            id='bed'
+            className='p-2 border text-center border-gray-300 rounded-full'
+            value={bed}
+            onChange={(e) => setBed(e.target.value)}
+          >
+            <option value=''>Bed</option>
+            <option value='1'>1</option>
+            <option  value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
+            <option value='6'>6</option>
+            <option value='7'>7+</option>
+          </select>
+
+ <select
+            id='bathroom'
+            className='p-2 border text-center border-gray-300 rounded-full'
+            value={bathroom}
+            onChange={(e) => setBathroom(e.target.value)}
+          >
+            <option value=''>Bathroom</option>
+            <option value='1'>1</option>
+            <option  value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
+            <option value='6'>6</option>
+            <option value='7'>7+</option>
+          </select>
+
+
+        </div>
+      </div>
+
       {loading ? (
-        <Spinner></Spinner>
-      ) : rooms.length > 0 ? (
+        <Spinner />
+      ) : filteredRooms.length > 0 ? (
         <div className='pt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8'>
-          {rooms.map((room, index) => (
-            <ShowRoomData key={index} room={room} />
+          {filteredRooms.map((room) => (
+            <ShowRoomData key={room.id} room={room} />
           ))}
         </div>
       ) : (
@@ -58,17 +199,15 @@ const Rooms = () => {
         </div>
       )}
     </Container>
-
-    </>
   );
 };
 
 const ShowRoomData = ({ room }) => {
-  const textColor = GetRandomColor(); 
+  const textColor = GetRandomColor();
 
   return (
     <Link to={`/room/${room.id}`} className='col-span-1 cursor-pointer group'>
- <div className='flex flex-col gap-2 w-full'>
+      <div className='flex flex-col gap-2 w-full'>
         <div
           className='
             aspect-square 
@@ -94,17 +233,16 @@ const ShowRoomData = ({ room }) => {
             <ToastContainer />
           </div>
         </div>
-        <div  className='font-semibold text-lg'>{room.location}</div>
-        <div className='font-light text-neutral-500'>
-          5 nights . {room.dateRange}
-        </div>
+        <div className='font-semibold text-lg'>{room.location}</div>
+        <div className='font-light text-neutral-500'>{room.dateRange}</div>
         <div className='flex flex-row items-center gap-1'>
-          <div style={{ color: textColor }}  className='font-semibold'>$ {room.price}</div>
+          <div style={{ color: textColor }} className='font-semibold'>
+            $ {room.price}
+          </div>
           <div className='font-light'>night</div>
         </div>
       </div>
     </Link>
-    
   );
 };
 
