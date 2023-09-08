@@ -5,7 +5,8 @@ import { useContext, useRef } from 'react'
 import { TbFidgetSpinner } from 'react-icons/tb'
 import { AuthContext } from '../../../providers/AuthProvider'
 import useTitle from '../../../Hooks/useTitle'
-
+import Lottie from 'lottie-react';
+import hotel from "../../../assets/hotel.json"
 const SignUp = () => {
     useTitle ("SignUp")
   const {
@@ -84,6 +85,14 @@ const SignUp = () => {
       })
   }
   return (
+    <>
+    <div className='flex lg:flex-row flex-col  justify-center items-center'>
+
+<div className=' '>
+<Lottie  className='h-96  '      animationData={hotel} loop={true} />
+
+</div>
+
     <div className='flex justify-center items-center min-h-screen'>
       <div className='flex flex-col max-w-md p-6  sm:p-10  rounded-md border-color: inherit  border-solid border-2   hover:border-white  hover:bg-black  hover:text-white    '>
         <div className='mb-8 text-center'>
@@ -193,6 +202,17 @@ const SignUp = () => {
         </p>
       </div>
     </div>
+
+    <div className=''>
+<Lottie  className='h-96  '      animationData={hotel} loop={true} />
+
+</div>
+
+
+    </div>
+
+</> 
+
   )
 }
 

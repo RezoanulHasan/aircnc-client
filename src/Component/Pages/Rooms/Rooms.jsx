@@ -108,9 +108,11 @@ const Rooms = () => {
             onChange={(e) => setPropertyType(e.target.value)}
           >
             <option value=''> Property</option>
+            <option value='Guest House'> Guest House </option>
             <option value='Apartment'>Apartment</option>
             <option value='House'>House</option>
             <option value='Hotel'>Hotel</option>
+            
           </select>
 
 
@@ -124,9 +126,11 @@ const Rooms = () => {
             <option value='USA'>USA</option>
             <option value='Asia'>Asia</option>
             <option value='Europe'>Europe</option>
+            <option value='Africa'>Africa</option>
            <option value='Australia'>Australia</option>
+           <option value='Antarctica'>Antarctica</option>
             <option value='Middle East'>Middle East</option>
-        
+          
           </select>
 
       

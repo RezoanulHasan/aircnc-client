@@ -5,7 +5,8 @@ import { useContext, useRef } from 'react'
 import { TbFidgetSpinner } from 'react-icons/tb'
 import { AuthContext } from '../../../providers/AuthProvider'
 import useTitle from '../../../Hooks/useTitle'
-
+import Lottie from 'lottie-react';
+import hotel from "../../../assets/hotel.json"
 const Login = () => {
   useTitle ("Login ")
   const { loading, setLoading, signIn, signInWithGoogle, resetPassword } =
@@ -61,10 +62,20 @@ const Login = () => {
       })
   }
   return (
+    <>
+
+    <div className='flex lg:flex-row flex-col  justify-center items-center'>
+
+<div className=' '>
+<Lottie  className='h-96  '      animationData={hotel} loop={true} />
+
+</div>
+
+
     <div className='flex justify-center items-center min-h-screen'>
-      <div className='flex flex-col max-w-md p-6 sm:p-10  rounded-md border-color: inherit  border-solid border-2   hover:border-white  hover:bg-black  hover:text-white      '>
+      <div className='flex flex-col max-w-md p-6 sm:p-10  rounded-md border-color: inherit  border-solid border-2  border-white  bg-black  text-white      '>
         <div className='mb-8 text-center'>
-          <h1 className='my-3 text-4xl font-bold'>Log In</h1>
+          <h1 className='my-3 text-4xl  text-rose-500 font-bold'>Log In</h1>
           <p className='text-sm text-gray-400'>
             Sign in to access your account
           </p>
@@ -148,7 +159,7 @@ const Login = () => {
           Don't have an account yet?{' '}
           <Link
             to='/signup'
-            className='hover:underline hover:text-rose-500 text-gray-600'
+            className='hover:underline text-rose-500'
           >
             Sign up
           </Link>
@@ -156,6 +167,17 @@ const Login = () => {
         </p>
       </div>
     </div>
+
+
+
+    <div className=''>
+<Lottie  className='h-96  '      animationData={hotel} loop={true} />
+
+</div>
+
+
+    </div>
+    </>  
   )
 }
 
