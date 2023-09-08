@@ -8,6 +8,7 @@ import HeartButton from '../../Button/HeartButton';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import GetRandomColor from '../../../Hooks/GetRandomColor';
+import { Fade } from "react-awesome-reveal";
 
 const Rooms = () => {
   const [params, setParams] = useSearchParams();
@@ -77,6 +78,7 @@ const Rooms = () => {
 
   return (
     <Container>
+    <Fade direction="down">
       <div className=' lg:mx-20 mx-0 overflow-x-auto mt-10 border-[1px] w-full md:w-auto py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer  bg-white'>
         <div className='flex flex-row items-center gap-3'>
           <input
@@ -89,23 +91,23 @@ const Rooms = () => {
           />
           <select
             id='price'
-            className='p-2 border border-gray-300 rounded-full'
+            className='p-2 border text-center border-gray-300 rounded-full'
             value={priceRange}
             onChange={(e) => setPriceRange(e.target.value)}
           >
-            <option value=''>Filter by price</option>
-            <option value='1-400'>Up to $400</option>
+            <option value=''> Price</option>
+            <option value='1-400'>$100 - $400</option>
             <option value='401-600'>$401 - $600</option>
             <option value='601-1000'>Over $601</option>
           </select>
 
           <select
             id='type'
-            className='p-2 border border-gray-300 rounded-full'
+            className='p-2 border text-center  border-gray-300 rounded-full'
             value={propertyType}
             onChange={(e) => setPropertyType(e.target.value)}
           >
-            <option value=''>Filter property</option>
+            <option value=''> Property</option>
             <option value='Apartment'>Apartment</option>
             <option value='House'>House</option>
             <option value='Hotel'>Hotel</option>
@@ -114,11 +116,12 @@ const Rooms = () => {
 
 <select
             id='regions'
-            className='p-2 border border-gray-300 rounded-full'
+            className='p-2 border text-center  border-gray-300 rounded-full'
             value={regions}
             onChange={(e) => setRegions(e.target.value)}
           >
             <option value=''>Region</option>
+            <option value='USA'>USA</option>
             <option value='Asia'>Asia</option>
             <option value='Europe'>Europe</option>
            <option value='Australia'>Australia</option>
@@ -176,11 +179,9 @@ const Rooms = () => {
             <option value='6'>6</option>
             <option value='7'>7+</option>
           </select>
-
-
         </div>
       </div>
-
+      </Fade>
       {loading ? (
         <Spinner />
       ) : filteredRooms.length > 0 ? (

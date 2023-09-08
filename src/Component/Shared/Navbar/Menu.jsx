@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom'
 import Avatar from './Avatar'
 import { FaEarthAmericas } from "react-icons/fa6";
 import GetRandomColor from '../../../Hooks/GetRandomColor';
+import { AuthContext } from '../../../providers/AuthProvider';
+
+
 const Menu = () => {
+  const { user, logOut } = useContext(AuthContext) 
     const textColor = GetRandomColor();  
     const [isOpen, setIsOpen] = useState(false)
     return (
@@ -16,7 +20,7 @@ const Menu = () => {
           
           <div className='flex'> 
           <div className='mx-2'>
-          Airbnb your home
+          AirCNC your home
           </div>
           <div  style={{ color: textColor }} className='mt-1   '>
           <FaEarthAmericas />
@@ -58,7 +62,7 @@ const Menu = () => {
                     Login
                   </Link>
                   <Link
-                    to='/signup'
+                    to='/signUp'
                     className='px-4 py-3 hover:bg-neutral-100 transition font-semibold'
                   >
                     Sign Up

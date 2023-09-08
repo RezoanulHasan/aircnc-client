@@ -1,7 +1,6 @@
-
 import { useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
-
+import {  Wave } from 'react-animated-text';
 const Search = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -9,25 +8,15 @@ const Search = () => {
     setIsOpen(!isOpen);
   }
 
-  const handleSearch = () => {
-    // Implement search functionality by region, date range, and price here
-  }
+
 
   return (
     <div className={`border-[1px] w-full md:w-auto py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer ${isOpen ? 'bg-white' : ''}`}>
     {isOpen ? (
-      <div className='flex flex-row items-center gap-3'>
-        <input type="text" placeholder="Search by region" className="p-2 border border-gray-300 rounded-full" />
-        <input type="text" placeholder="Select dateRange" className="p-2 border border-gray-300 rounded-full" />
-        <select className="p-2 border border-gray-300 rounded-full">
-          <option value="">Filter by price</option>
-          <option value="1">200-600</option>
-          <option value="2">601-800</option>
-          <option value="3">801-1000</option>
-        </select>
-      
-        <div className='p-2 bg-rose-500 rounded-full text-white cursor-pointer' onClick={handleSearch}>
-          <BiSearch size={18} />
+      <div className='flex flex-row items-center  gap-3'>
+        <div className='p-3 font-bold  text-xl text-rose-500 ' >
+
+        <Wave    text="Welcome, T'o AirCNC_ " effect="stretch" effectChange={2} /> 
         </div>
       </div>
     ) : (
