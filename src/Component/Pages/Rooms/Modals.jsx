@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { FcHome,  FcDepartment
-} from "react-icons/fc";
 
-import { FaHotel,FaWarehouse} from "react-icons/fa";
-const Modals = () => {
+  const Modals = () => {
+    
   const [data, setData] = useState([]);
-
   useEffect(() => {
     // Fetch data from the specified URL
     fetch('http://localhost:5000/rooms')
@@ -101,43 +98,7 @@ const Modals = () => {
 
 
 
-<h1 className='mt-20 mb-5 font-bold'>Property type</h1>
-<div className='lg:mx-20 m-0 grid  lg:grid-cols-4 grid-cols-2 '>
 
-<div className='w-40 h-40 rounded-md border-color: inherit  border-solid border-2 hover:border-black'>
-<div className='m-8'>
-<h1 className='text-4xl'><FcHome/></h1>
-<h1 className='mt-6 font-bold'>House</h1>
-</div>
-</div>
-
-<div className='w-40 h-40 rounded-md border-color: inherit  border-solid border-2 hover:border-black'>
-<div className='m-8'>
-<h1 className='text-4xl text-rose-500  '><FaWarehouse
-/></h1>
-<h1 className='mt-6 font-bold '>Apartment</h1>
-</div>
-
-</div>
-
-<div className='w-40 h-40 rounded-md border-color: inherit  border-solid border-2 hover:border-black'>
-<div className='m-8'>
-<h1 className='text-4xl'><FcDepartment
-/></h1>
-<h1 className='mt-6 font-bold'>Guest House</h1>
-</div>
-</div>
-
-<div className='w-40 h-40 rounded-md border-color: inherit  border-solid border-2 hover:border-black'>
-<div className='m-8'>
-<h1 className='text-4xl text-rose-500 '><FaHotel
-/></h1>
-<h1 className='mt-6 font-bold'>Hotel</h1>
-</div>
-</div>
-
-
-</div>
 
 
 

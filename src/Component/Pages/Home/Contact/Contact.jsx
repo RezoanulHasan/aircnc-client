@@ -3,10 +3,13 @@ import Lottie from 'lottie-react';
 import contact from'../../../../assets/contact.json'
 import { Fade } from "react-awesome-reveal";
 import {  Wave } from 'react-animated-text';
+import { useContext } from "react";
+import { AuthContext } from "../../../../providers/AuthProvider";
 
 const Contact = () => {
 
 
+  const { user } = useContext(AuthContext) 
     function handleSubmit(event) {
       event.preventDefault();
       // Handle form submission here
@@ -19,7 +22,9 @@ const Contact = () => {
     const contact  = { name, email, textarea , phone };
     console.log(contact );
 
-    fetch('https://lawyer-hiring.vercel.app/contacts', {
+
+
+    fetch(`${import.meta.env.VITE_API_URL}/contacts`, {
         method: 'POST',
         headers: {
           'content-type': 'application/json'
@@ -50,7 +55,7 @@ const Contact = () => {
 
 <div className='' >
   
-<div  style={{textShadow: '0 0 3px #FF0000,0 0 4px #FF0000 '}}  className='text-center font-bold text-white font-mono mt-10 text-2xl'>
+<div  style={{textShadow: '0 0 3px #FF0000,0 0 4px #FF0000 '}}  className='text-center font-bold text-white font-mono mt-10 text-4xl'>
     <Wave    text="CONTACT-US " effect="stretch" effectChange={2} />  
   </div>
 
@@ -60,7 +65,7 @@ const Contact = () => {
   
 
 <div className='  flex justify-between  flex-col lg:flex-row   '    >
-<div  className=' lg:w-1/2 w-full   mt-14 '>
+<div  className=' lg:w-1/2 w-full   mt-10 '>
 <Fade direction="down" >  
 <Lottie  className=''      animationData={contact} loop={true} />
 </Fade>
@@ -73,27 +78,31 @@ const Contact = () => {
 
 
         <Fade direction="down" > 
-             <form onSubmit={handleSubmit} className="">
-      <div className="my-4">
-        <label htmlFor="name" className="font-bold text-white text-2xl">Name</label>
-        <input type="text" id="name" name="name" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"   required />
-      </div>
-      <div className="my-4">
-       
-        <label htmlFor="email" className="font-bold text-white text-2xl">Email</label>
-        <input   type="email" id="email" name="email"  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required/>
-      </div>
-      <div className="my-4">
-        <label htmlFor="phone" className="font-bold text-white text-2xl">Phone</label>
-        <input type="tel" id="phone" name="phone" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required />
-      </div>
-      <div className="my-4">
-        <label htmlFor="textarea" className="font-bold text-white text-xl">Message</label>
-        <textarea id="textarea" name="textarea"  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" rows="5"required ></textarea>
-      </div>
-      <div className="card-actions justify-end">
-      <button type="submit" className="inline-flex items-center px-4 py-2  btn btn-active btn-secondar   hover:btn-warning">Submit</button></div>
-    </form>   </Fade>
+        <form onSubmit={handleSubmit} className="bg-rose-500 p-6 rounded-lg shadow-lg">
+  <div className="my-4">
+    <label htmlFor="name" className="font-bold text-white text-2xl">Name</label>
+    <input type="text" id="name" name="name" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2" required   defaultValue={user?.displayName}/>
+ 
+  </div>
+  <div className="my-4">
+    <label htmlFor="email" className="font-bold text-white text-2xl">Email</label>
+    <input type="email" id="email" name="email" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2"  defaultValue={user?.email}     required />
+  </div>
+  <div className="my-4">
+    <label htmlFor="phone" className="font-bold text-white text-2xl">Phone</label>
+    <input type="tel" id="phone" name="phone" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2" required    />
+  </div>
+  <div className="my-4">
+    <label htmlFor="textarea" className="font-bold text-white text-xl">Message</label>
+    <textarea id="textarea" name="textarea" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2" rows="5" required></textarea>
+  </div>
+  <div className="card-actions justify-end">
+    <button type="submit" className="inline-flex items-center px-4 py-2 btn btn-active   rounded-md">Submit</button>
+  </div>
+</form>
+
+
+         </Fade>
 
     </div>  </div>   
     </div>   

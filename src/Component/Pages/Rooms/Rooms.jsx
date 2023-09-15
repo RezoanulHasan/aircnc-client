@@ -76,6 +76,7 @@ const Rooms = () => {
     
 
 
+
   return (
     <Container>
     <Fade direction="down">
@@ -96,11 +97,15 @@ const Rooms = () => {
             onChange={(e) => setPriceRange(e.target.value)}
           >
             <option value=''> Price</option>
-            <option value='1-400'>$100 - $400</option>
-            <option value='401-600'>$401 - $600</option>
-            <option value='601-1000'>Over $601</option>
+            <option value='1-500'>$100 - $500</option>
+            <option value='501-1000'>$501 - $1000</option>
+            <option value='1001-2000'>Over $1001</option>
           </select>
 
+
+
+      
+      
           <select
             id='type'
             className='p-2 border text-center  border-gray-300 rounded-full'
@@ -108,12 +113,26 @@ const Rooms = () => {
             onChange={(e) => setPropertyType(e.target.value)}
           >
             <option value=''> Property</option>
+
+
             <option value='Guest House'> Guest House </option>
+
+
             <option value='Apartment'>Apartment</option>
-            <option value='House'>House</option>
+            <option value='Villa'>Villa</option>
+           
             <option value='Hotel'>Hotel</option>
-            
-          </select>
+
+            <option value='House'>House</option>
+          </select> 
+
+
+
+
+
+
+
+
 
 
 <select
@@ -127,10 +146,11 @@ const Rooms = () => {
             <option value='Asia'>Asia</option>
             <option value='Europe'>Europe</option>
             <option value='Africa'>Africa</option>
+            <option value='Russia'>Russia</option>
            <option value='Australia'>Australia</option>
            <option value='Antarctica'>Antarctica</option>
             <option value='Middle East'>Middle East</option>
-          
+         
           </select>
 
       

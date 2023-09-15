@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { TypeAnimation } from 'react-type-animation';
-import { DivIcon } from 'leaflet';
+
+
 const MapWithMarkers = () => {
   const [data, setData] = useState([]);
 
@@ -27,7 +28,7 @@ const MapWithMarkers = () => {
 
 
 
-<div className='text-center text-rose-500'>
+<div  style={{textShadow: '0 0 3px #FF0000,0 0 4px #FF0000 '}}   className='text-center text-black ' >
 
       <TypeAnimation className='mt-10 mb-10   '
       sequence={[
@@ -45,7 +46,7 @@ const MapWithMarkers = () => {
       ]}
       wrapper="span"
       speed={50}
-      style={{ fontSize: '3em', display: 'inline-block', 
+      style={{ fontSize: '2em', display: 'inline-block', 
        background: '', color:'' ,   fontFamily: 'font-mono'}}
       repeat={Infinity}
     />
