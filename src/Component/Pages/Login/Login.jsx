@@ -7,60 +7,126 @@ import { AuthContext } from '../../../providers/AuthProvider'
 import useTitle from '../../../Hooks/useTitle'
 import Lottie from 'lottie-react';
 import hotel from "../../../assets/hotel.json"
+import Swal from 'sweetalert2';
 const Login = () => {
   useTitle ("Login ")
   const { loading, setLoading, signIn, signInWithGoogle, resetPassword } =
     useContext(AuthContext)
-  const navigate = useNavigate()
-  const location = useLocation()
-  const from = location.state?.from?.pathname || '/'
-  const emailRef = useRef()
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
+    const emailRef = useRef()
+    // Handle submit
+
   // Handle submit
-  const handleSubmit = event => {
-    event.preventDefault()
-    const email = event.target.email.value
-    const password = event.target.password.value
-    signIn(email, password)
-      .then(result => {
-        console.log(result.user)
-        navigate(from, { replace: true })
-      })
-      .catch(err => {
-        setLoading(false)
-        console.log(err.message)
-        toast.error(err.message)
-      })
+  const handleSubmit = async event => {
+    event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+
+ try {
+      const result = await signIn(email, password);
+      console.log(result.user);
+      navigate(from, { replace: true });
+
+      // Show success alert using sweetalert2
+      Swal.fire({
+        icon: 'success',
+        title: 'Sign In Successful',
+        text: 'Welcome!',
+        position: 'top-center',
+        showConfirmButton: false,
+        timer: 1500 // Automatically close after 1.5 seconds
+      });
+
+    } catch (err) {
+      setLoading(false);
+      console.log(err.message);
+      toast.error(err.message);
+
+      // Show error alert using sweetalert2
+      Swal.fire({
+        icon: 'error',
+        title: 'Sign In Failed',
+        text: 'An error occurred while signing in.',
+        position: 'top-center',
+        showConfirmButton: false,
+        timer: 1500 // Automatically close after 1.5 seconds
+      });
+    }
+  
   }
 
-  // Handle google signin
-  const handleGoogleSignIn = () => {
-    signInWithGoogle()
-      .then(result => {
-        console.log(result.user)
-        navigate(from, { replace: true })
-      })
-      .catch(err => {
-        setLoading(false)
-        console.log(err.message)
-        toast.error(err.message)
-      })
-  }
 
-  //   handle password reset
-  const handleReset = () => {
-    const email = emailRef.current.value
+  
+    // Handle google signin
+  
 
-    resetPassword(email)
-      .then(() => {
-        toast.success('Please check your email for reset link')
-        setLoading(false)
-      })
-      .catch(err => {
-        setLoading(false)
-        console.log(err.message)
-        toast.error(err.message)
-      })
-  }
+
+    //...
+    
+    // Handle google signin
+    const handleGoogleSignIn = () => {
+      signInWithGoogle()
+        .then(result => {
+          const loggedUser = result.user;
+          const saveUser = { name: loggedUser.displayName, email: loggedUser.email ,photoURL: loggedUser.photoURL };
+          fetch(`${import.meta.env.VITE_API_URL}/users`,  {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json'
+            },
+            body: JSON.stringify(saveUser)
+          })
+            .then(res => res.json())
+            .then(() => {
+              navigate(from, { replace: true });
+            });
+    
+          // Show success alert using sweetalert2
+          Swal.fire({
+            icon: 'success',
+            title: 'Sign In Successful',
+            text: 'Welcome!',
+            position: 'top-center',
+            showConfirmButton: false,
+            timer: 1500 // Automatically close after 1.5 seconds
+          });
+        })
+        .catch(error => {
+          console.log(error);
+          setLoading(false)
+          // Show error alert using sweetalert2
+          Swal.fire({
+            icon: 'error',
+            title: 'Sign In Failed',
+            text: 'An error occurred while signing in.',
+            position: 'top-center',
+            showConfirmButton: false,
+            timer: 1500 // Automatically close after 1.5 seconds
+          });
+        });
+    };
+    
+
+
+    //   handle password reset
+    const handleReset = () => {
+      const email = emailRef.current.value
+  
+      resetPassword(email)
+        .then(() => {
+          toast.success('Please check your email for reset link')
+          setLoading(false)
+        })
+        .catch(err => {
+          setLoading(false)
+          console.log(err.message)
+          toast.error(err.message)
+        })
+    }
+
+ 
   return (
     <>
 

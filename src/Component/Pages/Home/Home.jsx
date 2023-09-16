@@ -7,6 +7,7 @@ import Container from '../../Shared/Container';
 import Contact from './Contact/Contact';
 
 import Property from './Property/property';
+import Sidebar from '../../Dashbord/Sidebar';
 const Home = () => {
 
     useTitle('Home'),
@@ -31,9 +32,6 @@ const Home = () => {
 
 <Container>
       
-
- 
-    
 <MapWithMarkers></MapWithMarkers>
 <Property></Property>
 <Contact></Contact>

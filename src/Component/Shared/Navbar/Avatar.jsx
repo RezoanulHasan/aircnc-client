@@ -7,7 +7,7 @@ const Avatar = () => {
   return (
     <img
       className='rounded-full w-10 h-10'  alt='profile' title={user?.displayName}
-     src={user && user.photoURL ? user.photoURL : avatarImg}
+     src={user && user?. photoURL   ?     user?.photoURL : avatarImg}
      
     />
   )
