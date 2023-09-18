@@ -6,9 +6,17 @@ import Swal from "sweetalert2";
 import useTitle from '../../../Hooks/useTitle';
 import useAxiosSecure from './../../../Hooks/useAxiosSecure';
 import Container from '../../Shared/Container';
+import { useNavigate } from 'react-router-dom';
 const AllUsers = () => {
 
     useTitle("AllUsers");
+
+const navigate = useNavigate();
+ 
+    const handleBack = () => {
+      navigate(-1);
+    };
+
 
     const [axiosSecure] = useAxiosSecure(); 
     const { data: users = [], refetch } = useQuery(['users'], async () => {
@@ -96,7 +104,7 @@ const AllUsers = () => {
     <h3 className="text-2xl text-center text-rose-500 font-bold my-4">Total Users: {users.length}</h3>
 
 
-    <div className="w-full    px-32 py-5 border-b  text-sm                    mt-10 lg:max-w-5xl max-w-xl overflow-x-auto">
+    <div className="w-full px-32 py-5 border-b text-sm  mt-10 lg:max-w-5xl max-w-xl overflow-x-auto">
   <table className="border table-auto">
     <thead>
       <tr className="bg-gray-100 text-blue-500">
@@ -111,7 +119,7 @@ const AllUsers = () => {
       {users.map((user, index) => (
         <tr key={user._id}>
           <td className="py-2 px-4 text-green-400">{index + 1}</td>
-          <td className="py-2 px-4 text-red-400">{user.name}</td>
+          <td className="py-2 px-4 text-red-400">{user?.name || user?.displayName}</td>
           <td className="py-2 px-4 text-yellow-400">{user.email}</td>
           <td className="py-2 px-4 text-green-600  text-center text-xl font-bold">
             {user.role === 'admin' ? (
@@ -148,8 +156,20 @@ const AllUsers = () => {
     </tbody>
   </table>
 </div>
+
+
+<div className="card-actions justify-center">
+      <button  className="btn mt-10  mb-5 btn-outline bg-rose-500   text-white" onClick={handleBack}>Go Back</button>   
+      </div>
+
+
 </div>
   
+
+
+
+
+
 </Container>
   
     );

@@ -19,7 +19,7 @@ const Rooms = () => {
   const [priceRange, setPriceRange] = useState('');
   const [propertyType, setPropertyType] = useState('');
   const [bedroom, setBedroom] = useState('');
-  const [bed, setBed ]= useState('');
+  const [guests, setGuests ]= useState('');
   const [bathroom, setBathroom ]= useState('');
   const [regions, setRegions] = useState('');
   useEffect(() => {
@@ -64,8 +64,8 @@ const Rooms = () => {
       return room.bedroom === parseInt(bedroom, 10);
     }) // Apply the bedroom filter
     .filter((room) => {
-      if (!bed) return true;
-      return room.bed === parseInt(bed, 10);
+      if (!guests) return true;
+      return room.guests === parseInt(guests, 10);
     }) // Apply the bed filter
 
     .filter((room) => {
@@ -168,24 +168,24 @@ const Rooms = () => {
             <option value='4'>4</option>
             <option value='5'>5</option>
             <option value='6'>6</option>
-            <option value='7'>7+</option>
+            <option value='7-20'>7+</option>
           </select>
 
 
           <select
             id='bed'
             className='p-2 border text-center border-gray-300 rounded-full'
-            value={bed}
-            onChange={(e) => setBed(e.target.value)}
+            value={guests}
+            onChange={(e) => setGuests(e.target.value)}
           >
-            <option value=''>Bed</option>
+            <option value=''>Guest</option>
             <option value='1'>1</option>
             <option  value='2'>2</option>
             <option value='3'>3</option>
             <option value='4'>4</option>
             <option value='5'>5</option>
             <option value='6'>6</option>
-            <option value='7'>7+</option>
+            <option value='7-20'>7+</option>
           </select>
 
  <select
@@ -201,7 +201,7 @@ const Rooms = () => {
             <option value='4'>4</option>
             <option value='5'>5</option>
             <option value='6'>6</option>
-            <option value='7'>7+</option>
+            <option value='7-20'>7+</option>
           </select>
         </div>
       </div>
@@ -211,7 +211,7 @@ const Rooms = () => {
       ) : filteredRooms.length > 0 ? (
         <div className='pt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8'>
           {filteredRooms.map((room) => (
-            <ShowRoomData key={room.id} room={room} />
+            <ShowRoomData key={room._id} room={room} />
           ))}
         </div>
       ) : (
@@ -231,7 +231,7 @@ const ShowRoomData = ({ room }) => {
   const textColor = GetRandomColor();
 
   return (
-    <Link to={`/room/${room.id}`} className='col-span-1 cursor-pointer group'>
+    <Link to={`/rooms/${room._id}`} className='col-span-1 cursor-pointer group'>
       <div className='flex flex-col gap-2 w-full'>
         <div
           className='

@@ -6,7 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Header = () => {
 
-  const {id,image,location,region} =useLoaderData() ;
+  const {_id,image,location,region} =useLoaderData() ;
 
   return (
     <>

@@ -20,6 +20,13 @@ import PrivateRoute from './routes/PrivateRoute.jsx';
 import DashboardLayout from './Component/Dashbord/DashboardLayout.jsx';
 import Alluser from './Component/Dashbord/Admin/Alluser';
 
+import MyListings from './Component/Dashbord/Host/MyRooms/MyListings.jsx';
+import RoomAdd from './Component/Dashbord/Host/AddRooms/RoomAdd';
+import Allrooms from './Component/Dashbord/Admin/Allrooms.jsx';
+
+
+
+
 
 // Create a client
 const queryClient = new QueryClient()
@@ -34,9 +41,10 @@ const router = createBrowserRouter([
         element:<Home></Home>,
       },
         {
-        path: "/room/:id",
+        path: "/rooms/:id",
         element:<PrivateRoute><SingleRoom></SingleRoom></PrivateRoute>,
-        loader: ({params}) =>fetch(`http://localhost:5000/rooms/${params.id}`),
+
+           loader: ({params}) =>fetch(`http://localhost:5000/rooms/${params.id}`),
       },
   
 
@@ -68,8 +76,23 @@ children: [
 
 },
 
+{
+  path: '/dashboard/allrooms', 
+  element: <Allrooms></Allrooms> ,
+
+},
 
 
+ //host
+ {path: '/dashboard/addrooms', 
+  element: <RoomAdd></RoomAdd> ,
+},
+
+
+{path:'/dashboard/mylistings', 
+element: <MyListings></MyListings>,
+
+},
 
 
   ],

@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { TypeAnimation } from 'react-type-animation';
 
+import { format } from 'date-fns';
 
 const MapWithMarkers = () => {
   const [data, setData] = useState([]);
@@ -18,7 +19,6 @@ const MapWithMarkers = () => {
   }, []);
 
  
-
 
   
   return (
@@ -63,16 +63,23 @@ const MapWithMarkers = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
       {data.map((item) => (
-        <Marker position={[item?.latitude, item?.longitude]} key={item.id}>
+        <Marker position={[item?.latitude, item?.longitude]} key={item._id}>
           <Popup>
             <div>
               <h2>{item?.location}</h2>
               <img src={item?.image} alt="" />
               <p>Region: {item?.region}</p>
               <p>Price: {item?.price}</p>
-              <p>Date Range: {item?.dateRange}</p>
+              
+<p>
+  Date Range: {item?.dateRange
+    ? item.dateRange
+    : `${format(new Date(item?.from), 'P')} to ${format(new Date(item?.to), 'P')}`}
+</p>
               <p>Property: {item?.property}</p>
-            </div>
+
+          
+              </div>
           </Popup>
         </Marker>
       ))}

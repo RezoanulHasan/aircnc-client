@@ -1,3 +1,4 @@
+
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState, useContext } from 'react';
 import { AuthContext } from '../../../providers/AuthProvider';
@@ -8,24 +9,15 @@ import Swal from 'sweetalert2';
 
 const SignUp = () => {
   useTitle("SignUp");
-  const { loading, setLoading, createUser } = useContext(AuthContext);
+  const { loading, setLoading, createUser,  updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
   const [photoURL, setPhotoURL] = useState('');
-  
-  const updateUserProfile = async (name, photoURL , phoneNumber) => {
-    try {
-      await updateProfile(auth.currentUser, {
-        displayName: name,
-        photoURL: photoURL ,
-        phoneNumber: phoneNumber, // Assuming you have 'phoneNumber' variable available
-      });
-    } catch (error) {
-      console.error('Error updating user profile:', error);
-    }
-  };
 
+
+
+ 
   const handleSubmit = async event => {
     event.preventDefault();
     const name = event.target.name.value;
@@ -55,26 +47,26 @@ const SignUp = () => {
         body: formData,
       });
 
-      if (! iresponse.ok) {
+      if (!iresponse.ok) {
         throw new Error('Image upload failed');
       }
 
       const imageData = await iresponse.json();
-      const  photoURL= imageData.data.display_url;
+      const photoURL = imageData.data.display_url;
 
       setPhotoURL(photoURL);
 
       const user = {
-        name,
         email,
-        phoneNumber,
+        phoneNumber: phoneNumber,
         password,
-        photoURL,
+        photoURL: photoURL,  // Use photoURL instead of photo
+        displayName: name,
       };
 
       await createUser(email, password);
 
-      await updateUserProfile(name, photoURL , phoneNumber);
+      await updateUserProfile(name,photoURL, phoneNumber); // Use photoURL instead of photo
     
       const response = await fetch(`${import.meta.env.VITE_API_URL}/users`, {
         method: 'POST',
@@ -103,8 +95,7 @@ const SignUp = () => {
         text: error.message,
       });
     }
-  };
-
+  }
       
 
   return (
