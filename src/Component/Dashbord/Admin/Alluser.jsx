@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 const AllUsers = () => {
 
-    useTitle("AllUsers");
+    useTitle("All Users");
 
 const navigate = useNavigate();
  

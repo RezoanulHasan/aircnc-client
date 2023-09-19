@@ -11,12 +11,14 @@ const Header = () => {
   return (
     <>
       <Heading title={region} subtitle={location}  />
-      <div className=' overflow-hidden rounded-xl  '>
+      <div className=' overflow-hidden rounded-xl w-full md:h-[100vh] md:w-[150vh]'>
+      
         <img
           className='object-cover w-full '
           src={image}
           alt='header image'
-        />
+        />    
+      
 <div className='absolute top-10 right-5'>
 <div className=' bg-black'>
             < HeartButton />

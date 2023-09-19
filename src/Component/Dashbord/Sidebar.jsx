@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { GrLogout } from 'react-icons/gr'
 import { FcSettings } from 'react-icons/fc'
@@ -9,9 +9,16 @@ import { AuthContext } from '../../providers/AuthProvider'
 import Logo from '../Shared/Navbar/Logo'
 import useAdmin from './../../Hooks/useAdmin';
 import useHost from './../../Hooks/useHost';
+import useTitle from '../../Hooks/useTitle'
 
 const Sidebar = () => {
   const navigate = useNavigate()
+  useTitle('Dashboard'), 
+    useEffect(() => { 
+
+        window.scrollTo(0, 0);
+
+    }, []); 
 
   const { user, logOut } = useContext(AuthContext)
 

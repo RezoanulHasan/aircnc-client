@@ -6,8 +6,8 @@ import MapWithMarkers from './MapWithMarkers/MapWithMarkers';
 import Container from '../../Shared/Container';
 import Contact from './Contact/Contact';
 
-import Property from './Property/property';
-import Sidebar from '../../Dashbord/Sidebar';
+import Property from './Property/Property';
+
 const Home = () => {
 
     useTitle('Home'),

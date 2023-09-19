@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Header from './Header';
 import Reservation from './Reservation';
@@ -7,6 +7,13 @@ import useTitle from '../../../Hooks/useTitle';
 import { format } from 'date-fns';
 import Slider from '../Slider/Slider';
 const SingleRoom = () => {
+  useTitle('Room Details'),
+    useEffect(() => { 
+
+        window.scrollTo(0, 0);
+
+    }, []); 
+
 
 const {id,image,
   guests,bedroom,bathroom,to, from,
