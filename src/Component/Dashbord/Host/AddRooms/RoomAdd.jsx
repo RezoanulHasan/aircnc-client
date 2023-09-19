@@ -10,6 +10,7 @@ import { TbFidgetSpinner } from 'react-icons/tb';
 import { categories } from '../../../Categories/categoriesData';
 import { DateRange } from 'react-date-range';
 import useTitle from '../../../../Hooks/useTitle';
+import SectionTitle from '../../../Shared/SectionTitle/SectionTitle';
 
 const RoomAdd = () => {
 
@@ -98,6 +99,9 @@ const RoomAdd = () => {
 
   return (
     <div>
+
+<SectionTitle subHeading="Aircnc  "  heading={<>Add room </>}></SectionTitle>
+
       <div className='w-full min-h-[calc(100vh-40px)] flex flex-col justify-center items-center text-gray-800 rounded-xl bg-gray-50'>
         <form onSubmit={handleSubmit}>
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>

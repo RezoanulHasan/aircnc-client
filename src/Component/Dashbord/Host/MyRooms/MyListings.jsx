@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { Link } from 'react-router-dom';
 import useTitle from '../../../../Hooks/useTitle';
 import EmptyState from './../../../Shared/EmptyState';
+import SectionTitle from '../../../Shared/SectionTitle/SectionTitle';
 
 const MyListings = () => {
   const [card, refetch] = useRoom();
@@ -46,8 +47,10 @@ const MyListings = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h3 className="text-3xl text-center mb-4">Total Rooms: {rooms.length}</h3>
+    
+    <SectionTitle subHeading="Aircnc  "  heading={<>Total Rooms:  {rooms.length} </>}>
 
+</SectionTitle>
       {rooms.length > 0 ? (
         <div className="w-full px-32 py-5 border-b overflow-x-auto">
           <table className=" border border-gray-300">

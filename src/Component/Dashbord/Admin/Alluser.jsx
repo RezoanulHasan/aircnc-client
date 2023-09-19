@@ -7,6 +7,7 @@ import useTitle from '../../../Hooks/useTitle';
 import useAxiosSecure from './../../../Hooks/useAxiosSecure';
 import Container from '../../Shared/Container';
 import { useNavigate } from 'react-router-dom';
+import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
 const AllUsers = () => {
 
     useTitle("AllUsers");
@@ -101,8 +102,8 @@ const navigate = useNavigate();
 <Container>
      
   <div className=" mb-10 bg-black ">
-    <h3 className="text-2xl text-center text-rose-500 font-bold my-4">Total Users: {users.length}</h3>
-
+  
+    <SectionTitle subHeading="Aircnc  "  heading={<>All Users: {users.length} </>}></SectionTitle>
 
     <div className="w-full px-32 py-5 border-b text-sm  mt-10 lg:max-w-5xl max-w-xl overflow-x-auto">
   <table className="border table-auto">

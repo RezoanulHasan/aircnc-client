@@ -11,9 +11,9 @@ const Header = () => {
   return (
     <>
       <Heading title={region} subtitle={location}  />
-      <div className=' w-full  relative  overflow-hidden rounded-xl'>
+      <div className=' overflow-hidden rounded-xl  '>
         <img
-          className='object-cover h-full w-full'
+          className='object-cover w-full '
           src={image}
           alt='header image'
         />

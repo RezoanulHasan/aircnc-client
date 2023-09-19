@@ -4,6 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import { TypeAnimation } from 'react-type-animation';
 
 import { format } from 'date-fns';
+import SectionTitle from '../../../Shared/SectionTitle/SectionTitle';
 
 const MapWithMarkers = () => {
   const [data, setData] = useState([]);
@@ -26,7 +27,7 @@ const MapWithMarkers = () => {
     <div className="p-4  mt-10">
 
 
-
+<SectionTitle subHeading="Aircnc  "  heading={<>Find Our Services With Map  </>}></SectionTitle>
 
 <div  style={{textShadow: '0 0 3px #FF0000,0 0 4px #FF0000 '}}   className='text-center text-black ' >
 
@@ -34,13 +35,13 @@ const MapWithMarkers = () => {
       sequence={[
         // Same substring at the start will only be typed out once, initially
 
-        'Find Our Services With Map For   HOTEL.........',
+        ' For   HOTEL.........',
         1000, // wait 1s before replacing "Mice" with "Hamsters"
-        'Find Our Services With Map For   HOUSE.........',
+        ' For   HOUSE.........',
         1000,
-        'Find Our Services With Map For  Apartment.........',   
+        'For  APARTMENT.........',   
         1000,
-    'Find Our Services With Map For   Gest HOUSE.........',
+       ' For   GEST HOUSE.........',
         1000,
          
       ]}

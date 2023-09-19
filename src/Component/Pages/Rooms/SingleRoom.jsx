@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Header from './Header';
 import Reservation from './Reservation';
 import useTitle from '../../../Hooks/useTitle';
 
-
+import { format } from 'date-fns';
+import Slider from '../Slider/Slider';
 const SingleRoom = () => {
 
-const {id,image,bed,bedroom,bathroom,dateRange} =useLoaderData() ;
+const {id,image,
+  guests,bedroom,bathroom,to, from,
+  hostname,
+  hostphotoURL,
+  description} =useLoaderData() ;
 useTitle('Room Details');
-
+const [data, setData] = useState([]);
     return (
         <>
 
@@ -27,14 +32,15 @@ useTitle('Room Details');
                 gap-2
               '
           >
-            <div>Hosted by Rezoanul</div>
+            <div>Hosted by -
+{hostname}</div>
   
             <img
               className='rounded-full'
               height='60'
               width='50'
               alt='Avatar'
-              src="https://i.ibb.co/K0y7s31/160099600-3757031334417758-3894304083960476350-n.jpg"
+              src={hostphotoURL}
             />
 
 
@@ -50,20 +56,27 @@ useTitle('Room Details');
                 text-neutral-500
               '
           >
-             <div>Beds-{bed }</div>
+             <div>Guests-{guests}</div>
             <div>Bedrooms-{bedroom}</div>
             <div>Bathroom-{bathroom}</div>
            
           </div>
         </div>
   
-  <h1><span className='font-bold'>Booking Time:</span>  {dateRange}</h1>
+  <h1 className='text-red-500 text-xl'><span className='font-bold'>Booking Time:</span> 
+   
+     {format(new Date(from), 'P')} to ${format(new Date(to), 'P')}
+ </h1>
+
+  
+<Slider></Slider>
+      
         <hr />
         <div
           className='
           text-lg font-light text-neutral-500'
         >
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, eaque tempore alias autem beatae magni modi accusantium quod id distinctio cumque nostrum ut nisi earum eum pariatur blanditiis iusto tempora?
+           {description}
         </div>
         <hr />
 

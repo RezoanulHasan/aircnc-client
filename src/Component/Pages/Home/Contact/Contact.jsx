@@ -5,6 +5,7 @@ import { Fade } from "react-awesome-reveal";
 import {  Wave } from 'react-animated-text';
 import { useContext } from "react";
 import { AuthContext } from "../../../../providers/AuthProvider";
+import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
 
 const Contact = () => {
 
