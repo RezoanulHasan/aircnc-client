@@ -149,7 +149,7 @@ const Rooms = () => {
             <option value='Russia'>Russia</option>
            <option value='Australia'>Australia</option>
            <option value='Antarctica'>Antarctica</option>
-            <option value='Middle East'>Middle East</option>
+            <option value='Mriddle East'>Middle East</option>
          
           </select>
 

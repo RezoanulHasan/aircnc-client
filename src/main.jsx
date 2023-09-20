@@ -19,10 +19,9 @@ import SignUp from './Component/Pages/SingUp/SingUp.jsx';
 import PrivateRoute from './routes/PrivateRoute.jsx';
 import DashboardLayout from './Component/Dashbord/DashboardLayout.jsx';
 import Alluser from './Component/Dashbord/Admin/Alluser';
-
-import MyListings from './Component/Dashbord/Host/MyRooms/MyListings.jsx';
 import RoomAdd from './Component/Dashbord/Host/AddRooms/RoomAdd';
 import Allrooms from './Component/Dashbord/Admin/Allrooms.jsx';
+import MyAddRooms from './Component/Dashbord/Host/MyRooms/MyAddRooms';
 
 
 
@@ -90,7 +89,7 @@ children: [
 
 
 {path:'/dashboard/mylistings', 
-element: <MyListings></MyListings>,
+element:<MyAddRooms></MyAddRooms> ,
 
 },
 

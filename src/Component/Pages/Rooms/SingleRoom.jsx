@@ -16,7 +16,7 @@ const SingleRoom = () => {
 
 
 const {id,image,
-  guests,bedroom,bathroom,to, from,
+  guests,bedroom,bathroom,to, from,location,
   hostname,
   hostphotoURL,
   description} =useLoaderData() ;

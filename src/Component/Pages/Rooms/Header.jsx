@@ -11,6 +11,8 @@ const Header = () => {
   return (
     <>
       <Heading title={region} subtitle={location}  />
+
+      
       <div className=' overflow-hidden rounded-xl w-full md:h-[100vh] md:w-[150vh]'>
       
         <img

@@ -1,33 +1,82 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import Calender from './Calender';
 import Button from "../../Button/Button"
 import { useLoaderData } from 'react-router-dom';
-
+import { AuthContext } from '../../../providers/AuthProvider';
+import { formatDistance } from 'date-fns'
+import BookingModal from './From/BookingModal';
 const Reservation = () => {
-    const {id,price,property} =useLoaderData() ;
-    return (
-        <div className='bg-white rounded-xl border-[1px] border-neutral-200 overflow-hidden'>
-          <div className='flex  flex-row text-center   justify-center items-center gap-1 p-4'>
-            <div className='text-2xl  text-center font-semibold'>${price}-</div>
-             
-            <div className='font-light text-center  text-neutral-700'> night</div>
-          </div>
-          <hr />
+    const {price,property,to,from,image,_id,email,location} =useLoaderData() ;
 
-          <div className='flex  justify-center items-centere'>
-          <Calender />
-          </div>
-          <hr />
-
-          <div className='p-4'>
-            <Button label='Reserve' />
-          </div>
-          <hr />
-          <div className='p-4 flex flex-row items-center justify-between font-semibold text-lg'>
-            <div>Total</div>
-            <div>$ {"price"}</div>
-          </div>
-        </div>
-      )
+    const [isOpen, setIsOpen] = useState(false)
+    const closeModal = () => {
+      setIsOpen(false)
     }
+    const { user } = useContext(AuthContext)
+
+  // Price Calculation
+  const totalPrice =
+    parseFloat(
+      formatDistance(new Date(to), new Date(from)).split(
+        ' '
+      )[0]
+    ) * price
+
+  const [value, setValue] = useState({
+    startDate: new Date(from),
+    endDate: new Date(to),
+    key: 'selection',
+  })
+
+  // Booking state
+  const [bookingInfo, setBookingInfo] = useState({
+    guest: { name: user.displayName, email: user.email, image: user.photoURL },
+    host: email,
+    location: location,
+    price: totalPrice,
+    to: value.endDate,
+    from: value.startDate,
+
+    roomId: _id,
+    image: image,
+  })
+  const handleSelect = ranges => {
+    setValue({ ...value })
+  }
+
+
+
+    return (
+      <div className='bg-white rounded-xl border-[1px] border-neutral-200 overflow-hidden'>
+      <div className='flex flex-row items-center gap-1 p-4'>
+        <div className='text-2xl font-semibold'>$ {price}</div>
+        <div className='font-light text-neutral-600'>night</div>
+      </div>
+      <hr />
+      <div className='flex justify-center'>
+        <Calender handleSelect={handleSelect} value={value} />
+      </div>
+
+      <hr />
+      <div className='p-4'>
+        <Button
+          onClick={() => setIsOpen(true)}
+          disabled={email === user.email }
+          label='Reserve'
+        />
+      </div>
+      <hr />
+      <div className='p-4 flex flex-row items-center justify-between font-semibold text-lg'>
+        <div>Total</div>
+        <div>$ {totalPrice}</div>
+      </div>
+
+      <BookingModal
+        bookingInfo={bookingInfo}
+        isOpen={isOpen}
+        closeModal={closeModal}
+      />
+    </div>
+  )
+}
 export default Reservation;

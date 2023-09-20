@@ -7,7 +7,7 @@ import useTitle from '../../../../Hooks/useTitle';
 import EmptyState from './../../../Shared/EmptyState';
 import SectionTitle from '../../../Shared/SectionTitle/SectionTitle';
 
-const MyListings = () => {
+const MyAddRooms = () => {
   const [card, refetch] = useRoom();
   const rooms = card || [];
   useTitle("My Room");
@@ -101,4 +101,4 @@ const MyListings = () => {
   );
 };
 
-export default MyListings;
+export default MyAddRooms;

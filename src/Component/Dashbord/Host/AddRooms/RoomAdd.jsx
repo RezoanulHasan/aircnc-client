@@ -1,10 +1,9 @@
 
 import React, { useContext, useState } from 'react';
-import { imageUpload } from './Api/utils';
+import { imageUpload } from './Api/imageUpload';
 import { addRoom } from './Api/rooms';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-
 import { AuthContext } from '../../../../providers/AuthProvider';
 import { TbFidgetSpinner } from 'react-icons/tb';
 import { categories } from '../../../Categories/categoriesData';
@@ -100,7 +99,7 @@ const RoomAdd = () => {
   return (
     <div>
 
-<SectionTitle subHeading="Aircnc  "  heading={<>Add room </>}></SectionTitle>
+<SectionTitle subHeading="Aircnc"  heading={<>Add room </>}></SectionTitle>
 
       <div className='w-full min-h-[calc(100vh-40px)] flex flex-col justify-center items-center text-gray-800 rounded-xl bg-gray-50'>
         <form onSubmit={handleSubmit}>
@@ -169,7 +168,7 @@ const RoomAdd = () => {
                 />
               </div>
 
-              <div className='space-y-1 '>
+     {/*     <div className='space-y-1 '>
                 <label htmlFor='dateRange' className='block text-gray-600 text-center'>
                   Date range
                 </label>
@@ -181,7 +180,7 @@ const RoomAdd = () => {
                   placeholder='Feb 25, 2026 - Mar 2, 2026"' readOnly
            
                 />
-              </div>
+              </div>*/}  
             </div>
 
             <div className='space-y-6'>
