@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import React, { useContext, useEffect } from 'react'
+import { Link,  useNavigate } from 'react-router-dom'
 import { GrLogout } from 'react-icons/gr'
 import { FcSettings } from 'react-icons/fc'
-import { AiOutlineBars } from 'react-icons/ai'
 import { FaWallet,FaCreativeCommons,FaAddressCard, FaCalendarAlt, FaHome,FaBuffer,  FaUsers, FaCcStripe ,} from 'react-icons/fa';
 
 import { AuthContext } from '../../providers/AuthProvider'
@@ -14,6 +13,10 @@ import useTitle from '../../Hooks/useTitle'
 const Sidebar = () => {
   const navigate = useNavigate()
   useTitle('Dashboard'), 
+
+ // State to control the drawer
+
+
     useEffect(() => { 
 
         window.scrollTo(0, 0);
@@ -29,6 +32,9 @@ const [isAdmin] = useAdmin();
     logOut()
     navigate('/')
   }
+ 
+
+
   return (
     <>
       {/* Small Screen Navbar */}
@@ -41,13 +47,14 @@ const [isAdmin] = useAdmin();
 
      
       </div>
+    
       {/* Sidebar */}
       <div
-        className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-gray-100 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
-           '-translate-x-full'
-        }  md:translate-x-0  transition duration-200 ease-in-out`}
+        className="z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-gray-100 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform" 
+      
       >
         <div>
+   
           {/* Branding & Profile Info */}
           <div>
             <div className='w-full hidden md:flex py-2 justify-center items-center bg-rose-100 mx-auto'>
@@ -151,24 +158,23 @@ const [isAdmin] = useAdmin();
 
 
                     
-    <li>
-            <Link to="/dashboard/mycart">
-              <FaWallet></FaWallet>My Classes
+    <li  className="flex items-center mt-10"  >
+                
+            <Link   className="flex items-center"  to="/dashboard/bookings">
+              <FaWallet  className="mr-2"  ></FaWallet>My Bookings
             </Link>
           </li>
 
           
 
-          <li>
-            <NavLink to="/dashboard/history">
-            <FaCalendarAlt></FaCalendarAlt>  Payment History 
-            </NavLink>
-          </li>
-          <li>
-            <Link to="/dashboard/payment/:id">
-           < FaCcStripe></FaCcStripe>     Payment 
+          <li className="flex items-center mt-5"  >
+                
+            <Link  className="flex items-center"  to="/dashboard/history">
+            <FaCalendarAlt  className="mr-2" ></FaCalendarAlt>  Payment History 
             </Link>
           </li>
+
+       
          
        
           <div className="divider  bg-white"></div>
@@ -221,6 +227,11 @@ const [isAdmin] = useAdmin();
           </button>
         </div>
       </div>
+
+
+           
+
+
     </>
   )
 }

@@ -101,7 +101,7 @@ const navigate = useNavigate();
     return (
 <Container>
      
-  <div className=" mb-10 bg-black ">
+  <div className=" mb-10  ">
   
     <SectionTitle subHeading="Aircnc  "  heading={<>All Users: {users.length} </>}></SectionTitle>
 
@@ -119,9 +119,9 @@ const navigate = useNavigate();
     <tbody>
       {users.map((user, index) => (
         <tr key={user._id}>
-          <td className="py-2 px-4 text-green-400">{index + 1}</td>
-          <td className="py-2 px-4 text-red-400">{user?.name || user?.displayName}</td>
-          <td className="py-2 px-4 text-yellow-400">{user.email}</td>
+          <td className="py-2 px-4 text-blue-500">{index + 1}</td>
+          <td className="py-2 px-4 ">{user?.name || user?.displayName}</td>
+          <td className="py-2 px-4 0">{user.email}</td>
           <td className="py-2 px-4 text-green-600  text-center text-xl font-bold">
             {user.role === 'admin' ? (
               'Admin'

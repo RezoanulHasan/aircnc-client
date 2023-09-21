@@ -58,7 +58,7 @@ useTitle("All Rooms");
 
       <div className="w-full px-32 py-5 border-b overflow-x-auto">
 
-        <table className=" border border-gray-300">
+        <table className=" border border-gray-200">
           <thead>
             <tr>
               <th className="py-2 px-4">Image</th>
@@ -73,15 +73,20 @@ useTitle("All Rooms");
           <tbody>
             {rooms.map(room => (
               <tr key={room._id}>
-                <td className="px-5">
-                  <img src={room.image} alt={room.location} className="w-40 h-16  rounded-lg object-cover" />
+
+
+                <td className="">
+
+                <Link to={`/rooms/${room._id}`} className='col-span-1 cursor-pointer '>
+
+                  <img src={room.image} alt={room.location} className="lg:w-40 w-full h-20 hover:py-5 hover:px-5 rounded-lg object-cover transition-transform transform scale-100 hover:scale-150 " /></Link>
                 </td>
-                <td className="py-2 px-4">{room.hostname}</td>
-                <td className="py-2 px-4">{room.location}</td>
-                <td className="py-2 px-4">{room.region}</td>
-                <td className="py-2 px-4">{room.property}</td>
-                <td className="py-2 px-4">{room.price}</td>
-                <td className="py-2 px-4">
+                <td className="border  text-center  px-10 py-2">{room.hostname}</td>
+                <td className="border  text-center  px-10 py-2">{room.location}</td>
+                <td className="border text-center  px-10 py-2">{room.region}</td>
+                <td className="border   text-center px-10 py-2">{room.property}</td>
+                <td className="border   text-center  px-10 py-2">{room.price}</td>
+                <td className="border  text-center px-10 py-2">
                   <button onClick={() => handleDelete(room)}>
                     <FaTrashAlt className="text-red-500" />
                   </button>
@@ -90,8 +95,9 @@ useTitle("All Rooms");
             ))}
           </tbody>
         </table>
-
+     
       </div>
+
 
       <Link to="/dashboard">
         <div className="card-actions justify-center">

@@ -3,7 +3,6 @@ import { Link, useLoaderData } from 'react-router-dom';
 import Header from './Header';
 import Reservation from './Reservation';
 import useTitle from '../../../Hooks/useTitle';
-
 import { format } from 'date-fns';
 import Slider from '../Slider/Slider';
 const SingleRoom = () => {

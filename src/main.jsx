@@ -22,6 +22,8 @@ import Alluser from './Component/Dashbord/Admin/Alluser';
 import RoomAdd from './Component/Dashbord/Host/AddRooms/RoomAdd';
 import Allrooms from './Component/Dashbord/Admin/Allrooms.jsx';
 import MyAddRooms from './Component/Dashbord/Host/MyRooms/MyAddRooms';
+import PaymentInfo from './Component/Dashbord/User/PaymentInfo.jsx';
+import MyBooking from './Component/Dashbord/User/MyBooking.jsx';
 
 
 
@@ -90,6 +92,18 @@ children: [
 
 {path:'/dashboard/mylistings', 
 element:<MyAddRooms></MyAddRooms> ,
+
+},
+
+
+ //user
+ {path: '/dashboard/bookings', 
+  element: <MyBooking></MyBooking> ,
+},
+
+
+{path:'/dashboard/history', 
+element:<PaymentInfo></PaymentInfo> ,
 
 },
 
