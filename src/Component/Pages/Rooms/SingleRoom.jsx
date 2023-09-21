@@ -25,7 +25,7 @@ const [data, setData] = useState([]);
     return (
         <>
 
-        <div className='  m-10  col-span-4 flex flex-col gap-8'>
+        <div className=' m-10  col-span-4 flex flex-col gap-8'>
         <Container>
         <Header></Header>
         <div className='flex flex-col mt-5 gap-2'>

@@ -3,25 +3,25 @@ import Container from '../Shared/Container';
 import { categories } from './categoriesData';
 import CategoryBox from './CategoryBox';
 import { useSearchParams } from 'react-router-dom';
-import { FaBuffer } from 'react-icons/fa';
-import Modal from 'react-modal';
-import Modals from '../Pages/Rooms/Modals';
-Modal.setAppElement('#root');
+//import { FaBuffer } from 'react-icons/fa';
+//import Modal from 'react-modal';
+////import Modals from '../Pages/Rooms/Modals';
+//Modal.setAppElement('#root');
 
 const Categories = () => {
   const [params, setParams] = useSearchParams();
   const category = params.get('category');
-  const [isModalOpen, setIsModalOpen] = useState(false); // State to track if the modal is open
+ // const [isModalOpen, setIsModalOpen] = useState(false); // State to track if the modal is open
 
   // Function to open the modal
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
+ // //const openModal = () => {
+   // setIsModalOpen(true);
+  //};
 
   // Function to close the modal
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  //const closeModal = () => {
+   // setIsModalOpen(false);
+  //};
 
   return (
     <Container>
@@ -33,15 +33,15 @@ const Categories = () => {
             key={item.label}
             selected={category === item.label}
           />
-        ))}
-
+        ))}  </div>
+ {/* Modal 
         <button className='btn btn-outline' onClick={openModal}>
           <FaBuffer />
           Filter
         </button>
-      </div>
+    
 
-      {/* Modal */}
+     
       <Modal
   
         isOpen={isModalOpen}
@@ -50,7 +50,7 @@ const Categories = () => {
       >
         <Modals></Modals>
         
-      </Modal>
+      </Modal>*/}
     </Container>
   );
 };

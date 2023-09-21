@@ -1,38 +1,22 @@
-import { useState } from 'react';
-import { BiSearch } from 'react-icons/bi';
+
+
 import {  Wave } from 'react-animated-text';
 const Search = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleToggle = () => {
-    setIsOpen(!isOpen);
-  }
-
+ 
 
 
   return (
-    <div className={`border-[1px] w-full md:w-auto py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer ${isOpen ? 'bg-white' : ''}`}>
-    {isOpen ? (
+    <div className='border-[1px] w-full md:w-auto py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer bg-white'>
+ 
       <div className='flex flex-row items-center  gap-3'>
-        <div className='p-3 font-bold  text-xl text-rose-500 ' >
-
-        <Wave    text="Welcome, T'o AirCNC_ " effect="stretch" effectChange={2} /> 
+        <div className='p-3 font-bold  text-xl text-rose-500 flex ' >
+   
+         
+          
+        <Wave    text="Welcome, T'o AirCNC_ " effect="stretch" effectChange={2} />
         </div>
       </div>
-    ) : (
-      <div onClick={handleToggle} className='flex flex-row items-center justify-between'>
-        <div className='text-sm font-semibold px-6'>Anywhere</div>
-        <div className='hidden sm:block text-sm font-semibold px-6 border-x-[1px] flex-1 text-center'>
-          Any Week
-        </div>
-        <div className='text-sm pl-6 pr-2 text-gray-600 flex flex-row items-center gap-3'>
-          <div className='hidden sm:block'>Add Guests</div>
-          <div className='p-2 bg-rose-500 rounded-full text-white'>
-            <BiSearch size={18} />
-          </div>
-        </div>
-      </div>
-    )}
+   
   </div>
 )
 }

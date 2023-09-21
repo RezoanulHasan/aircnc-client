@@ -23,7 +23,7 @@ const Menu = () => {
           AirCNC your home
           </div>
           <div  style={{ color: textColor }} className='mt-1   '>
-          <FaEarthAmericas />
+          <FaEarthAmericas size={18} />
           </div>  </div>
           </div>
           {/* Dropdown btn */}

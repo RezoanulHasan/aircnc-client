@@ -131,13 +131,13 @@ const navigate = useNavigate();
               <div className="space-x-2 space-y-2">
                 <button
                   onClick={() => handleMakeAdmin(user)}
-                  className="btn btn-outline btn-warning text-white"
+                  className="btn bg-black  text-white"
                 >
                   Admin <FaUserShield />
                 </button>
                 <button
                   onClick={() => handleMakeHost(user)}
-                  className="btn btn-info btn-outline text-white"
+                  className="btn bg-black  text-white"
                 >
                   Host <FcBusinessman/>
                 </button>

@@ -99,7 +99,7 @@ const Rooms = () => {
             <option value=''> Price</option>
             <option value='1-500'>$100 - $500</option>
             <option value='501-1000'>$501 - $1000</option>
-            <option value='1001-2000'>Over $1001</option>
+            <option value='1001-9000'>Over $1001</option>
           </select>
 
 
@@ -168,7 +168,7 @@ const Rooms = () => {
             <option value='4'>4</option>
             <option value='5'>5</option>
             <option value='6'>6</option>
-            <option value='7-20'>7+</option>
+            <option value='7-1000'>7+</option>
           </select>
 
 
@@ -185,7 +185,7 @@ const Rooms = () => {
             <option value='4'>4</option>
             <option value='5'>5</option>
             <option value='6'>6</option>
-            <option value='7-20'>7+</option>
+            <option value='7-1000'>7+</option>
           </select>
 
  <select
@@ -201,7 +201,7 @@ const Rooms = () => {
             <option value='4'>4</option>
             <option value='5'>5</option>
             <option value='6'>6</option>
-            <option value='7-20'>7+</option>
+            <option value='7-1000'>7+</option>
           </select>
         </div>
       </div>

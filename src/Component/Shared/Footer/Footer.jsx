@@ -1,5 +1,6 @@
 import React from 'react';
 import GetRandomColor from './../../../Hooks/GetRandomColor';
+import { Link } from 'react-router-dom';
   
 
 const Footer = () => {
@@ -53,8 +54,8 @@ const Footer = () => {
     <p>AirCNC Industries Ltd. <br/>Providing reliable tech since  2023</p>
   </aside> 
 
-  <div  className='text-rose-500 text-center mt-10'>
-          © 2023 AirCNC Inc. All rights reserved.(Rezoanul Hasan)
+  <div  className='text-rose-500 text-center flex mt-10'>
+          © 2023 AirCNC Inc. All rights reserved. <span className='text-black ' > <Link to="https://www.linkedin.com/in/rezoanul-hasan-6ab158240/">  @-Rezoanul Hasan</Link>   </span>
         </div>
         
 
