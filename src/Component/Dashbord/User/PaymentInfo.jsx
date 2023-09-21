@@ -9,7 +9,7 @@ import Container from '../../Shared/Container';
 import EmptyState from '../../Shared/EmptyState';
 
 const PaymentInfo = () => {
-    useTitle("Pay-history");
+    useTitle("Pay-History");
     const [cart, refetch] = usePayment(); 
     const navigate = useNavigate();
 

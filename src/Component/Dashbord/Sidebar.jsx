@@ -50,7 +50,7 @@ const [isAdmin] = useAdmin();
     
       {/* Sidebar */}
       <div
-        className="z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-gray-100 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform" 
+        className="z-10   md:fixed flex flex-col justify-between overflow-x-hidden bg-gray-100 w-32  lg:w-64 space-y-4 px-2 py-4   absolute inset-y-0 left-0 transform" 
       
       >
         <div>
@@ -61,7 +61,7 @@ const [isAdmin] = useAdmin();
               <Logo />
             </div>
             <div className='flex flex-col items-center mt-6 -mx-2'>
-              <Link to='/dashboard'>
+              <Link to=''>
                 <img
                   className='object-cover w-24 h-24 mx-2 rounded-full'
                   src={user?.photoURL}
@@ -69,13 +69,13 @@ const [isAdmin] = useAdmin();
                   referrerPolicy='no-referrer'
                 />
               </Link>
-              <Link to='/dashboard'>
-                <h4 className='mx-2 mt-2 font-medium text-gray-800  hover:underline'>
+              <Link to=''>
+                <h4 className='mx-2 mt-2 font-medium     text-gray-800  hover:underline'>
                   {user?.displayName}
                 </h4>
               </Link>
-              <Link to='/dashboard'>
-                <p className='mx-2 mt-1 text-sm font-medium text-gray-600  hover:underline'>
+              <Link to=''>
+                <p className='lg:mx-2  mx:0 mt-1 text-sm font-medium text-gray-600  hover:underline'>
                   {user?.email}
                 </p>
               </Link>

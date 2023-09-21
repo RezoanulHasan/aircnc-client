@@ -62,7 +62,7 @@ const Reservation = () => {
       <div className='p-4'>
         <Button
           onClick={() => setIsOpen(true)}
-          disabled={email === user.email  || booked}
+          disabled={email === user.email || booked}
           label='Reserve'
         />
       </div>

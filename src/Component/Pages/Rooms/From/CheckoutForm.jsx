@@ -8,7 +8,7 @@ import { ImSpinner9 } from 'react-icons/im';
 import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
 import useAuth from '../../../../Hooks/useAuth';
 import Swal from 'sweetalert2'; // Added this line for sweetalert2
-
+import { useNavigate } from 'react-router-dom'
 const CheckoutForm = ({ bookingInfo, closeModal }) => {
   const stripe = useStripe();
   const elements = useElements();
@@ -17,7 +17,7 @@ const CheckoutForm = ({ bookingInfo, closeModal }) => {
   const [cardError, setCardError] = useState('');
   const [clientSecret, setClientSecret] = useState('');
   const [processing, setProcessing] = useState(false);
-
+  const navigate = useNavigate()
   useEffect(() => {
     if (bookingInfo.price > 0) {
       axiosSecure
@@ -91,6 +91,7 @@ const CheckoutForm = ({ bookingInfo, closeModal }) => {
                 icon: 'success',
                 text: text,
               });
+              navigate('/dashboard/bookings')
               closeModal();
             })
             .catch((err) => console.log(err));

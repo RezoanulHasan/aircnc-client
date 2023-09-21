@@ -24,6 +24,7 @@ import Allrooms from './Component/Dashbord/Admin/Allrooms.jsx';
 import MyAddRooms from './Component/Dashbord/Host/MyRooms/MyAddRooms';
 import PaymentInfo from './Component/Dashbord/User/PaymentInfo.jsx';
 import MyBooking from './Component/Dashbord/User/MyBooking.jsx';
+import AdminHome from './Component/Dashbord/Admin/AdminHome';
 
 
 
@@ -82,6 +83,14 @@ children: [
   element: <Allrooms></Allrooms> ,
 
 },
+
+
+{
+  path: '/dashboard/adminHome', 
+  element:<AdminHome></AdminHome> ,
+
+},
+
 
 
  //host

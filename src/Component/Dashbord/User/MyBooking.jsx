@@ -9,7 +9,7 @@ import Container from '../../Shared/Container';
 import EmptyState from '../../Shared/EmptyState';
 import Swal from "sweetalert2";
 const  MyBooking = () => {
-    useTitle("Pay-history");
+    useTitle("My Booking");
     const [cart, refetch] = usePayment(); 
     const  item = cart || [];
 
