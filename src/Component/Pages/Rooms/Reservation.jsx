@@ -6,7 +6,7 @@ import { AuthContext } from '../../../providers/AuthProvider';
 import { formatDistance } from 'date-fns'
 import BookingModal from './From/BookingModal';
 const Reservation = () => {
-    const {price,property,to,from,image,_id,email,location} =useLoaderData() ;
+    const {price,property,to,from,image,_id,email,location, hostname,hostphotoURL,booked} =useLoaderData() ;
 
     const [isOpen, setIsOpen] = useState(false)
     const closeModal = () => {
@@ -32,11 +32,12 @@ const Reservation = () => {
   const [bookingInfo, setBookingInfo] = useState({
     guest: { name: user.displayName, email: user.email, image: user.photoURL },
     host: email,
+    hostphotoURL:hostphotoURL,
+    hostname: hostname,
     location: location,
     price: totalPrice,
     to: value.endDate,
     from: value.startDate,
-
     roomId: _id,
     image: image,
   })
@@ -61,7 +62,7 @@ const Reservation = () => {
       <div className='p-4'>
         <Button
           onClick={() => setIsOpen(true)}
-          disabled={email === user.email }
+          disabled={email === user.email  || booked}
           label='Reserve'
         />
       </div>

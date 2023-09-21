@@ -27,7 +27,7 @@ const MapWithMarkers = () => {
     <div className="p-4  mt-10">
 
 
-<SectionTitle subHeading="Aircnc  "  heading={<>Find Our Services With Map  </>}></SectionTitle>
+<SectionTitle subHeading="Aircnc  "  heading={<>Find Services With Map  </>}></SectionTitle>
 
 <div  style={{textShadow: '0 0 3px #FF0000,0 0 4px #FF0000 '}}   className='text-center text-black ' >
 
@@ -35,13 +35,16 @@ const MapWithMarkers = () => {
       sequence={[
         // Same substring at the start will only be typed out once, initially
 
-        ' For   HOTEL.........',
+        ' For   HOTELs.........',
         1000, // wait 1s before replacing "Mice" with "Hamsters"
-        ' For   HOUSE.........',
+        ' For   HOUSEs.........',
         1000,
-        'For  APARTMENT.........',   
+        'For   Villas.........',   
         1000,
-       ' For   GEST HOUSE.........',
+        ' For  Apartments.........',
+        1000,
+       
+       ' For  GEST HOUSEs.........',
         1000,
          
       ]}

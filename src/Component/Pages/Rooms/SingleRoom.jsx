@@ -5,6 +5,7 @@ import Reservation from './Reservation';
 import useTitle from '../../../Hooks/useTitle';
 import { format } from 'date-fns';
 import Slider from '../Slider/Slider';
+import Container from '../../Shared/Container';
 const SingleRoom = () => {
   useTitle('Room Details'),
     useEffect(() => { 
@@ -25,9 +26,9 @@ const [data, setData] = useState([]);
         <>
 
         <div className='  m-10  col-span-4 flex flex-col gap-8'>
-
+        <Container>
         <Header></Header>
-        <div className='flex flex-col gap-2'>
+        <div className='flex flex-col mt-5 gap-2'>
           <div
             className='
                 text-xl 
@@ -69,11 +70,11 @@ const [data, setData] = useState([]);
           </div>
         </div>
   
-  <h1 className='text-red-500 text-xl'><span className='font-bold'>Booking Time:</span> 
+  <h1 className=' text-xl'><span className='font-bold'>Booking Time:</span> 
    
      {format(new Date(from), 'P')} to ${format(new Date(to), 'P')}
  </h1>
-
+ </Container>
   
 <Slider></Slider>
       
@@ -85,11 +86,11 @@ const [data, setData] = useState([]);
            {description}
         </div>
         <hr />
-
-        <Reservation></Reservation>
+<Container>
+        <Reservation></Reservation></Container>
 
 <div className='card-actions justify-center'>
-<Link to='/'><button className="btn mt-36   w-52  btn-warning">
+<Link to='/'><button className="btn mt-36   w-52  bg-rose-500 text-white">
 
     Back to homepage
 

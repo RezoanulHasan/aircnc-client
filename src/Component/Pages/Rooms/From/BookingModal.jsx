@@ -9,26 +9,6 @@ import SectionTitle from '../../../Shared/SectionTitle/SectionTitle';
 
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 
-
-const customStyles = {
-  content: {
-    inset: 'auto',
-    maxWidth: '100%', // Updated for responsiveness
-    width: '40%',
-    height:'100%', // Added for responsiveness
-    margin: 'auto',
-    border: 'none',
-    background: 'none',    overflow: 'visible',
- // Added for side scroll
-    WebkitOverflowScrolling: 'touch',
-    borderRadius: 'none',
-    padding: '0',
-    boxShadow: 'none',
-    textAlign: 'left',
-    position: 'center'
-  },
-};
-
 Modal.setAppElement('#root'); // Set the root element for accessibility
 
 const BookingModal = ({ closeModal, isOpen, bookingInfo }) => {

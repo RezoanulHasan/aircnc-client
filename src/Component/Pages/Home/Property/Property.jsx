@@ -8,7 +8,7 @@ import Marquee from "react-fast-marquee";
 const Property= () => {
     return (
      <Marquee  speed={150} >          
-<div className='mt-20 grid  grid-cols-8  gap-2 p-1  hover:bg-black hover:text-white'>
+<div className='mt-20 grid  grid-cols-8  gap-2 p-1 '>
 
 <div className='w-40 h-40 rounded-md border-color: inherit  border-solid border-2 hover:border-black'>
 <div className='m-8'>
