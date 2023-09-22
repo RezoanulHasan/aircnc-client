@@ -46,7 +46,7 @@ const router = createBrowserRouter([
         path: "/rooms/:id",
         element:<PrivateRoute><SingleRoom></SingleRoom></PrivateRoute>,
 
-           loader: ({params}) =>fetch(`http://localhost:5000/rooms/${params.id}`),
+           loader: ({params}) =>fetch(`https://aircnc-server-k3xjzddn8-rezoanulhasan.vercel.app/rooms/${params.id}`),
       },
   
 

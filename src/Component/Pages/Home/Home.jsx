@@ -5,39 +5,34 @@ import useTitle from '../../../Hooks/useTitle';
 import MapWithMarkers from './MapWithMarkers/MapWithMarkers';
 import Container from '../../Shared/Container';
 import Contact from './Contact/Contact';
-
 import Property from './Property/Property';
+
+
+
 
 const Home = () => {
 
     useTitle('Home'),
-    useEffect(() => { 
-
+    useEffect(() => {
         window.scrollTo(0, 0);
+    }, []);
 
-    }, []); 
-
-
-
- 
-      
 
     return (
-        <div>
-        
- <Categories/>
+        <>
+           <div  >
 
-    
-<Rooms></Rooms>
+            <Categories    />
+            <Rooms />
+            <Container>
+                <MapWithMarkers />
+                <Property />
+                <Contact />
 
-<Container>
-      
-<MapWithMarkers></MapWithMarkers>
-<Property></Property>
-<Contact></Contact>
 
-</Container>
-</div>
+
+            </Container></div> 
+        </>
     );
 };
 

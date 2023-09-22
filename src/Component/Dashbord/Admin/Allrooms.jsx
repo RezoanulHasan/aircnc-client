@@ -10,7 +10,7 @@ const Allrooms = () => {
 useTitle("All Rooms");
   useEffect(() => {
     // Fetch rooms data when the component mounts
-    fetch('http://localhost:5000/rooms')
+    fetch('https://aircnc-server-k3xjzddn8-rezoanulhasan.vercel.app/rooms')
       .then(response => response.json())
       .then(data => setRooms(data))
       .catch(error => console.error('Error fetching rooms:', error));
@@ -28,7 +28,7 @@ useTitle("All Rooms");
       cancelButtonText: 'Cancel'
     }).then(result => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/rooms/${room._id}`, {
+        fetch(`https://aircnc-server-k3xjzddn8-rezoanulhasan.vercel.app/rooms/${room._id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())

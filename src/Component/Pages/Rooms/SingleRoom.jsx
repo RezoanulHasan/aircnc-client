@@ -6,6 +6,7 @@ import useTitle from '../../../Hooks/useTitle';
 import { format } from 'date-fns';
 import Slider from '../Slider/Slider';
 import Container from '../../Shared/Container';
+import { Fade } from "react-awesome-reveal";
 const SingleRoom = () => {
   useTitle('Room Details'),
     useEffect(() => { 
@@ -28,6 +29,8 @@ const [data, setData] = useState([]);
         <div className=' m-10  col-span-4 flex flex-col gap-8'>
         <Container>
         <Header></Header>
+
+        <Fade direction="right">
         <div className='flex flex-col mt-5 gap-2'>
           <div
             className='
@@ -73,21 +76,27 @@ const [data, setData] = useState([]);
   <h1 className=' text-xl'><span className='font-bold'>Booking Time:</span> 
    
      {format(new Date(from), 'P')} to ${format(new Date(to), 'P')}
- </h1>
- </Container>
+ </h1></Fade >
+ </Container>    
   
+
+
+
+
 <Slider></Slider>
       
         <hr />
+        <Fade direction="left">
+
         <div
           className='
           text-lg font-light text-neutral-500'
         >
            {description}
-        </div>
+        </div></Fade >
         <hr />
 <Container>
-        <Reservation></Reservation></Container>
+        <Reservation></Reservation></Container>    
 
 <div className='card-actions justify-center'>
 <Link to='/'><button className="btn mt-36   w-52  bg-rose-500 text-white">

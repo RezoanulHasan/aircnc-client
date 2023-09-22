@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import GetRandomColor from '../../../Hooks/GetRandomColor';
 import { Fade } from "react-awesome-reveal";
 
+
 const Rooms = () => {
   const [params, setParams] = useSearchParams();
   const category = params.get('category');
@@ -22,8 +23,12 @@ const Rooms = () => {
   const [guests, setGuests ]= useState('');
   const [bathroom, setBathroom ]= useState('');
   const [regions, setRegions] = useState('');
+
+
+ 
+
   useEffect(() => {
-    fetch('http://localhost:5000/rooms')
+    fetch('https://aircnc-server-k3xjzddn8-rezoanulhasan.vercel.app/rooms')
       .then((res) => res.json())
       .then((data) => {
         if (category) {
@@ -80,6 +85,10 @@ const Rooms = () => {
   return (
     <Container>
     <Fade direction="down">
+
+   
+
+
       <div className=' lg:mx-20 mx-0 overflow-x-auto mt-10 border-[1px] w-full md:w-auto py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer  bg-white'>
         <div className='flex flex-row items-center gap-3'>
           <input

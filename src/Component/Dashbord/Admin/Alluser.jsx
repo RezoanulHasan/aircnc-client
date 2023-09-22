@@ -26,7 +26,7 @@ const navigate = useNavigate();
     });
   
     const handleMakeAdmin = user => {
-      fetch(`http://localhost:5000/users/admin/${user._id}`, {
+      fetch(`https://aircnc-server-k3xjzddn8-rezoanulhasan.vercel.app/users/admin/${user._id}`, {
         method: 'PATCH'
       })
         .then(res => res.json())
@@ -46,7 +46,7 @@ const navigate = useNavigate();
     };
   
     const handleMakeHost = user => {
-      fetch(`http://localhost:5000/users/host/${user._id}`, {
+      fetch(`https://aircnc-server-k3xjzddn8-rezoanulhasan.vercel.app/users/host/${user._id}`, {
         method: 'PATCH'
       })
         .then(res => res.json())
@@ -77,7 +77,7 @@ const navigate = useNavigate();
         cancelButtonText: 'Cancel'
       }).then(result => {
         if (result.isConfirmed) {
-          fetch(`http://localhost:5000/users/${user._id}`, {
+          fetch(`https://aircnc-server-k3xjzddn8-rezoanulhasan.vercel.app/users/${user._id}`, {
             method: 'DELETE'
           })
             .then(res => res.json())

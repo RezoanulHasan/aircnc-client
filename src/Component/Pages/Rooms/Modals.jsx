@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
   const [data, setData] = useState([]);
   useEffect(() => {
     // Fetch data from the specified URL
-    fetch('http://localhost:5000/rooms')
+    fetch('https://aircnc-server-k3xjzddn8-rezoanulhasan.vercel.app/rooms')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');

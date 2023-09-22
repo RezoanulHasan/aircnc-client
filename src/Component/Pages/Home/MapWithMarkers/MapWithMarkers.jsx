@@ -10,7 +10,7 @@ const MapWithMarkers = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/rooms')
+    fetch('https://aircnc-server-k3xjzddn8-rezoanulhasan.vercel.app/rooms')
       .then((response) => response.json())
       .then((data) => {
         console.log(data); // Add this line

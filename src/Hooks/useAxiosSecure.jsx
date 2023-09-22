@@ -6,7 +6,7 @@ import useAuth from './useAuth';
 
 
 const axiosSecure = axios.create({
-  baseURL: 'http://localhost:5000/', 
+  baseURL: 'https://aircnc-server-k3xjzddn8-rezoanulhasan.vercel.app/', 
 });
 
 const useAxiosSecure = () => {

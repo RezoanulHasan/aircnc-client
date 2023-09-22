@@ -25,7 +25,7 @@ const MyAddRooms = () => {
       cancelButtonText: 'Cancel'
     }).then(result => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/rooms/${room._id}`, {
+        fetch(`https://aircnc-server-k3xjzddn8-rezoanulhasan.vercel.app/rooms/${room._id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())
