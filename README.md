@@ -59,19 +59,21 @@ Welcome to the  Aircnc  Website
 
  ## Guest/User Dashboard:
 - Offers a personalized dashboard for Users
-- Users can see their booking, cancel the booking
-- see their payment history.
+- Users can see their booking info and also cancel the booking.
+- See their payment history.
 
  ## Host/User Dashboard:
-- Offers a personalized dashboard for Users,
-- user can add their booking with proper details.
-- Users can see their Accommodation  info, and delete their service and booking status.
 
+- Personalized dashboard for hosts.
+- Add services with proper details.
+- View accommodation info with booking status.
+- Delete their service.
  ## Admin Dashboard:
-- See all the users list.
-- prompt user host or guest. and delete user
-- Sell all the services and delete the service.
 
+- View all user lists.
+- Prompt user as host or guest.
+- Delete users.
+- Manage services (add, edit, delete)
 
 ## Payment method
 - react stripe js
