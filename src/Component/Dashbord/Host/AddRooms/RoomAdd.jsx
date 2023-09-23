@@ -43,7 +43,6 @@ const RoomAdd = () => {
     const region = event.target.region.value;
     const latitude = event.target.latitude.value;
     const longitude = event.target.longitude.value;
-    const dateRange = event.target.dateRange.value;
     const price = event.target.price.value;
     const guests = event.target.total_guest.value;
     const bedroom = event.target.bedroom.value;
@@ -59,7 +58,6 @@ const RoomAdd = () => {
       .then((data) => {
         const roomData = {
           location,
-          dateRange,
           region,
           property,
           latitude:parseFloat(latitude),
@@ -74,7 +72,7 @@ const RoomAdd = () => {
           hostphotoURL : user?.photoURL,
           email: user?.email,
           category,
-         to,
+          to,
          from,
         };
 

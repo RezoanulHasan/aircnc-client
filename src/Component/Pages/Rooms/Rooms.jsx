@@ -94,7 +94,7 @@ const Rooms = () => {
           <input
             id='region'
             type='text'
-            placeholder='Search by region and location'
+            placeholder='Search by location'
             className='p-2 w-auto border border-gray-300 rounded-full'
             value={region}
             onChange={(e) => setRegion(e.target.value)}

@@ -62,6 +62,7 @@ const MyAddRooms = () => {
                 <th className="py-2 px-4  ">Region</th>
                 <th className=" py-2 px-4 ">Property</th>
                 <th className=" py-2 px-4">Price</th>
+                <th className=" py-2 px-4">Status</th>
                 <th className=" py-2 px-4">Actions</th>
               </tr>
             </thead>
@@ -80,6 +81,9 @@ const MyAddRooms = () => {
                   <td className="border text-center px-10 py-2 ">{room.region}</td>
                   <td className=" border   text-center px-10 py-2">{room.property}</td>
                   <td className="border   text-center px-10 py-2 ">{room.price}</td>
+                  <td className="border text-center px-10 py-2 ">
+  {room.booked ? "Booked" : "Not Booked"}
+</td>
                   <td className="border px-10 py-2  ">
                     <button onClick={() => handleDelete(room)}>
                       <FaTrashAlt className="text-red-500" />

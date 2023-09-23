@@ -30,7 +30,7 @@ const [data, setData] = useState([]);
         <Container>
         <Header></Header>
 
-        <Fade direction="right">
+        <Fade direction="right"> 
         <div className='flex flex-col mt-5 gap-2'>
           <div
             className='
@@ -76,7 +76,7 @@ const [data, setData] = useState([]);
   <h1 className=' text-xl'><span className='font-bold'>Booking Time:</span> 
    
      {format(new Date(from), 'P')} to ${format(new Date(to), 'P')}
- </h1></Fade >
+ </h1></Fade> 
  </Container>    
   
 

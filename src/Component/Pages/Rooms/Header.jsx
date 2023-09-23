@@ -16,7 +16,7 @@ const Header = () => {
       <Heading title={region} subtitle={location}  />
       </Fade>
       
-      <div className=' overflow-hidden rounded-xl w-full md:h-[100vh] md:w-[150vh]'>
+      <div className=' overflow-hidden rounded-xl w-full   md:w-[150vh]'>
       
         <img
           className='object-cover w-full '

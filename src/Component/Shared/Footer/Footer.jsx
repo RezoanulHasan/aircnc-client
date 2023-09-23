@@ -55,7 +55,7 @@ const Footer = () => {
   </aside> 
 
   <div  className='text-rose-500 text-center flex mt-10'>
-          © 2023 AirCNC Inc. All rights reserved. <span className='text-black ' > <Link to="https://www.linkedin.com/in/rezoanul-hasan-6ab158240/">  @-Rezoanul Hasan</Link>   </span>
+          © 2023 AirCNC Inc. All rights reserved. <span className='text-black ' > <Link to="https://www.linkedin.com/in/rezoanul-hasan-6ab158240/">  @-Rezoanul Hasan Riad</Link>   </span>
         </div>
         
 
