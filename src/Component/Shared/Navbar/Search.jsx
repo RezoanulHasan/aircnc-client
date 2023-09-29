@@ -7,7 +7,7 @@ return (
       <div className='flex flex-row items-center  gap-3'>
         <div className='p-3 font-bold  text-xl text-rose-500 flex ' >
             
-        <Wave    text="Welcome, T'o AirCNC_ " effect="stretch" effectChange={2} />
+        <Wave    text="Welcome, T'o AirCNC" effect="stretch" effectChange={2} />
         </div>
       </div>
    

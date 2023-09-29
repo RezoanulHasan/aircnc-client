@@ -26,10 +26,13 @@ const MapWithMarkers = () => {
 
     <div className="p-4  mt-10">
 
+<SectionTitle
+  subHeading="Explore Services Near You"
+  heading={<>Discover Nearby Services</>}
+/>
 
-<SectionTitle subHeading="Aircnc  "  heading={<>Find Services With Map  </>}></SectionTitle>
 
-<div  style={{textShadow: '0 0 3px #FF0000,0 0 4px #FF0000 '}}   className='text-center text-black ' >
+<div     className=' bg-black bg-opacity-10   text-xl text-center text-rose-600 ' >
 
       <TypeAnimation className='mt-10 mb-10   '
       sequence={[

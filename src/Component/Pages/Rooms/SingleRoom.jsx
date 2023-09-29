@@ -7,6 +7,7 @@ import { format } from 'date-fns';
 import Slider from '../Slider/Slider';
 import Container from '../../Shared/Container';
 import { Fade } from "react-awesome-reveal";
+
 const SingleRoom = () => {
   useTitle('Room Details'),
     useEffect(() => { 
@@ -16,7 +17,7 @@ const SingleRoom = () => {
     }, []); 
 
 
-const {id,image,
+const {_id,image,
   guests,bedroom,bathroom,to, from,location,
   hostname,
   hostphotoURL,
@@ -95,6 +96,10 @@ const [data, setData] = useState([]);
            {description}
         </div></Fade >
         <hr />
+
+
+
+       
 <Container>
         <Reservation></Reservation></Container>    
 

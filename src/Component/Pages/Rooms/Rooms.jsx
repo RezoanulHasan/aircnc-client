@@ -90,7 +90,7 @@ const Rooms = () => {
 
 
       <div className=' lg:mx-20 mx-0 overflow-x-auto mt-10 border-[1px] w-full md:w-auto py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer  bg-white'>
-        <div className='flex flex-row items-center gap-3'>
+        <div className='flex flex-row items-center justify-between bg-rose-100 gap-3'>
           <input
             id='region'
             type='text'
