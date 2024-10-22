@@ -6,12 +6,10 @@ function Banner() {
       <section className="flex flex-col md:flex-row items-center justify-between py-12 px-">
         {/* Left Side: Text */}
         <div className="w-full md:w-1/2 space-y-6 md:pr-8 text-center md:text-left">
-          <h1 className="h leading-tight tracking-tight text-rose-500">
-            Explore the World with
-            <span className="">
-              {" "}
-              Aircn<span>C</span>
-            </span>
+          <h1 className="h leading-tight tracking-tight">
+            <span className="text-red-500"> Explore the </span> World with
+            <span className="text-red-500"> Aircn</span>C
+            <span className="text-black"></span>
           </h1>
         </div>
 

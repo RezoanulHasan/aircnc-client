@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import Container from "../../Shared/Container";
 import Spinner from "../../Shared/Spinner/Spinner";
@@ -17,12 +17,15 @@ const RoomFilter = () => {
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(true);
   useTitle("Filters");
+
   // Filters state
   const [selectedRegions, setSelectedRegions] = useState([]);
   const [selectedPropertyTypes, setSelectedPropertyTypes] = useState([]);
   const [bedroom, setBedroom] = useState("");
   const [guests, setGuests] = useState("");
   const [priceRange, setPriceRange] = useState([0, 2000]);
+  const [locationSearch, setLocationSearch] = useState(""); // Location Search
+  const [sortByPrice, setSortByPrice] = useState(false); // Sort by Price
 
   useEffect(() => {
     fetch("https://aircnc-server-k3xjzddn8-rezoanulhasan.vercel.app/rooms")
@@ -52,28 +55,64 @@ const RoomFilter = () => {
     );
   };
 
+  // Reset all filters
+  const resetFilters = () => {
+    setSelectedRegions([]);
+    setSelectedPropertyTypes([]);
+    setBedroom("");
+    setGuests("");
+    setPriceRange([0, 2000]);
+    setLocationSearch("");
+    setSortByPrice(false);
+  };
+
   // Filter logic
-  const filteredRooms = rooms
-    .filter((room) => {
-      if (selectedRegions.length === 0) return true;
-      return selectedRegions.includes(room.region);
-    })
-    .filter((room) => {
-      if (selectedPropertyTypes.length === 0) return true;
-      return selectedPropertyTypes.includes(room.property);
-    })
-    .filter((room) => {
-      if (!bedroom) return true;
-      return room.bedroom === parseInt(bedroom, 10);
-    })
-    .filter((room) => {
-      if (!guests) return true;
-      return room.guests === parseInt(guests, 10);
-    })
-    .filter((room) => {
-      const [minPrice, maxPrice] = priceRange;
-      return room.price >= minPrice && room.price <= maxPrice;
-    });
+  const filteredRooms = useMemo(() => {
+    let filtered = rooms
+      .filter((room) => {
+        if (selectedRegions.length === 0) return true;
+        return selectedRegions.includes(room.region);
+      })
+      .filter((room) => {
+        if (selectedPropertyTypes.length === 0) return true;
+        return selectedPropertyTypes.includes(room.property);
+      })
+      .filter((room) => {
+        if (!bedroom) return true;
+        return room.bedroom === parseInt(bedroom, 10);
+      })
+      .filter((room) => {
+        if (!guests) return true;
+        return room.guests === parseInt(guests, 10);
+      })
+      .filter((room) => {
+        const [minPrice, maxPrice] = priceRange;
+        return room.price >= minPrice && room.price <= maxPrice;
+      })
+      .filter((room) => {
+        if (!locationSearch) return true;
+        return room.location
+          .toLowerCase()
+          .includes(locationSearch.toLowerCase());
+      });
+
+    // Sort by price if enabled
+    if (sortByPrice === "lowToHigh") {
+      filtered = filtered.sort((a, b) => a.price - b.price); // Low to High
+    } else if (sortByPrice === "highToLow") {
+      filtered = filtered.sort((a, b) => b.price - a.price); // High to Low
+    }
+    return filtered;
+  }, [
+    rooms,
+    selectedRegions,
+    selectedPropertyTypes,
+    bedroom,
+    guests,
+    priceRange,
+    locationSearch,
+    sortByPrice,
+  ]);
 
   return (
     <Container>
@@ -81,7 +120,18 @@ const RoomFilter = () => {
         {/* Filter Section */}
         <div className="w-1/4 p-4 bg-gray-50 rounded-lg">
           <h2 className="text-xl font-bold mb-4">Filters</h2>
-          {/* Region Filter - Square checkboxes */}
+          {/* Search by Location */}
+          <div className="mb-4">
+            <h3 className="text-lg font-semibold mb-2">Search by Location</h3>
+            <input
+              type="text"
+              value={locationSearch}
+              onChange={(e) => setLocationSearch(e.target.value)}
+              placeholder="Enter location"
+              className="p-2 border rounded w-full"
+            />
+          </div>
+          {/* Region Filter */}
           <div className="mb-4">
             <h3 className="text-lg font-semibold mb-2">Region</h3>
             <div className="flex flex-col space-y-2">
@@ -93,13 +143,14 @@ const RoomFilter = () => {
                 "Russia",
                 "Australia",
                 "Antarctica",
-                "Mriddle East",
+                "Middle East",
               ].map((region) => (
                 <label key={region} className="flex items-center space-x-2">
                   <input
                     type="checkbox"
                     value={region}
                     onChange={handleRegionChange}
+                    checked={selectedRegions.includes(region)}
                     className="form-checkbox h-4 w-4 rounded-md text-blue-500"
                   />
                   <span>{region}</span>
@@ -107,7 +158,7 @@ const RoomFilter = () => {
               ))}
             </div>
           </div>
-          {/* Property Type Filter - Square checkboxes */}
+          {/* Property Type Filter */}
           <div className="mb-4">
             <h3 className="text-lg font-semibold mb-2">Property Type</h3>
             <div className="flex flex-col space-y-2">
@@ -118,6 +169,7 @@ const RoomFilter = () => {
                       type="checkbox"
                       value={type}
                       onChange={handlePropertyTypeChange}
+                      checked={selectedPropertyTypes.includes(type)}
                       className="form-checkbox h-4 w-4 rounded-md text-blue-500"
                     />
                     <span>{type}</span>
@@ -126,7 +178,7 @@ const RoomFilter = () => {
               )}
             </div>
           </div>
-          {/* Bedrooms Filter - Round checkboxes */}
+          {/* Bedrooms Filter */}
           <div className="mb-4">
             <h3 className="text-lg font-semibold mb-2">Bedrooms</h3>
             <div className="flex flex-col space-y-2">
@@ -137,6 +189,7 @@ const RoomFilter = () => {
                     name="bedroom"
                     value={bdr === "7+" ? "7-1000" : bdr}
                     onChange={(e) => setBedroom(e.target.value)}
+                    checked={bedroom === String(bdr)}
                     className="form-radio h-4 w-4 text-blue-500 rounded-full"
                   />
                   <span>{bdr}</span>
@@ -144,7 +197,7 @@ const RoomFilter = () => {
               ))}
             </div>
           </div>
-          {/* Guests Filter - Round checkboxes */}
+          {/* Guests Filter */}
           <div className="mb-4">
             <h3 className="text-lg font-semibold mb-2">Guests</h3>
             <div className="flex flex-col space-y-2">
@@ -155,6 +208,7 @@ const RoomFilter = () => {
                     name="guests"
                     value={gst === "7+" ? "7-1000" : gst}
                     onChange={(e) => setGuests(e.target.value)}
+                    checked={guests === String(gst)}
                     className="form-radio h-4 w-4 text-blue-500 rounded-full"
                   />
                   <span>{gst}</span>
@@ -163,7 +217,6 @@ const RoomFilter = () => {
             </div>
           </div>
           {/* Price Range Filter */}
-          {/* Price Range Filter - Radio buttons for price ranges */}
           <div className="mb-4">
             <h3 className="text-lg font-semibold mb-2">Price Range</h3>
             <div className="flex flex-col space-y-2">
@@ -177,7 +230,7 @@ const RoomFilter = () => {
                   <input
                     type="radio"
                     name="priceRange"
-                    value={priceOption.range}
+                    value={index}
                     onChange={() => setPriceRange(priceOption.range)}
                     className="form-radio h-4 w-4 text-blue-500"
                   />
@@ -185,61 +238,77 @@ const RoomFilter = () => {
                 </label>
               ))}
             </div>
-          </div>{" "}
+          </div>
+          {/* Sort by Price */}
+          <div className="mb-4">
+            <h3 className="text-lg font-semibold mb-2">Sort by Price</h3>
+            <div className="flex flex-col space-y-2">
+              <label className="flex items-center space-x-2">
+                <input
+                  type="radio"
+                  name="sortPrice"
+                  value="lowToHigh"
+                  onChange={(e) => setSortByPrice(e.target.value)}
+                  checked={sortByPrice === "lowToHigh"}
+                  className="form-radio h-4 w-4 text-blue-500 rounded-full"
+                />
+                <span>Low to High</span>
+              </label>
+              <label className="flex items-center space-x-2">
+                <input
+                  type="radio"
+                  name="sortPrice"
+                  value="highToLow"
+                  onChange={(e) => setSortByPrice(e.target.value)}
+                  checked={sortByPrice === "highToLow"}
+                  className="form-radio h-4 w-4 text-blue-500 rounded-full"
+                />
+                <span>High to Low</span>
+              </label>
+            </div>
+          </div>
+          {/* Reset Filters Button */}
+          <button
+            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+            onClick={resetFilters}
+          >
+            Reset All Filters
+          </button>
         </div>
 
-        {/* Room List Section */}
-        <div className="w-3/4">
+        {/* Room Listing Section */}
+        <div className="w-3/4  mb-10">
           {loading ? (
             <Spinner />
-          ) : filteredRooms.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-              {filteredRooms.map((room) => (
-                <ShowRoomData key={room._id} room={room} />
-              ))}
-            </div>
+          ) : filteredRooms.length === 0 ? (
+            <p>No rooms available</p>
           ) : (
-            <div>
-              <Heading
-                title="No Rooms Available"
-                subtitle="Try adjusting your filters."
-                center={true}
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {filteredRooms.map((room) => (
+                <div
+                  key={room._id}
+                  className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition-all"
+                >
+                  <Link to={`/rooms/${room._id}`}>
+                    <div
+                      className="h-48 w-full bg-cover bg-center rounded-t-md"
+                      style={{ backgroundImage: `url(${room.image})` }}
+                    />
+                    <div className="p-2">
+                      <Heading>{room.title}</Heading>
+                      <p className="text-gray-600">{room.location}</p>
+                      <p className="text-gray-900 font-bold">${room.price}</p>
+                    </div>
+                  </Link>
+                  <HeartButton roomId={room._id} />
+                </div>
+              ))}
             </div>
           )}
         </div>
       </div>
+      <ToastContainer />
     </Container>
-  );
-};
-
-const ShowRoomData = ({ room }) => {
-  const textColor = GetRandomColor();
-
-  return (
-    <Link to={`/rooms/${room?._id}`} className="group">
-      <div className="flex flex-col gap-2 w-full">
-        <div className="aspect-square w-full relative overflow-hidden rounded-xl">
-          <img
-            className="object-cover h-full w-full group-hover:scale-110 transition"
-            src={room?.image}
-            alt="Room"
-          />
-          <div className="absolute top-3 right-3">
-            <HeartButton />
-            <ToastContainer />
-          </div>
-        </div>
-        <div className="font-semibold text-lg">{room?.location}</div>
-        <div className="font-light text-neutral-500">{room?.dateRange}</div>
-        <div className="flex items-center gap-1">
-          <div style={{ color: textColor }} className="font-semibold">
-            $ {room?.price}
-          </div>
-          <div className="font-light">/ night</div>
-        </div>
-      </div>
-    </Link>
   );
 };
 

@@ -47,7 +47,7 @@ const Footer = () => {
 
           {/* Services Section */}
           <nav className="flex-1 mb-8">
-            <header className="text-rose-400 text-2xl  mb-2   font-semibold  pb-3 border-b-2 border-rose-400">
+            <header className=" text-xl  mb-2   font-semibold  pb-3 border-b-2 border-rose-400">
               Services
             </header>
             <a className="link link-hover text-xl hover:text-rose-400 transition mb-1">
@@ -66,7 +66,7 @@ const Footer = () => {
 
           {/* Company Section */}
           <nav className="flex-1 mb-8">
-            <header className="text-rose-400 text-2xl  mb-2   font-semibold  pb-3 border-b-2 border-rose-400">
+            <header className="text-xl  mb-2   font-semibold  pb-3 border-b-2 border-rose-400">
               Company
             </header>
             <a className="link link-hover text-xl hover:text-rose-400 transition mb-1">
@@ -85,7 +85,7 @@ const Footer = () => {
 
           {/* Legal Section */}
           <nav className="flex-1 mb-8">
-            <header className="text-rose-400 text-2xl  mb-2   font-semibold  pb-3 border-b-2 border-rose-400">
+            <header className=" text-xl  mb-2   font-semibold  pb-3 border-b-2 border-rose-400">
               Legal
             </header>
             <a className="link link-hover text-xl hover:text-rose-400 transition mb-1">
@@ -103,7 +103,7 @@ const Footer = () => {
           </nav>
         </footer>
       </div>
-      <footer className="footer                    bg-gray-800 text-white border-t border-gray-600  px-10 py-4 ">
+      <footer className="footer bg-gray-800 text-white border-t border-gray-600  px-10 py-4 ">
         <aside className="items-center grid-flow-col">
           <div className="avatar bg-black">
             <div className="w-20 mask mask-hexagon">

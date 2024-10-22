@@ -2,212 +2,34 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Container from "../../Shared/Container";
 import Spinner from "../../Shared/Spinner/Spinner";
-import { useSearchParams } from "react-router-dom";
 import Heading from "../../Heading/Heading";
 import HeartButton from "../../Button/HeartButton";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import GetRandomColor from "../../../Hooks/GetRandomColor";
-import { Fade } from "react-awesome-reveal";
 
 const Rooms = () => {
-  const [params, setParams] = useSearchParams();
-  const category = params.get("category");
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [region, setRegion] = useState("");
-  const [priceRange, setPriceRange] = useState("");
-  const [propertyType, setPropertyType] = useState("");
-  const [bedroom, setBedroom] = useState("");
-  const [guests, setGuests] = useState("");
-  const [bathroom, setBathroom] = useState("");
-  const [regions, setRegions] = useState("");
   const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     fetch("https://aircnc-server-k3xjzddn8-rezoanulhasan.vercel.app/rooms")
       .then((res) => res.json())
       .then((data) => {
-        if (category) {
-          const filtered = data.filter((room) => room.category === category);
-          setRooms(filtered);
-        } else {
-          setRooms(data);
-        }
+        setRooms(data);
         setLoading(false);
       })
       .catch((err) => {
         console.log(err);
         setLoading(false);
       });
-  }, [category]);
+  }, []);
 
-  const filteredRooms = rooms
-    .filter((room) =>
-      room.location.toLowerCase().includes(region.toLowerCase())
-    )
-    .filter((room) => {
-      if (!priceRange) return true;
-      const [minPrice, maxPrice] = priceRange.split("-").map(Number);
-      return room.price >= minPrice && room.price <= maxPrice;
-    })
-    .filter((room) => {
-      if (!propertyType) return true;
-      return room.property.toLowerCase() === propertyType.toLowerCase();
-    })
-    .filter((room) => {
-      if (!regions) return true;
-      return room.region.toLowerCase() === regions.toLowerCase();
-    })
-    .filter((room) => {
-      if (!bedroom) return true;
-      return room.bedroom === parseInt(bedroom, 10);
-    })
-    .filter((room) => {
-      if (!guests) return true;
-      return room.guests === parseInt(guests, 10);
-    })
-    .filter((room) => {
-      if (!bathroom) return true;
-      return room.bathroom === parseInt(bathroom, 10);
-    });
-
-  const displayedRooms = showAll ? filteredRooms : filteredRooms.slice(0, 20);
-  const clearFilters = () => {
-    setPriceRange(""); // Reset price range
-    setPropertyType(""); // Reset property type
-    setRegions(""); // Reset region
-    setBedroom(""); // Reset bedroom count
-    setGuests(""); // Reset guests count
-    setBathroom(""); // Reset bathroom count
-    setRegion(""); // Reset search by location
-  };
+  const displayedRooms = showAll ? rooms : rooms.slice(0, 20);
 
   return (
     <Container>
-      <Fade direction="down">
-        <div className="lg:px-10 bg-rose-300 px:5  lg:mx-20 mx-0 overflow-x-auto  border-[1px] w-full md:w-auto py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer  ">
-          <div className="flex flex-row items-center justify-between gap-3 flex-wrap md:flex-nowrap">
-            {/* Price Filter */}
-            <select
-              id="price"
-              className="p-3 border border-gray-300 rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all"
-              value={priceRange}
-              onChange={(e) => setPriceRange(e.target.value)}
-            >
-              <option value="">Price</option>
-              <option value="1-500">$100 - $500</option>
-              <option value="501-1000">$501 - $1000</option>
-              <option value="1001-9000">Over $1001</option>
-            </select>
-
-            {/* Property Type Filter */}
-            <select
-              id="type"
-              className="p-3 border border-gray-300 rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all"
-              value={propertyType}
-              onChange={(e) => setPropertyType(e.target.value)}
-            >
-              <option value="">Property Type</option>
-              <option value="Guest House">Guest House</option>
-              <option value="Apartment">Apartment</option>
-              <option value="Villa">Villa</option>
-              <option value="Hotel">Hotel</option>
-              <option value="House">House</option>
-            </select>
-
-            {/* Region Filter */}
-            <select
-              id="regions"
-              className="p-3 border border-gray-300 rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all"
-              value={regions}
-              onChange={(e) => setRegions(e.target.value)}
-            >
-              <option value="">Region</option>
-              <option value="USA">USA</option>
-              <option value="Asia">Asia</option>
-              <option value="Europe">Europe</option>
-              <option value="Africa">Africa</option>
-              <option value="Russia">Russia</option>
-              <option value="Australia">Australia</option>
-              <option value="Antarctica">Antarctica</option>
-              <option value="Mriddle East">Middle East</option>
-            </select>
-
-            {/* Bedroom Filter */}
-            <select
-              id="bedroom"
-              className="p-3 border border-gray-300 rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all"
-              value={bedroom}
-              onChange={(e) => setBedroom(e.target.value)}
-            >
-              <option value="">Bedrooms</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7-1000">7+</option>
-            </select>
-
-            {/* Guests Filter */}
-            <select
-              id="bed"
-              className="p-3 border border-gray-300 rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all"
-              value={guests}
-              onChange={(e) => setGuests(e.target.value)}
-            >
-              <option value="">Guests</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7-1000">7+</option>
-            </select>
-
-            {/* Bathroom Filter */}
-            <select
-              id="bathroom"
-              className="p-3 border border-gray-300 rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all"
-              value={bathroom}
-              onChange={(e) => setBathroom(e.target.value)}
-            >
-              <option value="">Bathrooms</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7-1000">7+</option>
-            </select>
-          </div>
-        </div>
-        {/* Search by Location */}
-      </Fade>
-      <div className="mt-1 flex justify-center  gap-10">
-        <input
-          id="region"
-          type="text"
-          placeholder="Search by location"
-          className="p-3 w-full md:w-1/3 border-2 border-red-500 rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all"
-          value={region}
-          onChange={(e) => setRegion(e.target.value)}
-        />
-
-        {/* Clear Button */}
-        <div className="flex justify-end mt-4">
-          <button
-            onClick={clearFilters}
-            className="px-6 py-2 bg-red-500 text-white rounded-full shadow-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 transition-all"
-          >
-            Clear Filters
-          </button>
-        </div>
-      </div>
       {loading ? (
         <Spinner />
       ) : displayedRooms?.length > 0 ? (
@@ -219,17 +41,17 @@ const Rooms = () => {
       ) : (
         <div className="pt-12">
           <Heading
-            title="No Rooms Available In This Category!"
-            subtitle="Please Select Other Categories."
+            title="No Rooms Available!"
+            subtitle="Please check back later."
             center={true}
           />
         </div>
       )}
-      {filteredRooms?.length > 20 && !showAll && (
+      {rooms?.length > 20 && !showAll && (
         <div className="flex justify-center mt-10">
           <button
             onClick={() => setShowAll(true)}
-            className="flex items-center bg-rose-500 text-white px-20  py-5 rounded-full shadow-md hover:shadow-lg transition"
+            className="flex items-center bg-rose-500 text-white px-20 py-5 rounded-full shadow-md hover:shadow-lg transition"
           >
             <span>Show All</span>
             <svg

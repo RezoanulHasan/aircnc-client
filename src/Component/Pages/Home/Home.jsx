@@ -16,7 +16,8 @@ import AboutMore from "./AboutUs/AboutMore";
 
 import ParallaxSlideImage from "./ParallaxMessage/ParallaxSlideImage";
 import ParallaxMessage from "./ParallaxMessage/ParallaxMessage";
-import LeafletMap from "../../Shared/Footer/Leaflet/LeafletMap";
+import Header from "./Header/Header";
+
 const Home = () => {
   useTitle("Home"),
     useEffect(() => {
@@ -36,11 +37,14 @@ const Home = () => {
             />
             Your browser does not support the video tag.
           </video>
+
           <div className="content">
             <Categories />
             <Discount></Discount>
+            <Header></Header>
           </div>
         </div>
+
         <Rooms />
 
         <Container>
