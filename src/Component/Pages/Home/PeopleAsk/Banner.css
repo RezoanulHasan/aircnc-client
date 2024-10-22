@@ -1,0 +1,19 @@
+.h {
+  font-size: 100px;
+  font-weight: 800;
+  letter-spacing: -5px;
+  margin: -35px 0 -32px -5px;
+}
+.sh {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 2.5em;
+  letter-spacing: -0.6px;
+}
+.st {
+  margin: -45px 0 0 30px;
+  font-size: 48px;
+  font-style: italic;
+  font-family: "Great Vibes", cursive;
+  letter-spacing: -1.2px;
+}

@@ -73,53 +73,53 @@ const Rooms = () => {
     });
 
   const displayedRooms = showAll ? filteredRooms : filteredRooms.slice(0, 20);
+  const clearFilters = () => {
+    setPriceRange(""); // Reset price range
+    setPropertyType(""); // Reset property type
+    setRegions(""); // Reset region
+    setBedroom(""); // Reset bedroom count
+    setGuests(""); // Reset guests count
+    setBathroom(""); // Reset bathroom count
+    setRegion(""); // Reset search by location
+  };
 
   return (
     <Container>
       <Fade direction="down">
-        <div className=" lg:mx-20 mx-0 overflow-x-auto mt-10 border-[1px] w-full md:w-auto py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer  bg-white">
-          <div className="flex flex-row items-center justify-between bg-rose-100 gap-3">
-            <input
-              id="region"
-              type="text"
-              placeholder="Search by location"
-              className="p-2 w-auto border border-gray-300 rounded-full"
-              value={region}
-              onChange={(e) => setRegion(e.target.value)}
-            />
+        <div className="lg:px-10 bg-rose-300 px:5  lg:mx-20 mx-0 overflow-x-auto  border-[1px] w-full md:w-auto py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer  ">
+          <div className="flex flex-row items-center justify-between gap-3 flex-wrap md:flex-nowrap">
+            {/* Price Filter */}
             <select
               id="price"
-              className="p-2 border text-center border-gray-300 rounded-full"
+              className="p-3 border border-gray-300 rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all"
               value={priceRange}
               onChange={(e) => setPriceRange(e.target.value)}
             >
-              <option value=""> Price</option>
+              <option value="">Price</option>
               <option value="1-500">$100 - $500</option>
               <option value="501-1000">$501 - $1000</option>
               <option value="1001-9000">Over $1001</option>
             </select>
 
+            {/* Property Type Filter */}
             <select
               id="type"
-              className="p-2 border text-center  border-gray-300 rounded-full"
+              className="p-3 border border-gray-300 rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all"
               value={propertyType}
               onChange={(e) => setPropertyType(e.target.value)}
             >
-              <option value=""> Property</option>
-
-              <option value="Guest House"> Guest House </option>
-
+              <option value="">Property Type</option>
+              <option value="Guest House">Guest House</option>
               <option value="Apartment">Apartment</option>
               <option value="Villa">Villa</option>
-
               <option value="Hotel">Hotel</option>
-
               <option value="House">House</option>
             </select>
 
+            {/* Region Filter */}
             <select
               id="regions"
-              className="p-2 border text-center  border-gray-300 rounded-full"
+              className="p-3 border border-gray-300 rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all"
               value={regions}
               onChange={(e) => setRegions(e.target.value)}
             >
@@ -134,13 +134,14 @@ const Rooms = () => {
               <option value="Mriddle East">Middle East</option>
             </select>
 
+            {/* Bedroom Filter */}
             <select
               id="bedroom"
-              className="p-2 border text-center border-gray-300 rounded-full"
+              className="p-3 border border-gray-300 rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all"
               value={bedroom}
               onChange={(e) => setBedroom(e.target.value)}
             >
-              <option value="">Bed-Room</option>
+              <option value="">Bedrooms</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -150,13 +151,14 @@ const Rooms = () => {
               <option value="7-1000">7+</option>
             </select>
 
+            {/* Guests Filter */}
             <select
               id="bed"
-              className="p-2 border text-center border-gray-300 rounded-full"
+              className="p-3 border border-gray-300 rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all"
               value={guests}
               onChange={(e) => setGuests(e.target.value)}
             >
-              <option value="">Guest</option>
+              <option value="">Guests</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -166,13 +168,14 @@ const Rooms = () => {
               <option value="7-1000">7+</option>
             </select>
 
+            {/* Bathroom Filter */}
             <select
               id="bathroom"
-              className="p-2 border text-center border-gray-300 rounded-full"
+              className="p-3 border border-gray-300 rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all"
               value={bathroom}
               onChange={(e) => setBathroom(e.target.value)}
             >
-              <option value="">Bathroom</option>
+              <option value="">Bathrooms</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -183,13 +186,34 @@ const Rooms = () => {
             </select>
           </div>
         </div>
+        {/* Search by Location */}
       </Fade>
+      <div className="mt-1 flex justify-center  gap-10">
+        <input
+          id="region"
+          type="text"
+          placeholder="Search by location"
+          className="p-3 w-full md:w-1/3 border-2 border-red-500 rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all"
+          value={region}
+          onChange={(e) => setRegion(e.target.value)}
+        />
+
+        {/* Clear Button */}
+        <div className="flex justify-end mt-4">
+          <button
+            onClick={clearFilters}
+            className="px-6 py-2 bg-red-500 text-white rounded-full shadow-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 transition-all"
+          >
+            Clear Filters
+          </button>
+        </div>
+      </div>
       {loading ? (
         <Spinner />
-      ) : displayedRooms.length > 0 ? (
+      ) : displayedRooms?.length > 0 ? (
         <div className="pt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
           {displayedRooms.map((room) => (
-            <ShowRoomData key={room._id} room={room} />
+            <ShowRoomData key={room?._id} room={room} />
           ))}
         </div>
       ) : (
@@ -201,7 +225,7 @@ const Rooms = () => {
           />
         </div>
       )}
-      {filteredRooms.length > 20 && !showAll && (
+      {filteredRooms?.length > 20 && !showAll && (
         <div className="flex justify-center mt-10">
           <button
             onClick={() => setShowAll(true)}
@@ -239,7 +263,7 @@ const ShowRoomData = ({ room }) => {
       <div className="flex flex-col gap-2 w-full">
         <div
           className="
-            aspect-square 
+         aspect-square
             w-full 
             relative 
             overflow-hidden 
