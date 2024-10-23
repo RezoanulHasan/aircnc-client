@@ -6,8 +6,9 @@ import Heading from "../../Heading/Heading";
 import HeartButton from "../../Button/HeartButton";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import GetRandomColor from "../../../Hooks/GetRandomColor";
+import { FaArrowRightLong } from "react-icons/fa6";
 import useTitle from "../../../Hooks/useTitle";
+("react");
 
 const RoomFilter = () => {
   useEffect(() => {
@@ -120,6 +121,15 @@ const RoomFilter = () => {
         {/* Filter Section */}
         <div className="w-1/4 p-4 bg-gray-50 rounded-lg">
           <h2 className="text-xl font-bold mb-4">Filters</h2>
+
+          <Link to="/dataFilters">
+            <button className=" text-white rounded-lg btn btn-outline  bg-black focus:outline-none  px-5 py-3 lg:py-4 text-center flex space-x-2 items-center ">
+              <span className="font-semibold text-white hover:text-red-500">
+                Found Available Date
+              </span>
+              <FaArrowRightLong />
+            </button>
+          </Link>
           {/* Search by Location */}
           <div className="mb-4">
             <h3 className="text-lg font-semibold mb-2">Search by Location</h3>
@@ -131,6 +141,7 @@ const RoomFilter = () => {
               className="p-2 border rounded w-full"
             />
           </div>
+
           {/* Region Filter */}
           <div className="mb-4">
             <h3 className="text-lg font-semibold mb-2">Region</h3>

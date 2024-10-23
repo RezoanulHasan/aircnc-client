@@ -45,9 +45,14 @@ const Discount = () => {
   return (
     <div className="flex flex-col items-center justify-center pt-16  ">
       <h3 className="text-3xl text-center mb-6">
-        Get <span className="text-rose-500 text-5xl font-semibold">15%</span>{" "}
+        Get{" "}
+        <span className="text-rose-500 text-3xl    bg-black font-semibold p-1 rounded-lg">
+          15%
+        </span>{" "}
         Discount For All Accommodation to ,{" "}
-        <span className="text-red-400  font-semibold">JAN 2025.</span>
+        <span className="text-red-600 text-2xl bg-black font-semibold p-1 rounded-lg">
+          JAN 2025.
+        </span>
       </h3>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-5 text-center">
         <div className="countdown-timer">

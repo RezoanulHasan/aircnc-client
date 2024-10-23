@@ -21,7 +21,9 @@ const Header = () => {
             <div className="flex justify-center lg:justify-start">
               <Link to="/filters">
                 <button className=" text-white btn btn-outline  bg-black focus:outline-none rounded-sm text-sm px-5 py-3 lg:py-4 text-center flex space-x-2 items-center bg-opacity-50">
-                  <span className="font-semibold">Click Here Booking Now</span>
+                  <span className="font-semibold text-red-500">
+                    Click Here Booking Now
+                  </span>
                   <FaArrowRightLong />
                 </button>
               </Link>
@@ -32,10 +34,15 @@ const Header = () => {
                 <CiLocationOn className="text-xl text-white" />
                 <p className="text-sm text-white">Location</p>
               </div>
-              <div className="flex space-x-1 items-center">
-                <PiArrowBendDoubleUpRightThin className="text-xl text-white" />
-                <p className="text-sm text-white">Compare</p>
-              </div>
+              <Link to="/dataFilters">
+                <div className="flex space-x-1 items-center">
+                  <PiArrowBendDoubleUpRightThin className="text-xl text-white  " />
+                  <p className="text-sm  text-red-500">
+                    {" "}
+                    Found Available By Data Range
+                  </p>
+                </div>
+              </Link>
               <div className="flex space-x-1 items-center">
                 <PiHeadphonesThin className="text-xl text-white" />
                 <p className="text-sm text-white">Customer Support</p>

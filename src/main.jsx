@@ -23,6 +23,7 @@ import MyBooking from "./Component/Dashbord/User/MyBooking.jsx";
 import AdminHome from "./Component/Dashbord/Admin/AdminHome";
 import Review from "./Component/Pages/Home/Review/Review.jsx";
 import RoomFilter from "./Component/Pages/Rooms/RoomFilter.jsx";
+import DataRangeFilter from "./Component/Pages/Rooms/DataRangeFilter.jsx";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: "/filters",
         element: <RoomFilter></RoomFilter>,
+      },
+      {
+        path: "/dataFilters",
+        element: <DataRangeFilter></DataRangeFilter>,
       },
 
       {
