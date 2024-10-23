@@ -7,25 +7,30 @@ import HeartButton from "../../Button/HeartButton";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import GetRandomColor from "../../../Hooks/GetRandomColor";
-
+import { useSearchParams } from "react-router-dom";
 const Rooms = () => {
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showAll, setShowAll] = useState(false);
-
+  const [params, setParams] = useSearchParams();
+  const category = params.get("category");
   useEffect(() => {
     fetch("https://aircnc-server-k3xjzddn8-rezoanulhasan.vercel.app/rooms")
       .then((res) => res.json())
       .then((data) => {
-        setRooms(data);
+        if (category) {
+          const filtered = data.filter((room) => room.category === category);
+          setRooms(filtered);
+        } else {
+          setRooms(data);
+        }
         setLoading(false);
       })
       .catch((err) => {
         console.log(err);
         setLoading(false);
       });
-  }, []);
-
+  }, [category]);
   const displayedRooms = showAll ? rooms : rooms.slice(0, 20);
 
   return (

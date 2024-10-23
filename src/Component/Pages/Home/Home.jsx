@@ -15,8 +15,9 @@ import Banner from "./Banner/Banner";
 import AboutMore from "./AboutUs/AboutMore";
 
 import ParallaxSlideImage from "./ParallaxMessage/ParallaxSlideImage";
-import ParallaxMessage from "./ParallaxMessage/ParallaxMessage";
+
 import Header from "./Header/Header";
+import DiscountSection from "./ADDS/DiscountSection";
 
 const Home = () => {
   useTitle("Home"),
@@ -51,15 +52,16 @@ const Home = () => {
           <Banner></Banner>
           <AboutMore></AboutMore>
 
-          <ParallaxMessage></ParallaxMessage>
-
+          <DiscountSection></DiscountSection>
           <AboutUs></AboutUs>
           <ParallaxSlideImage></ParallaxSlideImage>
 
           <Review></Review>
           <Contact />
-          <MapWithMarkers />
+
           <PeopleAlsoAsk></PeopleAlsoAsk>
+
+          <MapWithMarkers />
         </Container>
       </div>
     </>

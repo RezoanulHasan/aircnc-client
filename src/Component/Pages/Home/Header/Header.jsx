@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <div>
       <Fade direction="down">
-        <div className="px-4 lg:px-20 shadow-sm bg-black p-4 lg:mt-12 mt-0">
+        <div className="px-4 lg:px-20 shadow-sm bg-black p-4 lg:mt-10 mt-0">
           <div className="main-container flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
             {/* shop button */}
             <div className="flex justify-center lg:justify-start">

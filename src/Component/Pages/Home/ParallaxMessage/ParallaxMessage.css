@@ -4,45 +4,34 @@
   background-size: cover;
   background-position: center;
 }
-.parallax-bgg {
+
+.parallax-container {
   background-image: url("https://i.ibb.co/19MvQqF/1jpeg.jpg");
+  background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
-  position: relative; /* Added for overlay positioning */
-  overflow: hidden; /* Prevents overflow from the overlay */
+  position: relative;
 }
 
-.parallax-bgg::before {
-  content: "";
+.parallax-content {
+  position: relative;
+  z-index: 1;
+}
+
+.parallax-overlay {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(
     0,
     0,
     0,
     0.5
-  ); /* Dark overlay for better text contrast */
-  z-index: 1; /* Ensures the overlay is above the background */
-}
-
-.parallax-bgg h2 {
-  position: relative; /* Ensure the heading is above the overlay */
-  z-index: 2; /* Place the text above the overlay */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Improved text shadow */
-  transition: transform 0.3s ease; /* Adding transition for hover effect */
-}
-
-.parallax-bgg h2:hover {
-  transform: scale(1.05); /* Slightly enlarge the text on hover */
-}
-
-/* Add padding and margin for better spacing */
-.section-padding {
-  padding: 20px; /* Uniform padding */
+  ); /* Optional: Dark overlay for better text visibility */
+  z-index: 0;
 }
 
 .parallax-bg {
