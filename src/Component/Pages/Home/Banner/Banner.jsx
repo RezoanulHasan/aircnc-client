@@ -8,10 +8,10 @@ function Banner() {
       <section className="flex flex-col md:flex-row items-center justify-between py-12 px-6 md:px-12 lg:px-24">
         {/* Left Side: Text */}
         <div className="w-full md:w-1/2 space-y-6 md:pr-8 text-center md:text-left">
-          <h1 className="text-4xl lg:text-6xl font-bold leading-tight tracking-tight text-gray-800">
-            <span className="text-red-500">Discover</span> Amazing Places with
-            <span className="text-red-500"> AircnC</span>
+          <h1 className="text-4xl lg:text-6xl font-bold leading-tight tracking-tight  text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 drop-shadow-lg">
+            Discover Amazing Places with AircnC
           </h1>
+
           <p className="text-gray-600 text-lg lg:text-xl">
             Find the best accommodations from around the world at unbeatable
             prices. Experience comfort, luxury, and affordability with AircnC's

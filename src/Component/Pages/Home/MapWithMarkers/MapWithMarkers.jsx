@@ -20,7 +20,7 @@ const MapWithMarkers = () => {
 
   return (
     <div className="p-4  mt-10">
-      <div className="text-xl text-center text-rose-500 ">
+      <div className="text-xl text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 drop-shadow-lg       ">
         <TypeAnimation
           className="mt-10 mb-10   "
           sequence={[

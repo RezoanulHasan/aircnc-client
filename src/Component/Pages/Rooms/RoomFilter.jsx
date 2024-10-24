@@ -301,7 +301,7 @@ const RoomFilter = () => {
           {loading ? (
             <Spinner />
           ) : filteredRooms.length === 0 ? (
-            <p className="text-xl font-bold text-gray-700 mb-3">
+            <p className="text-3xl mt-72 text-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 drop-shadow-lg   mb-3">
               No rooms available
             </p>
           ) : (

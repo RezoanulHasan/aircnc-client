@@ -17,7 +17,7 @@ const PrivacyPolicy = () => {
       <Header />
       <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 py-12 px-6">
         <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-8">
-          <h1 className="text-center text-3xl md:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 drop-shadow-lg">
+          <h1 className="text-center text-3xl md:text-4xl font-extrabold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 drop-shadow-lg">
             Privacy Policy
           </h1>
 
