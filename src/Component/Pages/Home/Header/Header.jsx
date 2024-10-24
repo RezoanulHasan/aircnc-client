@@ -20,7 +20,7 @@ const Header = () => {
             {/* shop button */}
             <div className="flex justify-center lg:justify-start">
               <Link to="/filters">
-                <button className=" text-white btn btn-outline  bg-black focus:outline-none rounded-sm text-sm px-5 py-3 lg:py-4 text-center flex space-x-2 items-center bg-opacity-50">
+                <button className=" text-white btn  bg-black focus:outline-none rounded-lg text-sm px-5 py-3 lg:py-4 text-center flex space-x-2 items-center bg-opacity-50">
                   <span className="font-semibold text-red-500">
                     Click Here Booking Now
                   </span>
@@ -36,21 +36,26 @@ const Header = () => {
               </div>
               <Link to="/dataFilters">
                 <div className="flex space-x-1 items-center">
-                  <PiArrowBendDoubleUpRightThin className="text-xl text-white  " />
-                  <p className="text-sm  text-red-500">
+                  <PiArrowBendDoubleUpRightThin className="text-xl text-red-500 " />
+                  <p className="text-sm    text-white">
                     {" "}
                     Found Available By Data Range
                   </p>
                 </div>
               </Link>
-              <div className="flex space-x-1 items-center">
-                <PiHeadphonesThin className="text-xl text-white" />
-                <p className="text-sm text-white">Customer Support</p>
-              </div>
-              <div className="flex space-x-1 items-center">
-                <IoIosInformationCircleOutline className="text-xl text-white" />
-                <p className="text-sm text-white">Need Help</p>
-              </div>
+
+              <Link to="/support">
+                <div className="flex space-x-1 items-center">
+                  <PiHeadphonesThin className="text-xl text-red-500" />
+                  <p className="text-sm text-white">Customer Support</p>
+                </div>{" "}
+              </Link>
+              <Link to="/policy">
+                <div className="flex space-x-1 items-center">
+                  <IoIosInformationCircleOutline className="text-xl  text-red-500" />
+                  <p className="text-sm  text-white">PrivacyPolicy</p>
+                </div>
+              </Link>
             </div>
             {/* phone */}
             <div className="flex justify-center lg:justify-end lg:ml-auto items-center space-x-2">

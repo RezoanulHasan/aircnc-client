@@ -24,6 +24,8 @@ import AdminHome from "./Component/Dashbord/Admin/AdminHome";
 import Review from "./Component/Pages/Home/Review/Review.jsx";
 import RoomFilter from "./Component/Pages/Rooms/RoomFilter.jsx";
 import DataRangeFilter from "./Component/Pages/Rooms/DataRangeFilter.jsx";
+import PrivacyPolicy from "./Component/Pages/Home/Header/PrivacyPolicy.jsx";
+import CustomerSupport from "./Component/Pages/Home/Header/CustomerSupport.jsx";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -63,7 +65,14 @@ const router = createBrowserRouter([
         path: "/dataFilters",
         element: <DataRangeFilter></DataRangeFilter>,
       },
-
+      {
+        path: "/policy",
+        element: <PrivacyPolicy></PrivacyPolicy>,
+      },
+      {
+        path: "/support",
+        element: <CustomerSupport></CustomerSupport>,
+      },
       {
         path: "/login",
         element: <Login></Login>,
