@@ -83,36 +83,32 @@ const ShowRoomData = ({ room }) => {
   const textColor = GetRandomColor();
 
   return (
-    <Link
-      to={`/rooms/${room?._id}`}
-      className="col-span-1 cursor-pointer group"
-    >
-      <div className="flex flex-col gap-2 w-full">
-        <div
-          className="
+    <div className="flex flex-col gap-2 w-full">
+      <div
+        className="
          aspect-square
-            w-full 
-            relative 
-            overflow-hidden 
-            rounded-xl
-          "
-        >
-          <img
-            className="
-              object-cover 
-              h-full 
-              w-full 
-              group-hover:scale-110 
-              transition
-            "
-            src={room?.image}
-            alt="Room"
-          />
-          <div className="absolute top-3 right-3">
-            <HeartButton />
-            <ToastContainer />
-          </div>
+         w-full 
+         relative 
+         overflow-hidden 
+         rounded-xl
+       "
+      >
+        <img
+          className="object-cover h-full w-full group-hover:scale-110 transition"
+          src={room?.image}
+          alt="Room"
+          loading="lazy"
+        />
+        <div className="absolute top-3 right-3">
+          <HeartButton room={room} />
+          <ToastContainer />
         </div>
+      </div>
+
+      <Link
+        to={`/rooms/${room?._id}`}
+        className="col-span-1 cursor-pointer group"
+      >
         <div className="font-semibold text-lg">{room?.location}</div>
         <div className="font-light text-neutral-500">{room?.dateRange}</div>
         <div className="flex flex-row items-center gap-1">
@@ -121,9 +117,8 @@ const ShowRoomData = ({ room }) => {
           </div>
           <div className="font-light">night</div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
-
 export default Rooms;

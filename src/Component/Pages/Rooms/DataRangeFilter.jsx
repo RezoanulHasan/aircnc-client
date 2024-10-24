@@ -78,74 +78,76 @@ const DataRangeFilter = () => {
   const displayedRooms = showAll ? filteredRooms : filteredRooms.slice(0, 10);
 
   return (
-    <Container>
+    <>
       <Header></Header>
-      <div className="flex flex-col md:flex-row justify-between items-center p-4">
-        {/* Left Section: Text (1/4 width on larger screens) */}
-        <div className="w-full md:w-2/4 mx-5 mb-4 md:mb-0">
-          <h1 className="text-xl md:text-3xl font-bold mb-2 text-red-500">
-            Find your perfect place
-          </h1>
-          <p className="text-lg md:text-xl">
-            Select a date range that fits your availability to find the best
-            options for you.
-          </p>
+      <Container>
+        <div className="flex flex-col md:flex-row justify-between items-center p-4">
+          {/* Left Section: Text (1/4 width on larger screens) */}
+          <div className="w-full md:w-2/4 mx-5 mb-4 md:mb-0">
+            <h1 className="text-xl md:text-3xl font-bold mb-2 text-red-500">
+              Find your perfect place
+            </h1>
+            <p className="text-lg md:text-xl">
+              Select a date range that fits your availability to find the best
+              options for you.
+            </p>
+          </div>
+
+          {/* Right Section: Date Range Picker (3/4 width on larger screens) */}
+          <div className="w-full md:w-3/4 mb-6 mt-4 md:mt-10 flex items-center">
+            <DateRange
+              editableDateInputs={true}
+              onChange={handleDateRangeChange} // Apply filter when date range is changed
+              moveRangeOnFirstSelection={false}
+              ranges={dateRange}
+              minDate={new Date()}
+            />
+          </div>
         </div>
 
-        {/* Right Section: Date Range Picker (3/4 width on larger screens) */}
-        <div className="w-full md:w-3/4 mb-6 mt-4 md:mt-10 flex items-center">
-          <DateRange
-            editableDateInputs={true}
-            onChange={handleDateRangeChange} // Apply filter when date range is changed
-            moveRangeOnFirstSelection={false}
-            ranges={dateRange}
-            minDate={new Date()}
-          />
-        </div>
-      </div>
+        {loading ? (
+          <Spinner />
+        ) : displayedRooms?.length > 0 ? (
+          <div className="pt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {displayedRooms.map((room) => (
+              <ShowRoomData key={room?._id} room={room} />
+            ))}
+          </div>
+        ) : (
+          <div className="pt-12">
+            <Heading
+              title="No Rooms Available!"
+              subtitle="Please check back later."
+              center={true}
+            />
+          </div>
+        )}
 
-      {loading ? (
-        <Spinner />
-      ) : displayedRooms?.length > 0 ? (
-        <div className="pt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {displayedRooms.map((room) => (
-            <ShowRoomData key={room?._id} room={room} />
-          ))}
-        </div>
-      ) : (
-        <div className="pt-12">
-          <Heading
-            title="No Rooms Available!"
-            subtitle="Please check back later."
-            center={true}
-          />
-        </div>
-      )}
-
-      {rooms?.length > 20 && !showAll && (
-        <div className="flex justify-center mt-10 mb-10">
-          <button
-            onClick={() => setShowAll(true)}
-            className="flex items-center bg-rose-500 text-white px-20 py-5 rounded-full shadow-md hover:shadow-lg transition"
-          >
-            <span>Show All</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 ml-2"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
+        {rooms?.length > 20 && !showAll && (
+          <div className="flex justify-center mt-10 mb-10">
+            <button
+              onClick={() => setShowAll(true)}
+              className="flex items-center bg-rose-500 text-white px-20 py-5 rounded-full shadow-md hover:shadow-lg transition"
             >
-              <path
-                fillRule="evenodd"
-                d="M4.293 5.293a1 1 0 011.414 0L10 9.586l4.293-4.293a1 1 0 111.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </button>
-        </div>
-      )}
-    </Container>
+              <span>Show All</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 ml-2"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M4.293 5.293a1 1 0 011.414 0L10 9.586l4.293-4.293a1 1 0 111.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+        )}
+      </Container>
+    </>
   );
 };
 

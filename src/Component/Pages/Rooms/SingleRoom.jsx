@@ -23,6 +23,7 @@ import Rule from "./Rule";
 import FacilitiesMore from "./FacilitiesMore";
 
 import BackNButton from "../../Button/BackButton";
+
 const SingleRoom = () => {
   useTitle("Room Details");
 
@@ -58,6 +59,7 @@ const SingleRoom = () => {
               alt={location}
               className="w-full  h-96 rounded-lg object-cover shadow-lg"
             />
+
             <div className="flex flex-col justify-between xl:w-1/2">
               <div className="flex flex-col gap-2">
                 <h1>Host Info</h1>
