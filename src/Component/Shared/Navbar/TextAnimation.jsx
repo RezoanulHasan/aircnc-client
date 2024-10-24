@@ -1,6 +1,6 @@
 import { Wave } from "react-animated-text";
 
-const Search = () => {
+const TextAnimation = () => {
   return (
     <div className="hidden md:block border-[1px] w-full md:w-auto py-2 rounded-full shadow-lg hover:shadow-2xl transition duration-300 cursor-pointer bg-gradient-to-r from-white to-rose-100">
       <div className="flex flex-row items-center gap-3 px-4 ">
@@ -19,4 +19,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default TextAnimation;

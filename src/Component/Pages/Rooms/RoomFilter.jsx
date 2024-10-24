@@ -2,13 +2,10 @@ import React, { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import Container from "../../Shared/Container";
 import Spinner from "../../Shared/Spinner/Spinner";
-import Heading from "../../Heading/Heading";
-
 import "react-toastify/dist/ReactToastify.css";
 import { FaArrowRightLong } from "react-icons/fa6";
 import useTitle from "../../../Hooks/useTitle";
-("react");
-
+import { FaMapMarkerAlt, FaBuilding, FaGlobeAmericas } from "react-icons/fa";
 const RoomFilter = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -119,31 +116,38 @@ const RoomFilter = () => {
       <div className="flex gap-8 mt-5">
         {/* Filter Section */}
         <div className="w-1/4 p-4 bg-gray-50 rounded-lg">
-          <h2 className="text-xl font-bold mb-4">Filters</h2>
+          <h2 className="text-xl font-bold text-gray-700  mb-4">Filters</h2>
           <Link to="/dataFilters">
-            <button className=" text-white rounded-lg btn btn-outline  bg-black focus:outline-none px-0 md:px-4 py-10  md:py-5  text-center flex space-x-2 items-center ">
-              <span className="font-semibold text-white hover:text-red-500">
+            <button className="flex items-center justify-center space-x-3 rounded-lg bg-gradient-to-r from-gray-800 to-black text-white px-6 py-4 md:px-8 md:py-5 hover:from-gray-700 hover:to-gray-900 transition-all duration-300 ease-in-out shadow-md hover:shadow-lg transform hover:scale-105">
+              <span className="font-semibold text-white hover:text-red-500 transition duration-300">
                 Found Available Date
               </span>
-              <FaArrowRightLong />
+              <FaArrowRightLong className="text-white text-xl" />
             </button>
           </Link>
 
           {/* Search by Location */}
-          <div className="mb-4">
-            <h3 className="text-lg font-semibold mb-2">Search by Location</h3>
-            <input
-              type="text"
-              value={locationSearch}
-              onChange={(e) => setLocationSearch(e.target.value)}
-              placeholder="Enter location"
-              className="p-2 border rounded w-full"
-            />
+          <div className="mb-6 mt-6">
+            <h3 className="text-xl font-bold text-gray-700 mb-3">
+              Search by Location
+            </h3>
+            <div className="relative">
+              <input
+                type="text"
+                value={locationSearch}
+                onChange={(e) => setLocationSearch(e.target.value)}
+                placeholder="Enter location"
+                className="w-full p-4 pl-12 text-gray-700 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 transition duration-200 ease-in-out"
+              />
+              <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500">
+                <FaMapMarkerAlt size={20} />
+              </div>
+            </div>
           </div>
 
           {/* Region Filter */}
           <div className="mb-4">
-            <h3 className="text-lg font-semibold mb-2">Region</h3>
+            <h3 className="text-xl font-bold text-gray-700 mb-3">Region</h3>
             <div className="flex flex-col space-y-2">
               {[
                 "USA",
@@ -153,7 +157,7 @@ const RoomFilter = () => {
                 "Russia",
                 "Australia",
                 "Antarctica",
-                "Middle East",
+                "Mriddle East",
               ].map((region) => (
                 <label key={region} className="flex items-center space-x-2">
                   <input
@@ -170,7 +174,9 @@ const RoomFilter = () => {
           </div>
           {/* Property Type Filter */}
           <div className="mb-4">
-            <h3 className="text-lg font-semibold mb-2">Property Type</h3>
+            <h3 className="text-xl font-bold text-gray-700 mb-3">
+              Property Type
+            </h3>
             <div className="flex flex-col space-y-2">
               {["Guest House", "Apartment", "Villa", "Hotel", "House"].map(
                 (type) => (
@@ -190,7 +196,7 @@ const RoomFilter = () => {
           </div>
           {/* Bedrooms Filter */}
           <div className="mb-4">
-            <h3 className="text-lg font-semibold mb-2">Bedrooms</h3>
+            <h3 className="text-xl font-bold text-gray-700 mb-3">Bedrooms</h3>
             <div className="flex flex-col space-y-2">
               {[1, 2, 3, 4, 5, 6, "7+"].map((bdr) => (
                 <label key={bdr} className="flex items-center space-x-2">
@@ -209,7 +215,7 @@ const RoomFilter = () => {
           </div>
           {/* Guests Filter */}
           <div className="mb-4">
-            <h3 className="text-lg font-semibold mb-2">Guests</h3>
+            <h3 className="text-xl font-bold text-gray-700 mb-3">Guests</h3>
             <div className="flex flex-col space-y-2">
               {[1, 2, 3, 4, 5, 6, "7+"].map((gst) => (
                 <label key={gst} className="flex items-center space-x-2">
@@ -228,7 +234,9 @@ const RoomFilter = () => {
           </div>
           {/* Price Range Filter */}
           <div className="mb-4">
-            <h3 className="text-lg font-semibold mb-2">Price Range</h3>
+            <h3 className="text-xl font-bold text-gray-700 mb-3">
+              Price Range
+            </h3>
             <div className="flex flex-col space-y-2">
               {[
                 { label: "$0 - $400", range: [0, 400] },
@@ -251,7 +259,9 @@ const RoomFilter = () => {
           </div>
           {/* Sort by Price */}
           <div className="mb-4">
-            <h3 className="text-lg font-semibold mb-2">Sort by Price</h3>
+            <h3 className="text-xl font-bold text-gray-700 mb-3">
+              Sort by Price
+            </h3>
             <div className="flex flex-col space-y-2">
               <label className="flex items-center space-x-2">
                 <input
@@ -291,23 +301,48 @@ const RoomFilter = () => {
           {loading ? (
             <Spinner />
           ) : filteredRooms.length === 0 ? (
-            <p>No rooms available</p>
+            <p className="text-xl font-bold text-gray-700 mb-3">
+              No rooms available
+            </p>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {filteredRooms.map((room) => (
                 <div
                   key={room._id}
-                  className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition-all"
+                  className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition-all relative"
                 >
                   <Link to={`/rooms/${room._id}`}>
                     <div
                       className="h-48 w-full bg-cover bg-center rounded-t-md"
                       style={{ backgroundImage: `url(${room.image})` }}
                     />
-                    <div className="p-2">
-                      <Heading>{room.title}</Heading>
-                      <p className="text-gray-600">{room.location}</p>
-                      <p className="text-gray-900 font-bold">${room.price}</p>
+
+                    <div className="p-4">
+                      <p className="text-lg font-semibold text-gray-800 flex items-center">
+                        <FaMapMarkerAlt className="mr-2 text-rose-500" />{" "}
+                        {room.location}
+                      </p>
+
+                      <div className="flex justify-between mt-4 space-x-2">
+                        <div className="flex items-center text-gray-600">
+                          <FaBuilding className="mr-2 text-blue-500" />
+                          <span>{room.category}</span>
+                        </div>
+
+                        <div className="flex items-center text-gray-600">
+                          <FaGlobeAmericas className="mr-2 text-green-500" />
+                          <span>{room.region}</span>
+                        </div>
+
+                        <div className="flex items-center text-gray-600">
+                          <FaBuilding className="mr-2 text-purple-500" />
+                          <span>{room.property}</span>
+                        </div>
+                      </div>
+
+                      <div className="absolute top-0 right-0 bg-rose-500 text-white text-xs font-semibold  py-2 px-2 rounded-bl-lg">
+                        ${room.price} / night
+                      </div>
                     </div>
                   </Link>
                 </div>

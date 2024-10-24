@@ -14,17 +14,17 @@ const Menu = () => {
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
-        {/* Aircnc btn */}
-        <div className="     hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer">
-          <div className="flex">
+        <div className="hidden md:block text-sm font-semibold py-3 px-6 rounded-full bg-gradient-to-r from-rose-500 to-pink-400 text-white hover:from-rose-600 hover:to-pink-500 transition duration-300 ease-in-out cursor-pointer shadow-lg hover:shadow-xl">
+          <div className="flex items-center">
             <Link to="/filters">
-              <div className="mx-2">AirCNC your home</div>
+              <div className="mx-2">Booking Now</div>
             </Link>
-            <div style={{ color: textColor }} className="mt-1   ">
-              <FaEarthAmericas size={18} />
-            </div>{" "}
+            <div style={{ color: textColor }} className="ml-2 mt-1">
+              <FaEarthAmericas size={20} />
+            </div>
           </div>
         </div>
+
         {/* Dropdown btn */}
         <div
           onClick={() => setIsOpen(!isOpen)}

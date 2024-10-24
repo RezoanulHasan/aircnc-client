@@ -78,7 +78,7 @@ const CustomerTestimonials = () => {
       <Header></Header>
 
       <div className="container mx-auto p-8 mt-10">
-        <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-purple-600 mb-8 text-center">
+        <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 drop-shadow-lg mb-8 text-center">
           Hear What Our Customers Say
         </h2>
         <p className="text-lg text-gray-600 text-center mb-6">

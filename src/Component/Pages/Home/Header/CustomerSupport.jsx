@@ -14,7 +14,7 @@ const CustomerSupport = () => {
       <Header></Header>
 
       <div className="p-6">
-        <h1 className="text-5xl font-extrabold text-center text-red-600 mb-8 mt-2">
+        <h1 className="text-5xl font-extrabold text-center mb-8 mt-2   text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 drop-shadow-lg">
           We're Here to Help!
         </h1>
         <div className="flex justify-center mb-5 ">

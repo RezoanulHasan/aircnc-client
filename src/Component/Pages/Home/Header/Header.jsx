@@ -20,8 +20,8 @@ const Header = () => {
             {/* shop button */}
             <div className="flex justify-center lg:justify-start">
               <Link to="/filters">
-                <button className="text-white bg-black focus:outline-none rounded-lg text-sm px-5 py-3 lg:py-4 text-center flex space-x-2 items-center bg-opacity-50">
-                  <span className="font-semibold text-red-500">
+                <button className=" rounded-lg text-sm px-5 py-3 lg:py-4 text-center flex space-x-2 items-center bg-opacity-50">
+                  <span className="font-semibold  text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 drop-shadow-lg  ">
                     Click Here Booking Now
                   </span>
                   <FaArrowRightLong />

@@ -83,12 +83,18 @@ const DataRangeFilter = () => {
         <div className="flex flex-col md:flex-row justify-between items-center p-4">
           {/* Left Section: Text (1/4 width on larger screens) */}
           <div className="w-full md:w-2/4 mx-5 mb-4 md:mb-0">
-            <h1 className="text-xl md:text-3xl font-bold mb-2 text-red-500">
-              Find your perfect place
+            <h1 className="text-2xl md:text-4xl font-extrabold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 tracking-wide drop-shadow-lg">
+              Find Your Perfect Place
             </h1>
-            <p className="text-lg md:text-xl">
+
+            <p className="text-base md:text-lg text-gray-700 leading-relaxed mt-2 md:mt-4">
               Select a date range that fits your availability to find the best
-              options for you.
+              options for you. Whether you're looking for a short getaway or a
+              long-term stay, we've got a variety of places that meet your
+              needs. Enjoy the convenience of filtering by location, price, and
+              amenities to tailor your search. With detailed reviews and
+              high-quality photos, you can book with confidence. Start your
+              journey today and discover your perfect place to stay.
             </p>
           </div>
 
