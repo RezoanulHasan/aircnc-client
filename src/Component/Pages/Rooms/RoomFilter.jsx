@@ -121,15 +121,15 @@ const RoomFilter = () => {
         {/* Filter Section */}
         <div className="w-1/4 p-4 bg-gray-50 rounded-lg">
           <h2 className="text-xl font-bold mb-4">Filters</h2>
-
           <Link to="/dataFilters">
-            <button className=" text-white rounded-lg btn btn-outline  bg-black focus:outline-none  px-5 py-3 lg:py-4 text-center flex space-x-2 items-center ">
+            <button className=" text-white rounded-lg btn btn-outline  bg-black focus:outline-none px-0 md:px-4 py-10  md:py-5  text-center flex space-x-2 items-center ">
               <span className="font-semibold text-white hover:text-red-500">
                 Found Available Date
               </span>
               <FaArrowRightLong />
             </button>
           </Link>
+
           {/* Search by Location */}
           <div className="mb-4">
             <h3 className="text-lg font-semibold mb-2">Search by Location</h3>

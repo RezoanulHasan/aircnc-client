@@ -13,11 +13,12 @@ import "react-date-range/dist/styles.css"; // Main stylesheet
 import "react-date-range/dist/theme/default.css"; // Theme stylesheet
 import { FaStar } from "react-icons/fa";
 import useTitle from "../../../Hooks/useTitle";
+import Header from "../Home/Header/Header";
 const DataRangeFilter = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  useTitle("Data Filters");
+  useTitle("Date Filters");
 
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -78,15 +79,29 @@ const DataRangeFilter = () => {
 
   return (
     <Container>
-      {/* Date Range Picker */}
-      <div className="mb-6 mt-10 flex justify-center items-center">
-        <DateRange
-          editableDateInputs={true}
-          onChange={handleDateRangeChange} // Apply filter when date range is changed
-          moveRangeOnFirstSelection={false}
-          ranges={dateRange}
-          minDate={new Date()}
-        />
+      <Header></Header>
+      <div className="flex flex-col md:flex-row justify-between items-center p-4">
+        {/* Left Section: Text (1/4 width on larger screens) */}
+        <div className="w-full md:w-2/4 mx-5 mb-4 md:mb-0">
+          <h1 className="text-xl md:text-3xl font-bold mb-2 text-red-500">
+            Find your perfect place
+          </h1>
+          <p className="text-lg md:text-xl">
+            Select a date range that fits your availability to find the best
+            options for you.
+          </p>
+        </div>
+
+        {/* Right Section: Date Range Picker (3/4 width on larger screens) */}
+        <div className="w-full md:w-3/4 mb-6 mt-4 md:mt-10 flex items-center">
+          <DateRange
+            editableDateInputs={true}
+            onChange={handleDateRangeChange} // Apply filter when date range is changed
+            moveRangeOnFirstSelection={false}
+            ranges={dateRange}
+            minDate={new Date()}
+          />
+        </div>
       </div>
 
       {loading ? (

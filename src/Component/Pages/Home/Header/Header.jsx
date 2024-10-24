@@ -10,7 +10,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
-
+import { FaUsers, FaStar } from "react-icons/fa";
 const Header = () => {
   return (
     <div>
@@ -20,7 +20,7 @@ const Header = () => {
             {/* shop button */}
             <div className="flex justify-center lg:justify-start">
               <Link to="/filters">
-                <button className=" text-white btn  bg-black focus:outline-none rounded-lg text-sm px-5 py-3 lg:py-4 text-center flex space-x-2 items-center bg-opacity-50">
+                <button className="text-white bg-black focus:outline-none rounded-lg text-sm px-5 py-3 lg:py-4 text-center flex space-x-2 items-center bg-opacity-50">
                   <span className="font-semibold text-red-500">
                     Click Here Booking Now
                   </span>
@@ -28,15 +28,26 @@ const Header = () => {
                 </button>
               </Link>
             </div>
-            {/* process */}
+
+            {/* teams */}
             <div className="flex flex-wrap justify-center lg:justify-start lg:ml-10 space-x-5 space-y-2 lg:space-y-0 lg:flex-nowrap">
-              <div className="flex space-x-1 items-center">
-                <CiLocationOn className="text-xl text-white" />
-                <p className="text-sm text-white">Location</p>
-              </div>
+              <Link to="/teams">
+                <div className="flex space-x-1 items-center">
+                  <FaUsers className="text-xl text-green-500" />
+                  <p className="text-sm text-white">Teams</p>
+                </div>
+              </Link>
+
+              <Link to="/morereviews">
+                <div className="flex space-x-1 items-center">
+                  <FaStar className="text-xl text-yellow-500" />
+                  <p className="text-sm text-white">Reviews</p>
+                </div>
+              </Link>
+
               <Link to="/dataFilters">
                 <div className="flex space-x-1 items-center">
-                  <PiArrowBendDoubleUpRightThin className="text-xl text-red-500 " />
+                  <PiArrowBendDoubleUpRightThin className="text-xl text-orange-500 " />
                   <p className="text-sm    text-white">
                     {" "}
                     Found Available By Data Range
@@ -46,7 +57,7 @@ const Header = () => {
 
               <Link to="/support">
                 <div className="flex space-x-1 items-center">
-                  <PiHeadphonesThin className="text-xl text-red-500" />
+                  <PiHeadphonesThin className="text-xl text-blue-400" />
                   <p className="text-sm text-white">Customer Support</p>
                 </div>{" "}
               </Link>

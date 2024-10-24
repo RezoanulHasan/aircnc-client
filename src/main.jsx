@@ -26,6 +26,8 @@ import RoomFilter from "./Component/Pages/Rooms/RoomFilter.jsx";
 import DataRangeFilter from "./Component/Pages/Rooms/DataRangeFilter.jsx";
 import PrivacyPolicy from "./Component/Pages/Home/Header/PrivacyPolicy.jsx";
 import CustomerSupport from "./Component/Pages/Home/Header/CustomerSupport.jsx";
+import OurTeams from "./Component/Pages/Home/Header/OurTeams.jsx";
+import CustomerTestimonials from "./Component/Pages/Home/Header/CustomerTestimonials";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -72,6 +74,14 @@ const router = createBrowserRouter([
       {
         path: "/support",
         element: <CustomerSupport></CustomerSupport>,
+      },
+      {
+        path: "/teams",
+        element: <OurTeams></OurTeams>,
+      },
+      {
+        path: "/morereviews",
+        element: <CustomerTestimonials></CustomerTestimonials>,
       },
       {
         path: "/login",
