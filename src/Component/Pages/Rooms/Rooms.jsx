@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import Container from "../../Shared/Container";
 import Spinner from "../../Shared/Spinner/Spinner";
 import Heading from "../../Heading/Heading";
-import HeartButton from "../../Button/HeartButton";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import GetRandomColor from "../../../Hooks/GetRandomColor";
 import { useSearchParams } from "react-router-dom";
+import HeartButton from "../../Badge/HeartButton";
 const Rooms = () => {
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(true);

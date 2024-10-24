@@ -3,7 +3,6 @@ import { FaThumbsUp, FaHeart, FaStar } from "react-icons/fa";
 import Review from "../Review/Review";
 import useTitle from "../../../../Hooks/useTitle";
 import Header from "./Header";
-import Favorite from "../../../Button/Favorite";
 
 const CustomerTestimonials = () => {
   useTitle("Customer Reviews");
@@ -78,7 +77,6 @@ const CustomerTestimonials = () => {
     <>
       <Header></Header>
 
-      <Favorite></Favorite>
       <div className="container mx-auto p-8 mt-10">
         <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-purple-600 mb-8 text-center">
           Hear What Our Customers Say

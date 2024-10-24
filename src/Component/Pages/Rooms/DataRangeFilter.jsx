@@ -4,8 +4,7 @@ import { DateRange } from "react-date-range";
 import Container from "../../Shared/Container";
 import Spinner from "../../Shared/Spinner/Spinner";
 import Heading from "../../Heading/Heading";
-import HeartButton from "../../Button/HeartButton";
-import { ToastContainer } from "react-toastify";
+
 import "react-toastify/dist/ReactToastify.css";
 import GetRandomColor from "../../../Hooks/GetRandomColor";
 import { format, isBefore, isAfter } from "date-fns";
@@ -171,10 +170,6 @@ const ShowRoomData = ({ room }) => {
             alt="Room"
           />
           {/* Heart Button */}
-          <div className="absolute top-3 right-3 z-10">
-            <HeartButton />
-            <ToastContainer />
-          </div>
         </div>
 
         {/* Content Section */}

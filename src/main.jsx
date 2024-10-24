@@ -28,6 +28,8 @@ import PrivacyPolicy from "./Component/Pages/Home/Header/PrivacyPolicy.jsx";
 import CustomerSupport from "./Component/Pages/Home/Header/CustomerSupport.jsx";
 import OurTeams from "./Component/Pages/Home/Header/OurTeams.jsx";
 import CustomerTestimonials from "./Component/Pages/Home/Header/CustomerTestimonials";
+import { BookmarkProvider } from "./Component/Badge/BookmarkContext.jsx";
+import Favorite from "./Component/Badge/Favorite.jsx";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -91,6 +93,10 @@ const router = createBrowserRouter([
         path: "/signUp",
         element: <SignUp></SignUp>,
       },
+      {
+        path: "/favorite",
+        element: <Favorite></Favorite>,
+      },
     ],
   },
 
@@ -130,11 +136,13 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthProvider>
-      <QueryClientProvider client={queryClient}>
-        <Toaster />
-        <RouterProvider router={router} />
-      </QueryClientProvider>
-    </AuthProvider>
+    <BookmarkProvider>
+      <AuthProvider>
+        <QueryClientProvider client={queryClient}>
+          <Toaster />
+          <RouterProvider router={router} />
+        </QueryClientProvider>
+      </AuthProvider>
+    </BookmarkProvider>
   </React.StrictMode>
 );

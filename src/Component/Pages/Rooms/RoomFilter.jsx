@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import Container from "../../Shared/Container";
 import Spinner from "../../Shared/Spinner/Spinner";
 import Heading from "../../Heading/Heading";
-import HeartButton from "../../Button/HeartButton";
-import { ToastContainer } from "react-toastify";
+
 import "react-toastify/dist/ReactToastify.css";
 import { FaArrowRightLong } from "react-icons/fa6";
 import useTitle from "../../../Hooks/useTitle";
@@ -311,14 +310,12 @@ const RoomFilter = () => {
                       <p className="text-gray-900 font-bold">${room.price}</p>
                     </div>
                   </Link>
-                  <HeartButton roomId={room._id} />
                 </div>
               ))}
             </div>
           )}
         </div>
       </div>
-      <ToastContainer />
     </Container>
   );
 };
