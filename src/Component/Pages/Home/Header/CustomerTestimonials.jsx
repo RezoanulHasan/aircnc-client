@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaThumbsUp, FaHeart, FaStar } from "react-icons/fa";
 import Review from "../Review/Review";
 import useTitle from "../../../../Hooks/useTitle";
@@ -6,7 +6,9 @@ import Header from "./Header";
 
 const CustomerTestimonials = () => {
   useTitle("Customer Reviews");
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const testimonials = [
     {
       name: "Alok Jon",
@@ -78,7 +80,7 @@ const CustomerTestimonials = () => {
       <Header></Header>
 
       <div className="container mx-auto p-8 mt-10">
-        <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 drop-shadow-lg mb-8 text-center">
+        <h2 className="text-5xl font-bold  mb-8 text-center text-gradient">
           Hear What Our Customers Say
         </h2>
         <p className="text-lg text-gray-600 text-center mb-6">

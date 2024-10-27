@@ -15,13 +15,13 @@ const Header = () => {
   return (
     <div>
       <Fade direction="down">
-        <div className="px-4 lg:px-20 shadow-sm bg-black p-4 lg:mt-10 mt-0">
+        <div className="px-4 lg:px-20 shadow-sm  p-4 lg:mt-10 mt-0         bg-custom ">
           <div className="main-container flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
             {/* shop button */}
             <div className="flex justify-center lg:justify-start">
               <Link to="/filters">
                 <button className=" rounded-lg text-sm px-5 py-3 lg:py-4 text-center flex space-x-2 items-center bg-opacity-50">
-                  <span className="font-semibold  text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 drop-shadow-lg  ">
+                  <span className="font-semibold text-gradient ">
                     Click Here Booking Now
                   </span>
                   <FaArrowRightLong />

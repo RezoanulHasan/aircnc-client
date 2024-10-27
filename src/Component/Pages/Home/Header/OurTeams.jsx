@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import Header from "./Header";
 import useTitle from "../../../../Hooks/useTitle";
@@ -92,15 +92,18 @@ const team = [
 
 const OurTeams = () => {
   useTitle("Our Teams");
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>
       <Header></Header>
       <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-lg p-10 mb-6 mt-6">
-        <h1 className="text-4xl font-extrabold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">
+        <h1 className="text-4xl font-extrabold mb-8 text-center  text-gradient">
           Meet Our Amazing Team
         </h1>
-        <h1 className="text-4xl font-extrabold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">
+        <h1 className="text-4xl font-extrabold mb-8 text-center text-gradient">
           The Passionate Minds Behind Our Success
         </h1>
         <p className="text-lg text-gray-600 text-center mb-4">

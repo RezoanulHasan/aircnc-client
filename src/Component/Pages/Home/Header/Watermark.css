@@ -1,0 +1,9 @@
+.watermark {
+  position: absolute; /* Position it absolutely */
+  top: 50%; /* Center it vertically */
+  left: 50%; /* Center it horizontally */
+  transform: translate(-50%, -50%); /* Adjust for its size */
+  opacity: 0.1; /* Make it semi-transparent */
+  pointer-events: none; /* Prevent interaction */
+  z-index: -1; /* Place it behind other content */
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaPhoneAlt, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
@@ -8,13 +8,15 @@ import Header from "./Header";
 
 const CustomerSupport = () => {
   useTitle("CustomerSupport");
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Header></Header>
 
       <div className="p-6">
-        <h1 className="text-5xl font-extrabold text-center mb-8 mt-2   text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 drop-shadow-lg">
+        <h1 className="text-5xl font-extrabold text-center mb-8 mt-2  text-gradient">
           We're Here to Help!
         </h1>
         <div className="flex justify-center mb-5 ">

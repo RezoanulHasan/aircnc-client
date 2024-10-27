@@ -30,6 +30,7 @@ import OurTeams from "./Component/Pages/Home/Header/OurTeams.jsx";
 import CustomerTestimonials from "./Component/Pages/Home/Header/CustomerTestimonials";
 import { BookmarkProvider } from "./Component/Badge/BookmarkContext.jsx";
 import Favorite from "./Component/Badge/Favorite.jsx";
+import Profile from "./Component/Dashbord/Profile.jsx";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -128,7 +129,7 @@ const router = createBrowserRouter([
 
       //user
       { path: "/dashboard/bookings", element: <MyBooking></MyBooking> },
-
+      { path: "/dashboard/profile", element: <Profile></Profile> },
       { path: "/dashboard/history", element: <PaymentInfo></PaymentInfo> },
     ],
   },
