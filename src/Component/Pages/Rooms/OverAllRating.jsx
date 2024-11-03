@@ -12,10 +12,10 @@ const OverAllRating = () => {
   ];
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 mt-5">
       {/* Overall Rating */}
       <div className="text-center">
-        <h2 className="text-3xl font-semibold">Guest Favorite</h2>
+        <h2 className="text-4xl text-gradient font-semibold">Guest Favorite</h2>
         <p className="text-gray-500">
           One of the most loved homes on Aircnc based on ratings, reviews, and
           reliability.

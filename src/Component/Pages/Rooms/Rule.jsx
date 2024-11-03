@@ -15,7 +15,7 @@ import {
 const Rule = () => {
   return (
     <div className="p-20  ">
-      <h1 className="text-3xl font-semibold text-gray-800 text-center ">
+      <h1 className="text-4xl font-semibold text-gradient text-center ">
         Things to know
       </h1>
 

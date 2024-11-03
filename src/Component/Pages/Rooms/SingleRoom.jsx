@@ -95,7 +95,7 @@ const SingleRoom = () => {
 
           {/* Content Section */}
           <div className="relative p-8 space-y-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-6">
+            <h1 className="text-3xl font-bold  text-gradient mb-6">
               Room Information
             </h1>
 
