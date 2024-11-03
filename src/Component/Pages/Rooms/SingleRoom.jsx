@@ -158,10 +158,10 @@ const SingleRoom = () => {
         <Container>
           <Reservation />
         </Container>
-        <TopVisitPlaces />
+
         <OverAllRating></OverAllRating>
         <Rule></Rule>
-
+        <TopVisitPlaces />
         <div className="flex justify-center mt-5">
           <BackNButton></BackNButton>
         </div>

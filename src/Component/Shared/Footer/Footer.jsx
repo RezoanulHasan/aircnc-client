@@ -71,10 +71,11 @@ const Footer = () => {
               Company
             </header>
 
-            <a className="link link-hover text-xl hover:text-rose-400 transition mb-1">
-              About Us
-            </a>
-
+            <Link to="/filters">
+              <a className="link link-hover text-xl hover:text-rose-400 transition mb-1">
+                About Us
+              </a>
+            </Link>
             <Link to="/support">
               <a className="link link-hover text-xl hover:text-rose-400 transition mb-1">
                 Contact
@@ -137,10 +138,10 @@ const Footer = () => {
           </p>
         </aside>
 
-        <div className="text-rose-500 text-center flex mt-10">
+        <div className="text-rose-500 text-center flex mt-10 text-sm">
           © 2023 AirCNC Inc. All rights reserved.
-          <span className="text-white">
-            <Link to="https://www.linkedin.com/in/rezoanul-hasan-6ab158240/">
+          <span className="text-white ">
+            <Link to="https://rezoanulhasanportfolio.netlify.app/">
               {" "}
               @-Rezoanul Hasan Riad
             </Link>

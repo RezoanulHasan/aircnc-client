@@ -18,6 +18,7 @@ import ParallaxSlideImage from "./ParallaxMessage/ParallaxSlideImage";
 
 import Header from "./Header/Header";
 import DiscountSection from "./ADDS/DiscountSection";
+import Newsletter from "./Newsletter/NewSletter";
 
 const Home = () => {
   useTitle("Home"),
@@ -62,6 +63,8 @@ const Home = () => {
           <PeopleAlsoAsk></PeopleAlsoAsk>
 
           <MapWithMarkers />
+
+          <Newsletter></Newsletter>
         </Container>
       </div>
     </>
