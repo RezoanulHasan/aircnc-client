@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaInfoCircle, FaTrash } from "react-icons/fa";
 import useTitle from "../../Hooks/useTitle";
-import { useContext } from "react";
 import { BookmarkContext } from "./BookmarkContext";
 
 const Favorite = () => {
@@ -37,13 +36,17 @@ const Favorite = () => {
           {bookmarkedRooms.map((room) => (
             <div
               key={room._id}
-              className="relative bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
+              className="relative bg-white shadow-lg hover:shadow-2xl transition-shadow duration-300 p-4"
+              style={{
+                clipPath:
+                  "polygon(50% 0%, 100% 38%, 81% 100%, 19% 100%, 0% 38%)",
+              }}
             >
-              <div className="rounded-t-lg overflow-hidden">
+              <div className="overflow-hidden">
                 <img
                   src={room.image}
                   alt={room.location}
-                  className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                  className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105 rounded-t-lg"
                 />
               </div>
               <div className="p-4">
@@ -51,13 +54,12 @@ const Favorite = () => {
                   {room.location}
                 </h2>
                 <p className="text-gray-500">{room.dateRange}</p>
-
                 <div className="flex justify-between items-center mt-4">
                   <button
                     onClick={() => removeFromBookmarks(room._id)}
                     className="flex items-center bg-red-500 text-white px-3 py-2 rounded-lg hover:bg-red-600 transition-all"
                   >
-                    <FaTrash className="mr-2" /> Remove
+                    <FaTrash className="ml-10" />
                   </button>
                   <Link
                     to={`/rooms/${room._id}`}
@@ -67,8 +69,8 @@ const Favorite = () => {
                   </Link>
                 </div>
               </div>
-              {/* Add a ribbon for a modern touch */}
-              <div className="absolute top-0 right-0 bg-rose-500 text-white text-xs font-semibold py-1 px-3 rounded-bl-lg">
+              {/* Centered ribbon for price */}
+              <div className="absolute  top-10 left-1/2 transform -translate-x-1/2 bg-rose-500 text-white text-xs font-semibold py-1 px-3 rounded-b-lg">
                 ${room.price} / night
               </div>
             </div>

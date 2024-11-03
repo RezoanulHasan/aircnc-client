@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import Header from "./Header";
 import useTitle from "../../../../Hooks/useTitle";
+import RecommendedPlaces from "./../../Rooms/RecommendedPlaces";
 
 const team = [
   {
@@ -134,6 +135,8 @@ const OurTeams = () => {
           ))}
         </div>
       </div>
+
+      <RecommendedPlaces></RecommendedPlaces>
     </div>
   );
 };

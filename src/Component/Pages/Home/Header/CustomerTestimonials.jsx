@@ -3,6 +3,7 @@ import { FaThumbsUp, FaHeart, FaStar } from "react-icons/fa";
 import Review from "../Review/Review";
 import useTitle from "../../../../Hooks/useTitle";
 import Header from "./Header";
+import RecommendedPlaces from "../../Rooms/RecommendedPlaces";
 
 const CustomerTestimonials = () => {
   useTitle("Customer Reviews");
@@ -127,6 +128,8 @@ const CustomerTestimonials = () => {
           ))}
         </div>
       </div>
+
+      <RecommendedPlaces></RecommendedPlaces>
     </>
   );
 };

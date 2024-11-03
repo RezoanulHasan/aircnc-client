@@ -4,7 +4,7 @@ import { format } from "date-fns";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
-import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
+
 import TestPinInfo from "./TestPinInfo";
 
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
@@ -39,24 +39,31 @@ const BookingModal = ({ closeModal, isOpen, bookingInfo }) => {
             </h3>
 
             <hr className="my-6 border-gray-300" />
+            <div className="relative p-4">
+              <img
+                src={bookingInfo.image}
+                alt="Property"
+                className="w-full h-48 rounded-lg object-cover shadow-md"
+              />
+            </div>
             <p className="text-gray-700 font-semibold text-sm sm:text-base md:text-lg">
               <span className="text-gray-900">Location:</span>{" "}
               {bookingInfo.location}
             </p>
-            <p className="text-gray-700 text-sm sm:text-base md:text-lg">
+            <p className="text-gray-700 text-sm sm:text-base ">
               <span className="font-medium text-gray-900">Your Name:</span>{" "}
               {bookingInfo?.guest.name}
             </p>
-            <p className="text-gray-700 text-sm sm:text-base md:text-lg">
+            <p className="text-gray-700 text-sm sm:text-base ">
               <span className="font-medium text-gray-900">Email:</span>{" "}
               {bookingInfo?.guest.email}
             </p>
-            <p className="text-lg sm:text-xl md:text-2xl font-semibold  text-gradient">
+            <p className="text-lg sm:text-xl font-semibold  text-gradient">
               <span className="font-medium">Dates:</span>{" "}
               {format(new Date(bookingInfo.from), "PP")} -{" "}
               {format(new Date(bookingInfo.to), "PP")}
             </p>
-            <p className="text-lg sm:text-xl md:text-2xl font-medium text-gray-900">
+            <p className="text-lg sm:text-xl font-semibold text-gray-900">
               Price:{" "}
               <span className="text-green-500">${bookingInfo.price}</span>
             </p>

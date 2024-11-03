@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
 import useTitle from "../../../../Hooks/useTitle";
 import Header from "./Header";
+import RecommendedPlaces from "../../Rooms/RecommendedPlaces";
 
 const CustomerSupport = () => {
   useTitle("CustomerSupport");
@@ -191,6 +192,7 @@ const CustomerSupport = () => {
           </section>
         </div>
       </div>
+      <RecommendedPlaces></RecommendedPlaces>
     </>
   );
 };

@@ -21,7 +21,7 @@ const TopVisitPlaces = () => {
   return (
     <div className="p-6">
       <h2 className="text-3xl font-semibold mb-6 text-gradient">
-        Top Visit Place for you
+        Top Visit Place For You
       </h2>
       <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-6 gap-6">
         {randomRooms?.map((room) => (

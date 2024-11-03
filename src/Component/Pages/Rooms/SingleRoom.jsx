@@ -7,7 +7,7 @@ import { format } from "date-fns";
 import Slider from "../Slider/Slider";
 import Container from "../../Shared/Container";
 import { Fade } from "react-awesome-reveal";
-import RecommendedPlaces from "./RecommendedPlaces";
+
 import TopVisitPlaces from "./TopVisitPlaces";
 import RoomFacilities from "./RoomFacilities";
 import OverAllRating from "./OverAllRating";
@@ -86,7 +86,7 @@ const SingleRoom = () => {
             </div>
           </div>
         </Fade>
-        <RecommendedPlaces />
+
         <Slider />
 
         <hr className="my-8 border-gray-300   " />

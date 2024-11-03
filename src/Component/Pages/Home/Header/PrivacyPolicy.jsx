@@ -3,6 +3,7 @@ import useTitle from "../../../../Hooks/useTitle";
 import Header from "./Header";
 import Signature from "./Signature/Signature";
 import TermsAndConditions from "./TermsAndConditions";
+import RecommendedPlaces from "../../Rooms/RecommendedPlaces";
 
 const Section = ({ title, children }) => (
   <section className="mb-10">
@@ -174,6 +175,8 @@ const PrivacyPolicy = () => {
           </div>
         </div>
       </div>
+
+      <RecommendedPlaces></RecommendedPlaces>
     </>
   );
 };
