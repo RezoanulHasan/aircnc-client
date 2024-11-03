@@ -12,7 +12,11 @@ const OverAllRating = () => {
   ];
 
   return (
-    <div className="p-6 space-y-6 mt-5">
+    <div
+      className="p-6 space-y-6 mt-5"
+      data-aos="zoom-in"
+      data-aos-duration="1500"
+    >
       {/* Overall Rating */}
       <div className="text-center">
         <h2 className="text-4xl text-gradient font-semibold">Guest Favorite</h2>

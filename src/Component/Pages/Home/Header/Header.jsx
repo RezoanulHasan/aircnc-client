@@ -5,12 +5,14 @@ import {
   PiHeadphonesThin,
   PiPhoneDisconnectThin,
   PiEnvelopeThin,
+  PiUserThin,
 } from "react-icons/pi";
+
 import { FaArrowRightLong } from "react-icons/fa6";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
-import { FaUsers, FaStar } from "react-icons/fa";
+import { FaUsers, FaStar, FaRocket } from "react-icons/fa";
 const Header = () => {
   return (
     <div>
@@ -48,23 +50,26 @@ const Header = () => {
               <Link to="/dataFilters">
                 <div className="flex space-x-1 items-center">
                   <PiArrowBendDoubleUpRightThin className="text-xl text-orange-500 " />
-                  <p className="text-sm    text-white">
-                    {" "}
-                    Found Available By Data Range
-                  </p>
+                  <p className="text-sm    text-white"> Data Range</p>
                 </div>
               </Link>
 
               <Link to="/support">
                 <div className="flex space-x-1 items-center">
                   <PiHeadphonesThin className="text-xl text-blue-400" />
-                  <p className="text-sm text-white">Customer Support</p>
+                  <p className="text-sm text-white">Supports</p>
                 </div>{" "}
               </Link>
               <Link to="/policy">
                 <div className="flex space-x-1 items-center">
                   <IoIosInformationCircleOutline className="text-xl  text-red-500" />
-                  <p className="text-sm  text-white">PrivacyPolicy</p>
+                  <p className="text-sm  text-white">Policys</p>
+                </div>
+              </Link>
+              <Link to="/aboutMore">
+                <div className="flex space-x-1 items-center">
+                  <PiUserThin className="text-xl  text-teal-500" />
+                  <p className="text-sm  text-white">Abouts</p>
                 </div>
               </Link>
             </div>

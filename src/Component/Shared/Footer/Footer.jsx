@@ -71,7 +71,7 @@ const Footer = () => {
               Company
             </header>
 
-            <Link to="/filters">
+            <Link to="/aboutMore">
               <a className="link link-hover text-xl hover:text-rose-400 transition mb-1">
                 About Us
               </a>

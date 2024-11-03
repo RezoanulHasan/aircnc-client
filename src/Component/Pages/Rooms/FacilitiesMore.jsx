@@ -38,7 +38,11 @@ const facilityData = [
 
 const FacilitiesMore = () => {
   return (
-    <div className="flex flex-col lg:flex-row justify-center items-center p-4">
+    <div
+      className="flex flex-col lg:flex-row justify-center items-center p-4"
+      data-aos="zoom-in"
+      data-aos-duration="1500"
+    >
       {/* Left Side: Facilities List */}
       <div className="w-full lg:w-1/2 p-6">
         <div className="space-y-6">

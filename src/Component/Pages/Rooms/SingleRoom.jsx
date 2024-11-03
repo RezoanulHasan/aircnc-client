@@ -90,7 +90,11 @@ const SingleRoom = () => {
         <Slider />
 
         <hr className="my-8 border-gray-300   " />
-        <div className="border-red-700 relative bg-white rounded-xl shadow-md overflow-hidden   border-2 hover:shadow-lg transition-shadow duration-300 ease-in-out">
+        <div
+          className="border-red-700 relative bg-white rounded-xl shadow-md overflow-hidden   border-2 hover:shadow-lg transition-shadow duration-300 ease-in-out"
+          data-aos="zoom-in"
+          data-aos-duration="1500"
+        >
           {/* Top Wave */}
 
           {/* Content Section */}

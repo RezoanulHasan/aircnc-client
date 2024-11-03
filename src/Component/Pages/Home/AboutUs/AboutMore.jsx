@@ -1,6 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaRocket, FaEye, FaHistory, FaUsers } from "react-icons/fa";
+import useTitle from "../../../../Hooks/useTitle";
+import Header from "../Header/Header";
+import Signature from "../Header/Signature/Signature";
+import RecommendedPlaces from "../../Rooms/RecommendedPlaces";
+import AboutUs from "./AboutUs";
 
 const AboutMoreData = [
   {
@@ -41,55 +46,92 @@ const itemVariants = {
 };
 
 const AboutMore = () => {
+  useTitle("Company info");
   return (
-    <div className="container mx-auto py-8 px-4">
-      <motion.div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-        {AboutMoreData.map((item, index) => (
-          <motion.div
-            key={index}
-            variants={itemVariants}
-            className="bg-white shadow-md rounded-lg p-6 flex flex-col sm:flex-row items-center"
-            initial="hidden"
-            animate="visible"
-            transition={{ staggerChildren: 0.2 }} // Animates items with a stagger effect
-          >
+    <>
+      <Header></Header>
+      <div className="container mx-auto py-8 px-4">
+        <h1 className="text-5xl font-extrabold text-center mb-8 mt-2 text-gradient">
+          About Our Company
+        </h1>
+        <p className="text-lg text-center text-gray-700 leading-relaxed mb-5">
+          We are a forward-thinking company dedicated to delivering innovative
+          solutions that drive success. Our team is passionate about creating
+          meaningful impacts through technology and collaboration. Together, we
+          aim to build a brighter future by fostering creativity, reliability,
+          and growth.
+        </p>
+        <motion.div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+          {AboutMoreData.map((item, index) => (
             <motion.div
-              className="flex-shrink-0 p-4 text-5xl sm:text-6xl rounded-full mx-6"
-              whileHover={{ rotate: 360 }} // Rotate icon on hover
-              transition={{ duration: 0.6 }}
+              key={index}
+              variants={itemVariants}
+              className="bg-white shadow-md rounded-lg p-6 flex flex-col sm:flex-row items-center"
+              initial="hidden"
+              animate="visible"
+              transition={{ staggerChildren: 0.2 }} // Animates items with a stagger effect
             >
-              {item.icon}
+              <motion.div
+                className="flex-shrink-0 p-4 text-5xl sm:text-6xl rounded-full mx-6"
+                whileHover={{ rotate: 360 }} // Rotate icon on hover
+                transition={{ duration: 0.6 }}
+              >
+                {item.icon}
+              </motion.div>
+              <div className="flex-1 text-center sm:text-left mt-4 sm:mt-0">
+                <motion.time
+                  className="text-lg sm:text-2xl font-semibold text-gray-500"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  {item.year}
+                </motion.time>
+                <motion.h3
+                  className="text-lg sm:text-xl font-semibold text-rose-500 mt-2"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                >
+                  {item.title}
+                </motion.h3>
+                <motion.p
+                  className="text-gray-600 text-sm sm:text-lg mt-2"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.7 }}
+                >
+                  {item.description}
+                </motion.p>
+              </div>
             </motion.div>
-            <div className="flex-1 text-center sm:text-left mt-4 sm:mt-0">
-              <motion.time
-                className="text-lg sm:text-2xl font-semibold text-gray-500"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-              >
-                {item.year}
-              </motion.time>
-              <motion.h3
-                className="text-lg sm:text-xl font-semibold text-rose-500 mt-2"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-              >
-                {item.title}
-              </motion.h3>
-              <motion.p
-                className="text-gray-600 text-sm sm:text-lg mt-2"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.7 }}
-              >
-                {item.description}
-              </motion.p>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
-    </div>
+          ))}
+        </motion.div>
+      </div>
+      <AboutUs></AboutUs>
+
+      <div className="flex justify-between mt-20 mx-20">
+        <div>
+          <h1 className="text-2xl font-semibold flex items-center text-gradient3">
+            Contact Us
+          </h1>
+          <p>
+            For any questions about this Privacy Policy, please contact us at:
+          </p>
+          <p className="font-semibold leading-relaxed text-2xl text-gradient">
+            AirCNC Industries Ltd.
+          </p>
+          <p>Phone: +880170000000</p>
+          <p>Email: aircnc@gmail.com</p>
+        </div>
+
+        <div className="mt-2 p-2">
+          <Signature />
+        </div>
+      </div>
+
+      <RecommendedPlaces></RecommendedPlaces>
+    </>
   );
 };
 

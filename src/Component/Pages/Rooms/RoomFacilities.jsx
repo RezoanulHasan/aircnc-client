@@ -41,7 +41,7 @@ const facilities = [
 
 const RoomFacilities = () => {
   return (
-    <div className="p-6">
+    <div className="p-6" data-aos="zoom-in" data-aos-duration="1500">
       <h2 className="text-2xl  font-bold mb-4">Room Facilities</h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
         {facilities?.map((facility, index) => (

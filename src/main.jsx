@@ -31,6 +31,7 @@ import CustomerTestimonials from "./Component/Pages/Home/Header/CustomerTestimon
 import { BookmarkProvider } from "./Component/Badge/BookmarkContext.jsx";
 import Favorite from "./Component/Badge/Favorite.jsx";
 import Profile from "./Component/Dashbord/Profile.jsx";
+import AboutMore from "./Component/Pages/Home/AboutUs/AboutMore.jsx";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -70,6 +71,12 @@ const router = createBrowserRouter([
         path: "/dataFilters",
         element: <DataRangeFilter></DataRangeFilter>,
       },
+
+      {
+        path: "/aboutMore",
+        element: <AboutMore></AboutMore>,
+      },
+
       {
         path: "/policy",
         element: <PrivacyPolicy></PrivacyPolicy>,
