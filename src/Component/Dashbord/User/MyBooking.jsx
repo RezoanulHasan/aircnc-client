@@ -9,10 +9,11 @@ import Container from "../../Shared/Container";
 import EmptyState from "../../Shared/EmptyState";
 import Swal from "sweetalert2";
 import BackNButton from "../../Button/BackButton";
+
 const MyBooking = () => {
   useTitle("My Booking");
   const [cart, refetch] = usePayment();
-  const item = cart || [];
+  const items = cart || [];
 
   const handleDelete = (item) => {
     Swal.fire({
@@ -35,7 +36,11 @@ const MyBooking = () => {
           .then((data) => {
             if (data.deletedCount > 0) {
               refetch();
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              Swal.fire(
+                "Deleted!",
+                "Your booking has been deleted.",
+                "success"
+              );
             }
           });
       }
@@ -43,66 +48,50 @@ const MyBooking = () => {
   };
 
   return (
-    <>
-      <Container>
-        <SectionTitle subHeading="Aircnc" heading="Booking List" />
-        {cart.length > 0 ? (
-          <div className="w-full px-32 py-5 border-b text-sm  mt-10 lg:max-w-5xl max-w-xl overflow-x-auto">
-            <table className="border   table-auto bg-white shadow-lg rounded-lg">
-              <thead>
-                <tr className="bg-gray-200">
-                  <th className="px-4 py-2">Image</th>
-                  <th className="px-4 py-2">Location</th>
-                  <th className="px-4 py-2">Booking Range</th>
-                  <th className="px-4 py-2">Price</th>
-                  <th className="px-4 py-2">Email</th>
-                  <th className="px-4 py-2">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {cart?.map((item) => (
-                  <tr key={item._id}>
-                    <td className="">
-                      <img
-                        src={item.image}
-                        alt={item.location}
-                        className="lg:w-40 w-full h-20 hover:py-5 hover:px-5 rounded-lg object-cover transition-transform transform scale-100 hover:scale-150 "
-                      />
-                    </td>
-                    <td className="border px-10 py-2">{item.location}</td>
-                    <td className="border px-10 py-2">
-                      {" "}
-                      {format(new Date(item.from), "P")} to{" "}
-                      {format(new Date(item.to), "P")}
-                    </td>
-                    <td className="border px-10 py-2">${item.price}</td>
-                    <td className="border px-10 py-2">{item.host}</td>
-
-                    <td className="border px-10 py-2  ">
-                      <button onClick={() => handleDelete(item)}>
-                        <FaTrashAlt className="text-red-500" />
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <hr />
-
-            <hr />
-          </div>
-        ) : (
-          <EmptyState
-            message="No data available."
-            address="/"
-            label="Booked Rooms"
-          />
-        )}
-        <div className="text-center mt-8">
-          <BackNButton></BackNButton>
+    <Container>
+      <SectionTitle subHeading="Aircnc" heading="My Bookings" />
+      {items.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8">
+          {items.map((item) => (
+            <div
+              key={item._id}
+              className="border rounded-lg shadow-md hover:shadow-lg transition-shadow p-4 bg-white"
+            >
+              <img
+                src={item.image}
+                alt={item.location}
+                className="w-full h-48 object-cover rounded-md mb-4 transform transition-transform duration-200 hover:scale-105"
+              />
+              <h3 className="text-lg font-semibold mb-2">{item.location}</h3>
+              <p className="text-gray-500">
+                Booking Range: {format(new Date(item.from), "P")} -{" "}
+                {format(new Date(item.to), "P")}
+              </p>
+              <p className="text-gray-500">Price: ${item.price}</p>
+              <p className="text-gray-500">Email: {item.host}</p>
+              <div className="flex justify-end mt-4">
+                <button
+                  onClick={() => handleDelete(item)}
+                  className="p-2 rounded-full text-red-600 hover:bg-red-100 transition-colors"
+                >
+                  <FaTrashAlt size={18} />
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
-      </Container>
-    </>
+      ) : (
+        <EmptyState
+          message="No data available."
+          address="/"
+          label="Booked Rooms"
+        />
+      )}
+      <div className="text-center mt-8">
+        <BackNButton />
+      </div>
+    </Container>
   );
 };
+
 export default MyBooking;

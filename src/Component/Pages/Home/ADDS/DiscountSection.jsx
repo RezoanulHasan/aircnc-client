@@ -11,15 +11,11 @@ import {
   FaUserFriends,
   FaClock,
 } from "react-icons/fa"; // Import relevant icons
+import NewArrivals from "./NewArrivals";
 
 function DiscountSection() {
   return (
     <div className="py-16 px-6 md:px-12 lg:px-24  border-t border-b border-gray-300 text-center md:text-left">
-      {/* Header with custom styling */}
-      <h2 className="text-rose-200 font-bold text-3xl md:text-4xl text-center leading-[40px] md:leading-[60px] bg-black bg-opacity-80 p-6 rounded-tl-[50px] rounded-br-[50px] mb-4 shadow-lg">
-        Find Your Perfect Getaway and Book Your Dream Accommodation on AircnC!
-      </h2>
-
       {/* 5-star Rating */}
       <div className="flex justify-center items-center mb-8">
         {[...Array(5)].map((_, index) => (
@@ -59,11 +55,7 @@ function DiscountSection() {
 
         {/* Call-to-Action Button */}
         <div className="flex justify-center md:justify-end w-full md:w-auto">
-          <Link to="/filters">
-            <button className="bg-red-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-red-600 hover:scale-105 transition-all duration-300 shadow-lg">
-              Explore Now
-            </button>
-          </Link>
+          <NewArrivals></NewArrivals>
         </div>
       </div>
     </div>

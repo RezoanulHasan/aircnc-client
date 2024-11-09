@@ -19,7 +19,7 @@ const RecommendedPlaces = () => {
   }, []); // Empty dependency array ensures it runs only once on component mount
 
   return (
-    <div className="p-6" data-aos="zoom-in" data-aos-duration="1500">
+    <div className="p-6 mt-5">
       <h2 className="text-3xl font-semibold mb-6 text-gradient">
         Recommended for You
       </h2>

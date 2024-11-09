@@ -23,6 +23,7 @@ import Rule from "./Rule";
 import FacilitiesMore from "./FacilitiesMore";
 
 import BackNButton from "../../Button/BackButton";
+import Reacts from "./Reacts";
 
 const SingleRoom = () => {
   useTitle("Room Details");
@@ -91,49 +92,46 @@ const SingleRoom = () => {
 
         <hr className="my-8 border-gray-300   " />
         <div
-          className="border-red-700 relative bg-white rounded-xl shadow-md overflow-hidden   border-2 hover:shadow-lg transition-shadow duration-300 ease-in-out"
+          className="relative bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-500 ease-in-out"
           data-aos="zoom-in"
           data-aos-duration="1500"
         >
           {/* Top Wave */}
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-300 to-transparent h-32"></div>
 
           {/* Content Section */}
           <div className="relative p-8 space-y-8">
-            <h1 className="text-3xl font-bold  text-gradient mb-6">
+            <h1 className="text-3xl font-extrabold text- mb-6 text-center tracking-wide text-gradient ">
               Room Information
             </h1>
 
             {/* Price Section */}
-            <div className="flex items-center space-x-3 text-2xl text-gray-700">
-              <FaDollarSign className="text-green-500" title="Price" />{" "}
-              {/* Price Icon */}
+            <div className="flex items-center space-x-3 text-xl text-gray-800">
+              <FaDollarSign className="text-teal-500" title="Price" />
               <span className="font-semibold">Price:</span>
-              <span className="text-2xl font-bold text-gray-800">${price}</span>
-              <span className="text-gray-500 text-base">/ night</span>
+              <span className="text-3xl font-bold text-gray-900">${price}</span>
+              <span className="text-gray-500 text-sm">/ night</span>
             </div>
 
             {/* Room Info Details */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-lg text-gray-700">
               {/* Guests */}
               <div className="flex items-center space-x-3">
-                <FaUsers className="text-blue-500" title="Guests Allowed" />{" "}
-                {/* Guests Icon */}
+                <FaUsers className="text-indigo-500" title="Guests Allowed" />
                 <span className="font-medium">Maximum Guests:</span>
                 <span>{guests}</span>
               </div>
 
               {/* Bedrooms */}
               <div className="flex items-center space-x-3">
-                <FaBed className="text-green-500" title="Bedrooms" />{" "}
-                {/* Bedrooms Icon */}
+                <FaBed className="text-yellow-500" title="Bedrooms" />
                 <span className="font-medium">Bedrooms:</span>
                 <span>{bedroom}</span>
               </div>
 
               {/* Bathrooms */}
               <div className="flex items-center space-x-3">
-                <FaBath className="text-purple-500" title="Bathrooms" />{" "}
-                {/* Bathrooms Icon */}
+                <FaBath className="text-purple-500" title="Bathrooms" />
                 <span className="font-medium">Bathrooms:</span>
                 <span>{bathroom}</span>
               </div>
@@ -143,10 +141,9 @@ const SingleRoom = () => {
             <div className="mt-6">
               <h2 className="text-xl font-bold text-gray-800 flex items-center space-x-3">
                 <FaCalendarAlt
-                  className="text-red-500"
+                  className="text-orange-400"
                   title="Availability Dates"
-                />{" "}
-                {/* Calendar Icon */}
+                />
                 <span>
                   <span className="font-medium">Available Dates:</span>{" "}
                   {format(new Date(from), "MMMM dd, yyyy")} -{" "}
@@ -156,6 +153,7 @@ const SingleRoom = () => {
             </div>
           </div>
         </div>
+
         <FacilitiesMore></FacilitiesMore>
         {/* Room Info  close*/}
         <RoomFacilities></RoomFacilities>
@@ -165,6 +163,8 @@ const SingleRoom = () => {
 
         <OverAllRating></OverAllRating>
         <Rule></Rule>
+
+        <Reacts></Reacts>
         <TopVisitPlaces />
         <div className="flex justify-center mt-5">
           <BackNButton></BackNButton>

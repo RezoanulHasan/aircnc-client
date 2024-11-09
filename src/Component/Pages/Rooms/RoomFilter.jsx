@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { FaArrowRightLong } from "react-icons/fa6";
 import useTitle from "../../../Hooks/useTitle";
 import { FaMapMarkerAlt, FaBuilding, FaGlobeAmericas } from "react-icons/fa";
+import GiftCoupons from "../Home/ADDS/GiftCoupons";
 const RoomFilter = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -289,11 +290,12 @@ const RoomFilter = () => {
           </div>
           {/* Reset Filters Button */}
           <button
-            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 mb-5"
             onClick={resetFilters}
           >
             Reset All Filters
           </button>
+          <GiftCoupons></GiftCoupons>
         </div>
 
         {/* Room Listing Section */}

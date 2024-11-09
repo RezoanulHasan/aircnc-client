@@ -24,3 +24,8 @@ body {
 .text-gradient3 {
   @apply text-transparent bg-clip-text bg-gradient-to-r from-orange-400   to-black drop-shadow-lg;
 }
+
+/* Add this to your CSS file */
+.glowing {
+  animation: glowing-animation 2s ease-in-out infinite;
+}
