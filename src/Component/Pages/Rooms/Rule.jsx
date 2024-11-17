@@ -15,8 +15,8 @@ import {
 const Rule = () => {
   return (
     <div className="p-20  " data-aos="zoom-in" data-aos-duration="1500">
-      <h1 className="text-4xl font-semibold text-gradient text-center ">
-        Things to know
+      <h1 className="text-3xl font-semibold text-gradient text-center p-2 ">
+        Things To know
       </h1>
 
       <p className="text-center  text-gray-600  ">

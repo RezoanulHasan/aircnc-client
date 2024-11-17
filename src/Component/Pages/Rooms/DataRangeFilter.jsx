@@ -7,12 +7,13 @@ import Heading from "../../Heading/Heading";
 
 import "react-toastify/dist/ReactToastify.css";
 import GetRandomColor from "../../../Hooks/GetRandomColor";
-import { format, isBefore, isAfter } from "date-fns";
-import "react-date-range/dist/styles.css"; // Main stylesheet
-import "react-date-range/dist/theme/default.css"; // Theme stylesheet
+import { format, isValid, isBefore, isAfter } from "date-fns";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
 import { FaStar } from "react-icons/fa";
 import useTitle from "../../../Hooks/useTitle";
 import Header from "../Home/Header/Header";
+
 const DataRangeFilter = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -37,7 +38,7 @@ const DataRangeFilter = () => {
     fetch("https://aircnc-server-k3xjzddn8-rezoanulhasan.vercel.app/rooms")
       .then((res) => res.json())
       .then((data) => {
-        console.log("Fetched rooms data:", data); // Debugging log
+        console.log("Fetched rooms data:", data);
         setRooms(data);
         setLoading(false);
       })
@@ -74,7 +75,7 @@ const DataRangeFilter = () => {
   };
 
   // Decide whether to display all or filtered rooms
-  const displayedRooms = showAll ? filteredRooms : filteredRooms.slice(0, 10);
+  const displayedRooms = showAll ? filteredRooms : filteredRooms.slice(0, 8);
 
   return (
     <>
@@ -131,10 +132,10 @@ const DataRangeFilter = () => {
         {rooms?.length > 20 && !showAll && (
           <div className="flex justify-center mt-10 mb-10">
             <button
-              onClick={() => setShowAll(true)}
+              onClick={() => setShowAll(!showAll)} // Toggle between Show All and Show Less
               className="flex items-center bg-rose-500 text-white px-20 py-5 rounded-full shadow-md hover:shadow-lg transition"
             >
-              <span>Show All</span>
+              <span>{showAll ? "Show Less" : "Show All"}</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 ml-2"
@@ -175,7 +176,6 @@ const ShowRoomData = ({ room }) => {
             src={room?.image}
             alt="Room"
           />
-          {/* Heart Button */}
         </div>
 
         {/* Content Section */}
@@ -192,8 +192,11 @@ const ShowRoomData = ({ room }) => {
           {/* Available Dates */}
           <p className="text-gray-500 mt-3">
             <span className="font-medium">Available:</span>{" "}
-            {format(new Date(room?.from), "MMM dd, yyyy")} -{" "}
-            {format(new Date(room?.to), "MMM dd, yyyy")}
+            {isValid(new Date(room?.from)) &&
+              format(new Date(room?.from), "MMM dd, yyyy")}{" "}
+            -{" "}
+            {isValid(new Date(room?.to)) &&
+              format(new Date(room?.to), "MMM dd, yyyy")}
           </p>
 
           {/* Price Badge */}
@@ -202,7 +205,7 @@ const ShowRoomData = ({ room }) => {
               $ {room?.price} / night
             </div>
 
-            <button className="bg-rose-500 text-white px-5 py-3 rounded-full shadow-md hover:bg-rose-600 transition duration-300">
+            <button className="bg-rose-500 text-white px-5 py-3 rounded-full shadow-md hover:bg-rose-600 transition-all">
               Book Now
             </button>
           </div>

@@ -21,6 +21,7 @@ import Newsletter from "./Newsletter/NewSletter";
 import Feature from "./Feature/Feature";
 
 import Favorites from "./ADDS/favorites";
+import SocialMediaUpdates from "./Header/Customer Support/SocialMediaUpdates";
 
 const Home = () => {
   useTitle("Home"),
@@ -55,9 +56,11 @@ const Home = () => {
           <Banner></Banner>
           <Feature></Feature>
           <DiscountSection></DiscountSection>
-
-          <AboutUs></AboutUs>
           <Favorites></Favorites>
+          <AboutUs></AboutUs>
+
+          <SocialMediaUpdates></SocialMediaUpdates>
+
           <ParallaxSlideImage></ParallaxSlideImage>
 
           <Review></Review>

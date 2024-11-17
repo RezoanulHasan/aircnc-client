@@ -11,7 +11,7 @@ const AboutUs = () => {
       onEnter={() => setCounterOn(true)}
       onExit={() => setCounterOn(false)}
     >
-      <section className="pt-16 md:pt-28">
+      <section className="pt-10 md:pt-10 mb-4">
         <SectionTitle
           subHeading=" Ultimate Accommodation Solution "
           heading={<>About Us </>}

@@ -100,48 +100,48 @@ const SingleRoom = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-gray-300 to-transparent h-32"></div>
 
           {/* Content Section */}
-          <div className="relative p-8 space-y-8">
-            <h1 className="text-3xl font-extrabold text- mb-6 text-center tracking-wide text-gradient ">
+          <div className="relative p-8 space-y-8 bg-gradient-to-r from-teal-500 to-blue-300 rounded-lg shadow-lg hover:shadow-xl ">
+            <h1 className="text-3xl font-extrabold text-white mb-6 text-center tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 hover:text-yellow-100 animate-bounceIn">
               Room Information
             </h1>
 
             {/* Price Section */}
-            <div className="flex items-center space-x-3 text-xl text-gray-800">
-              <FaDollarSign className="text-teal-500" title="Price" />
+            <div className="flex items-center space-x-3 text-xl text-white">
+              <FaDollarSign className="text-teal-300 text-2xl" title="Price" />
               <span className="font-semibold">Price:</span>
-              <span className="text-3xl font-bold text-gray-900">${price}</span>
-              <span className="text-gray-500 text-sm">/ night</span>
+              <span className="text-3xl font-bold text-white">${price}</span>
+              <span className="text-gray-200 text-sm">/ night</span>
             </div>
 
             {/* Room Info Details */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-lg text-gray-700">
               {/* Guests */}
-              <div className="flex items-center space-x-3">
-                <FaUsers className="text-indigo-500" title="Guests Allowed" />
+              <div className="  text-2xl flex items-center space-x-3 ">
+                <FaUsers className="text-yellow-500" title="Guests Allowed" />
                 <span className="font-medium">Maximum Guests:</span>
                 <span>{guests}</span>
               </div>
 
               {/* Bedrooms */}
-              <div className="flex items-center space-x-3">
+              <div className="  text-3xl flex items-center space-x-3 ">
                 <FaBed className="text-yellow-500" title="Bedrooms" />
                 <span className="font-medium">Bedrooms:</span>
                 <span>{bedroom}</span>
               </div>
 
               {/* Bathrooms */}
-              <div className="flex items-center space-x-3">
-                <FaBath className="text-purple-500" title="Bathrooms" />
+              <div className="  text-3xl flex items-center space-x-3 ">
+                <FaBath className="text-yellow-500" title="Bathrooms" />
                 <span className="font-medium">Bathrooms:</span>
                 <span>{bathroom}</span>
               </div>
             </div>
 
             {/* Available Dates */}
-            <div className="mt-6">
+            <div className="mt-6 flex justify-center">
               <h2 className="text-xl font-bold text-gray-800 flex items-center space-x-3">
                 <FaCalendarAlt
-                  className="text-orange-400"
+                  className="text-orange-400 transform hover:scale-125 transition duration-300"
                   title="Availability Dates"
                 />
                 <span>

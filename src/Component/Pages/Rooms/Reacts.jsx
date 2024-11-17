@@ -16,9 +16,9 @@ const Reacts = () => {
   const [counts, setCounts] = useState({
     like_count: getRandomCount(50, 500),
     love_count: getRandomCount(20, 300),
-    comment_count: getRandomCount(10, 100),
-    share_count: getRandomCount(5, 50),
-    star_count: getRandomCount(1, 5),
+    comment_count: getRandomCount(15, 100),
+    share_count: getRandomCount(25, 70),
+    star_count: getRandomCount(4, 5),
   });
 
   useEffect(() => {
@@ -26,9 +26,9 @@ const Reacts = () => {
       setCounts({
         like_count: getRandomCount(50, 500),
         love_count: getRandomCount(20, 300),
-        comment_count: getRandomCount(10, 100),
-        share_count: getRandomCount(5, 50),
-        star_count: getRandomCount(1, 5),
+        comment_count: getRandomCount(15, 100),
+        share_count: getRandomCount(25, 70),
+        star_count: getRandomCount(4, 5),
       });
     }, 9000);
 

@@ -6,6 +6,9 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import useTitle from "../../../../Hooks/useTitle";
 import Header from "./Header";
 import RecommendedPlaces from "../../Rooms/RecommendedPlaces";
+import Ca from "./Customer Support/Ca";
+import ServiceHours from "./Customer Support/ServiceHours";
+import HelpResources from "./Customer Support/HelpResources";
 
 const CustomerSupport = () => {
   useTitle("CustomerSupport");
@@ -28,27 +31,19 @@ const CustomerSupport = () => {
             </button>
           </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-2">
-          <section className="bg-blue-100 p-6 rounded-lg shadow-md">
-            <h2 className="text-4xl font-semibold text-blue-700 mb-4">
-              Contact Us
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="flex items-center p-4 bg-blue-200 rounded-lg shadow-md transition-transform transform hover:scale-105">
-                <FaPhoneAlt className="text-blue-600 text-xl " />
-                <span className="text-gray-800">Call us: +880170000000</span>
-              </div>
-              <div className="flex items-center p-4 bg-blue-200 rounded-lg shadow-md transition-transform transform hover:scale-105">
-                <FaEnvelope className="text-blue-600 text-xl " />
-                <span className="text-gray-800">Email: aircnc@gmail.com</span>
-              </div>
-              <div className="flex items-center p-4 bg-blue-200 rounded-lg shadow-md transition-transform transform hover:scale-105">
-                <FaWhatsapp className="text-blue-600 text-xl " />
-                <span className="text-gray-800">WhatsApp: +880170000000</span>
-              </div>
-            </div>
-          </section>
 
+        <Ca></Ca>
+
+        <div className="flex flex-col md:flex-row gap-4 p4 mt-4">
+          <div className="flex-1">
+            <ServiceHours />
+          </div>
+          <div className="flex-1">
+            <HelpResources />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-2">
           <section className="bg-green-100 p-6 rounded-lg shadow-md">
             <h2 className="text-4xl font-semibold text-green-700 mb-4">
               Support Ticket Submission
@@ -57,46 +52,6 @@ const CustomerSupport = () => {
               Have a specific issue? Submit a support ticket, and our team will
               get back to you shortly.
             </p>
-          </section>
-
-          <section className="bg-yellow-100 p-6 rounded-lg shadow-md">
-            <h2 className="text-4xl font-semibold text-yellow-700 mb-4">
-              Service Hours
-            </h2>
-            <p className="mb-4 text-gray-700">
-              Our customer support is available:
-            </p>
-            <ul className="list-disc list-inside mb-4 text-gray-800">
-              <li>Monday to Friday: 9 AM - 5 PM</li>
-              <li>Saturday: 10 AM - 2 PM</li>
-              <li>Sunday: Closed</li>
-            </ul>
-          </section>
-
-          <section className="bg-purple-100 p-6 rounded-lg shadow-md">
-            <h2 className="text-4xl font-semibold text-purple-700 mb-4">
-              Help Resources
-            </h2>
-            <p className="mb-4 text-gray-700">
-              Explore our helpful resources to get the most out of our service:
-            </p>
-            <ul className="list-disc list-inside mb-4 text-gray-800">
-              <li>
-                <a href="#" className="text-purple-600 hover:underline">
-                  User Guide
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-purple-600 hover:underline">
-                  Tutorial Videos
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-purple-600 hover:underline">
-                  Frequently Asked Questions
-                </a>
-              </li>
-            </ul>
           </section>
 
           <section className="bg-red-100 p-6 rounded-lg shadow-md">
